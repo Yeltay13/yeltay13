@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Consulting – Yeltay Bayandinov</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body {
+        font-family: system-ui, sans-serif;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50 text-gray-800 flex flex-col min-h-screen">
+    <!-- Navbar -->
+    <header
+      class="fixed inset-x-0 top-0 z-50 backdrop-blur bg-white/70 shadow-sm"
+    >
+      <div
+        class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center"
+      >
+        <nav class="hidden md:flex space-x-6 font-semibold text-sm">
+          <a href="./index.html">
+            <span id="nav-home-en">Home</span>
+            <span id="nav-home-ru" class="hidden">Главная</span>
+          </a>
+          <a href="./consulting.html" class="underline">
+            <span id="nav-consult-en">Consulting</span>
+            <span id="nav-consult-ru" class="hidden">Консалтинг</span>
+          </a>
+          <a href="./index.html#resume">
+            <span id="nav-resume-en">Résumé</span>
+            <span id="nav-resume-ru" class="hidden">Резюме</span>
+          </a>
+          <a href="./index.html#contact">
+            <span id="nav-contact-en">Contact</span>
+            <span id="nav-contact-ru" class="hidden">Контакты</span>
+          </a>
+        </nav>
+        <div class="space-x-1 text-sm font-semibold">
+          <button id="en-btn" class="text-blue-700 underline">EN</button>
+          <span>|</span>
+          <button id="ru-btn" class="text-gray-500 hover:text-blue-700">
+            RU
+          </button>
+        </div>
+      </div>
+    </header>
+    <div class="h-16"></div>
+
+    <!-- Consulting Section -->
+    <main class="flex-1 py-24 px-4">
+      <div class="max-w-3xl mx-auto text-center space-y-8">
+        <!-- Title -->
+        <h1 id="consult-title-en" class="text-4xl font-bold">
+          1-on-1 Consulting for IT-Specialists
+        </h1>
+        <h1 id="consult-title-ru" class="hidden text-4xl font-bold">
+          Индивидуальный консалтинг для IT-специалистов
+        </h1>
+
+        <!-- Description -->
+        <p id="consult-text-en" class="text-lg">
+          Need to ace an English interview, present a roadmap, or write clear
+          user stories?<br />
+          Book your
+          <strong>free 30-minute Strategy Session (limited offer)</strong> below
+          or ping me on Telegram.
+        </p>
+        <p id="consult-text-ru" class="hidden text-lg">
+          Хотите пройти интервью на английском, презентовать roadmap или писать
+          понятные user-story?<br />
+          Забронируйте
+          <strong
+            >бесплатную 30-минутную стратегическую сессию (ограниченное
+            предложение)</strong
+          >
+          ниже или напишите в Telegram.
+        </p>
+
+        <!-- Booking Buttons -->
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
+          <!-- Calendly -->
+          <a
+            id="consult-schedule-en"
+            href="https://calendly.com/yelty/30min"
+            target="_blank"
+            class="px-8 py-3 bg-blue-700 text-white font-semibold rounded-full shadow hover:bg-blue-800 transition"
+          >
+            Book Free Strategy Session
+          </a>
+          <a
+            id="consult-schedule-ru"
+            href="https://calendly.com/yelty/30min"
+            target="_blank"
+            class="hidden px-8 py-3 bg-blue-700 text-white font-semibold rounded-full shadow hover:bg-blue-800 transition"
+          >
+            Забронировать бесплатную сессию
+          </a>
+
+          <!-- Telegram -->
+          <a
+            id="consult-telegram-en"
+            href="https://t.me/yelty"
+            target="_blank"
+            class="px-8 py-3 bg-gray-200 text-gray-800 font-semibold rounded-full shadow hover:bg-gray-300 transition"
+          >
+            Chat on Telegram
+          </a>
+          <a
+            id="consult-telegram-ru"
+            href="https://t.me/yelty"
+            target="_blank"
+            class="hidden px-8 py-3 bg-gray-200 text-gray-800 font-semibold rounded-full shadow hover:bg-gray-300 transition"
+          >
+            Написать в Telegram
+          </a>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-6 text-center text-sm text-gray-400">
+      © 2025 Yeltay Bayandinov
+    </footer>
+
+    <!-- Language Switcher Script -->
+    <script>
+      const enBtn = document.getElementById("en-btn"),
+        ruBtn = document.getElementById("ru-btn"),
+        enIDs = [
+          "nav-home-en",
+          "nav-consult-en",
+          "nav-resume-en",
+          "nav-contact-en",
+          "consult-title-en",
+          "consult-text-en",
+          "consult-schedule-en",
+          "consult-telegram-en",
+        ],
+        ruIDs = [
+          "nav-home-ru",
+          "nav-consult-ru",
+          "nav-resume-ru",
+          "nav-contact-ru",
+          "consult-title-ru",
+          "consult-text-ru",
+          "consult-schedule-ru",
+          "consult-telegram-ru",
+        ];
+
+      const enEls = enIDs.map((id) => document.getElementById(id)),
+        ruEls = ruIDs.map((id) => document.getElementById(id));
+
+      enBtn.onclick = () => switchLang("en");
+      ruBtn.onclick = () => switchLang("ru");
+
+      function switchLang(lang) {
+        const show = lang === "en" ? enEls : ruEls,
+          hide = lang === "en" ? ruEls : enEls;
+        show.forEach((el) => el.classList.remove("hidden"));
+        hide.forEach((el) => el.classList.add("hidden"));
+
+        enBtn.classList.toggle("text-blue-700", lang === "en");
+        enBtn.classList.toggle("underline", lang === "en");
+        enBtn.classList.toggle("text-gray-500", lang !== "en");
+        ruBtn.classList.toggle("text-blue-700", lang === "ru");
+        ruBtn.classList.toggle("underline", lang === "ru");
+        ruBtn.classList.toggle("text-gray-500", lang !== "ru");
+      }
+    </script>
+  </body>
+</html>

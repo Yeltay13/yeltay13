@@ -1,8 +1,8 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Yeltay Bayandinov – Product Manager</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
@@ -11,75 +11,181 @@
       }
     </style>
   </head>
-  <body class="bg-gray-50 min-h-screen flex flex-col">
-    <!-- Language Switcher -->
-    <nav class="w-full flex justify-end p-4">
-      <div class="space-x-2 text-sm font-semibold">
-        <button id="en-btn" class="text-blue-700 underline">EN</button>
-        <span>|</span>
-        <button id="ru-btn" class="text-gray-500 hover:text-blue-700">
-          RU
-        </button>
-      </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="flex flex-col items-center justify-center flex-1 px-4 py-8">
-      <img
-        src="my-photo.jpg"
-        alt="Yeltay Bayandinov"
-        class="w-32 h-32 rounded-full object-cover shadow mb-6"
-      />
-      <h1 class="text-3xl md:text-4xl font-bold mb-2">Yeltay Bayandinov</h1>
-      <p
-        class="text-lg md:text-xl text-gray-700 mb-6 text-center"
-        id="tagline-en"
+  <body class="bg-gray-50 text-gray-800 flex flex-col min-h-screen">
+    <!-- Navbar -->
+    <header
+      class="fixed inset-x-0 top-0 z-50 backdrop-blur bg-white/70 shadow-sm"
+    >
+      <div
+        class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center"
       >
+        <nav class="hidden md:flex space-x-6 font-semibold text-sm">
+          <a href="./index.html">
+            <span id="nav-home-en">Home</span>
+            <span id="nav-home-ru" class="hidden">Главная</span>
+          </a>
+          <a href="./consulting.html">
+            <span id="nav-consult-en">Consulting</span>
+            <span id="nav-consult-ru" class="hidden">Консалтинг</span>
+          </a>
+          <a href="./index.html#resume">
+            <span id="nav-resume-en">Résumé</span>
+            <span id="nav-resume-ru" class="hidden">Резюме</span>
+          </a>
+          <a href="./index.html#contact">
+            <span id="nav-contact-en">Contact</span>
+            <span id="nav-contact-ru" class="hidden">Контакты</span>
+          </a>
+        </nav>
+        <div class="space-x-1 text-sm font-semibold">
+          <button id="en-btn" class="text-blue-700 underline">EN</button>
+          <span>|</span>
+          <button id="ru-btn" class="text-gray-500 hover:text-blue-700">
+            RU
+          </button>
+        </div>
+      </div>
+    </header>
+    <div class="h-16"></div>
+
+    <!-- Hero -->
+    <section
+      id="home"
+      class="flex flex-col items-center text-center py-20 px-4"
+    >
+      <img
+        src="./my-photo.jpg"
+        alt="Yeltay Bayandinov"
+        class="w-36 h-36 md:w-44 md:h-44 rounded-full object-cover shadow mb-6"
+      />
+      <h1 class="text-4xl md:text-5xl font-extrabold mb-2">
+        <span id="name-en">Yeltay Bayandinov</span>
+        <span id="name-ru" class="hidden">Ельтай Баяндинов</span>
+      </h1>
+      <p id="tagline-en" class="text-xl text-gray-600 max-w-xl">
         Product Manager helping people grow through EdTech.
       </p>
-      <p
-        class="text-lg md:text-xl text-gray-700 mb-6 text-center hidden"
-        id="tagline-ru"
-      >
+      <p id="tagline-ru" class="hidden text-xl text-gray-600 max-w-xl">
         Продакт-менеджер, помогающий людям расти через EdTech.
       </p>
     </section>
 
-    <!-- About Me Section -->
-    <section class="max-w-xl mx-auto px-4 py-8">
-      <h2 class="text-2xl font-semibold mb-4 text-center" id="about-title-en">
-        About Me
-      </h2>
-      <h2
-        class="text-2xl font-semibold mb-4 text-center hidden"
-        id="about-title-ru"
-      >
-        Обо мне
-      </h2>
-      <p class="text-gray-700 text-center mb-4" id="about-en">
-        I was a teacher for many years and realized I could help even more
-        people by creating my own product. That's how Y-Boost.com was born.
-      </p>
-      <p class="text-gray-700 text-center mb-4 hidden" id="about-ru">
-        Раньше я преподавал, но понял, что смогу помочь большему количеству
-        людей, если создам собственный продукт. Так появился Y-Boost.com.
-      </p>
+    <!-- About -->
+    <section id="about" class="bg-white py-20 px-4">
+      <div class="max-w-3xl mx-auto space-y-6">
+        <h2 id="about-title-en" class="text-3xl font-bold text-center">
+          My Story
+        </h2>
+        <h2 id="about-title-ru" class="hidden text-3xl font-bold text-center">
+          Моя история
+        </h2>
+        <div class="space-y-4 text-lg leading-relaxed">
+          <p id="about-en">
+            I started as an English teacher, working one-on-one with 2 000+ IT
+            professionals. That led me to found <strong>Y-Boost.com</strong>, an
+            EdTech service for real-world English practice. Today I build B2C
+            &amp; B2B products as a Product Manager, focusing on sustainable
+            growth and user value.
+          </p>
+          <p id="about-ru" class="hidden">
+            Мой путь начался с преподавания английского: я провёл более 2 000
+            занятий с IT-специалистами. Так я основал
+            <strong>Y-Boost.com</strong> — сервис для практики английского на
+            реальных кейсах. Сейчас я развиваю B2C и B2B-продукты как
+            продакт-менеджер, концентрируясь на устойчивом росте и ценности для
+            пользователей.
+          </p>
+        </div>
+      </div>
     </section>
 
-    <!-- Contact Section -->
-    <section class="max-w-xl mx-auto px-4 py-8">
-      <h2 class="text-2xl font-semibold mb-4 text-center" id="contact-title-en">
-        Contact
-      </h2>
-      <h2
-        class="text-2xl font-semibold mb-4 text-center hidden"
-        id="contact-title-ru"
-      >
-        Контакты
-      </h2>
-      <div class="flex flex-col items-center space-y-2">
+    <!-- Résumé -->
+    <section id="resume" class="bg-white py-20 px-4">
+      <div class="max-w-5xl mx-auto">
+        <h2
+          id="resume-title-en"
+          class="text-4xl font-extrabold text-center mb-8"
+        >
+          My Résumé
+        </h2>
+        <h2
+          id="resume-title-ru"
+          class="hidden text-4xl font-extrabold text-center mb-8"
+        >
+          Моё резюме
+        </h2>
+        <p id="resume-sub-en" class="text-xl font-semibold text-center mb-6">
+          Resume in PDF Format:
+        </p>
+        <p
+          id="resume-sub-ru"
+          class="hidden text-xl font-semibold text-center mb-6"
+        >
+          Резюме в формате PDF:
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <!-- English card -->
+          <div class="text-center">
+            <h3 class="text-xl font-semibold mb-4">English</h3>
+            <a
+              href="./Yeltay_Bayandinov_Product_Manager.pdf"
+              target="_blank"
+              class="relative inline-block group hover:opacity-90 transition"
+            >
+              <div
+                class="border-8 border-black overflow-hidden w-64 h-64 mx-auto"
+              >
+                <img
+                  src="./resume_preview_en.jpg"
+                  alt="EN résumé preview"
+                  class="w-full h-full object-cover"
+                />
+              </div>
+              <span
+                class="absolute -bottom-4 left-0 bg-white px-4 py-2 text-lg font-bold"
+                >View as PDF</span
+              >
+            </a>
+          </div>
+          <!-- Russian card -->
+          <div class="text-center">
+            <h3 class="text-xl font-semibold mb-4">Русский</h3>
+            <a
+              href="./Yeltay_Bayandinov_Product_Manager_RU.pdf"
+              target="_blank"
+              class="relative inline-block group hover:opacity-90 transition"
+            >
+              <div
+                class="border-8 border-black overflow-hidden w-64 h-64 mx-auto"
+              >
+                <img
+                  src="./resume_preview_ru.jpg"
+                  alt="RU résumé preview"
+                  class="w-full h-full object-cover"
+                />
+              </div>
+              <span
+                class="absolute -bottom-4 left-0 bg-white px-4 py-2 text-lg font-bold"
+                >Открыть PDF</span
+              >
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-20 px-4">
+      <div class="max-w-xl mx-auto text-center space-y-4 text-lg">
+        <h2 id="contact-title-en" class="text-3xl font-bold mb-6">
+          Get in Touch
+        </h2>
+        <h2 id="contact-title-ru" class="hidden text-3xl font-bold mb-6">
+          Связаться
+        </h2>
         <div>
-          <span class="font-medium">Email:</span>
+          <span class="font-semibold">Email:</span>
           <a
             href="mailto:bayandinov13@gmail.com"
             class="text-blue-700 hover:underline"
@@ -87,101 +193,80 @@
           >
         </div>
         <div>
-          <span class="font-medium">Phone:</span>
-          <a href="tel:+77081475323" class="text-blue-700 hover:underline"
-            >+7 (708) 1475323</a
-          >
-        </div>
-        <div>
-          <span class="font-medium">LinkedIn:</span>
+          <span class="font-semibold">LinkedIn:</span>
           <a
             href="https://linkedin.com/in/yeltay"
-            class="text-blue-700 hover:underline"
             target="_blank"
+            class="text-blue-700 hover:underline"
             >linkedin.com/in/yeltay</a
           >
         </div>
         <div>
-          <span class="font-medium">Website:</span>
+          <span class="font-semibold">Telegram:</span>
           <a
-            href="https://y-boost.com"
-            class="text-blue-700 hover:underline"
+            href="https://t.me/yelty"
             target="_blank"
-            >y-boost.com</a
+            class="text-blue-700 hover:underline"
+            >@yelty</a
           >
         </div>
       </div>
     </section>
 
-    <!-- Resume Download Section -->
-    <section class="max-w-xl mx-auto px-4 py-8 flex flex-col items-center">
-      <h2 class="text-2xl font-semibold mb-4 text-center" id="resume-title-en">
-        Resume
-      </h2>
-      <h2
-        class="text-2xl font-semibold mb-4 text-center hidden"
-        id="resume-title-ru"
-      >
-        Резюме
-      </h2>
-      <div class="flex flex-col md:flex-row gap-4">
-        <a
-          href="Yeltay_Bayandinov_Product_Manager.pdf"
-          download
-          class="px-6 py-3 bg-blue-700 text-white rounded-full font-semibold shadow hover:bg-blue-800 transition"
-          id="resume-en"
-          >Download Resume (English)</a
-        >
-        <a
-          href="Yeltay_Bayandinov_Product_Manager.pdf"
-          download
-          class="px-6 py-3 bg-gray-200 text-gray-800 rounded-full font-semibold shadow hover:bg-gray-300 transition hidden"
-          id="resume-ru"
-          >Скачать резюме (на русском)</a
-        >
-      </div>
-    </section>
-
-    <footer class="w-full py-6 text-center text-gray-400 text-sm mt-auto">
-      &copy; 2025 Yeltay Bayandinov
+    <footer class="py-6 text-center text-sm text-gray-400">
+      © 2025 Yeltay Bayandinov
     </footer>
 
-    <!-- Language Switcher Script (minimal, inline) -->
+    <!-- Language Toggle Script -->
     <script>
-      const enBtn = document.getElementById("en-btn");
-      const ruBtn = document.getElementById("ru-btn");
-      const enEls = [
-        document.getElementById("tagline-en"),
-        document.getElementById("about-title-en"),
-        document.getElementById("about-en"),
-        document.getElementById("contact-title-en"),
-        document.getElementById("resume-title-en"),
-        document.getElementById("resume-en"),
-      ];
-      const ruEls = [
-        document.getElementById("tagline-ru"),
-        document.getElementById("about-title-ru"),
-        document.getElementById("about-ru"),
-        document.getElementById("contact-title-ru"),
-        document.getElementById("resume-title-ru"),
-        document.getElementById("resume-ru"),
-      ];
-      enBtn.onclick = () => {
-        enEls.forEach((el) => el.classList.remove("hidden"));
-        ruEls.forEach((el) => el.classList.add("hidden"));
-        enBtn.classList.add("text-blue-700", "underline");
-        enBtn.classList.remove("text-gray-500");
-        ruBtn.classList.remove("text-blue-700", "underline");
-        ruBtn.classList.add("text-gray-500");
-      };
-      ruBtn.onclick = () => {
-        ruEls.forEach((el) => el.classList.remove("hidden"));
-        enEls.forEach((el) => el.classList.add("hidden"));
-        ruBtn.classList.add("text-blue-700", "underline");
-        ruBtn.classList.remove("text-gray-500");
-        enBtn.classList.remove("text-blue-700", "underline");
-        enBtn.classList.add("text-gray-500");
-      };
+      const enBtn = document.getElementById("en-btn"),
+        ruBtn = document.getElementById("ru-btn"),
+        enIDs = [
+          "nav-home-en",
+          "nav-consult-en",
+          "nav-resume-en",
+          "nav-contact-en",
+          "name-en",
+          "tagline-en",
+          "about-title-en",
+          "about-en",
+          "resume-title-en",
+          "resume-sub-en",
+          "contact-title-en",
+        ],
+        ruIDs = [
+          "nav-home-ru",
+          "nav-consult-ru",
+          "nav-resume-ru",
+          "nav-contact-ru",
+          "name-ru",
+          "tagline-ru",
+          "about-title-ru",
+          "about-ru",
+          "resume-title-ru",
+          "resume-sub-ru",
+          "contact-title-ru",
+        ];
+
+      const enEls = enIDs.map((id) => document.getElementById(id)),
+        ruEls = ruIDs.map((id) => document.getElementById(id));
+
+      enBtn.onclick = () => switchLang("en");
+      ruBtn.onclick = () => switchLang("ru");
+
+      function switchLang(lang) {
+        const show = lang === "en" ? enEls : ruEls,
+          hide = lang === "en" ? ruEls : enEls;
+        show.forEach((el) => el.classList.remove("hidden"));
+        hide.forEach((el) => el.classList.add("hidden"));
+
+        enBtn.classList.toggle("text-blue-700", lang === "en");
+        enBtn.classList.toggle("underline", lang === "en");
+        enBtn.classList.toggle("text-gray-500", lang !== "en");
+        ruBtn.classList.toggle("text-blue-700", lang === "ru");
+        ruBtn.classList.toggle("underline", lang === "ru");
+        ruBtn.classList.toggle("text-gray-500", lang !== "ru");
+      }
     </script>
   </body>
 </html>
