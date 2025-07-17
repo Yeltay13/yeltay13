@@ -3,9 +3,185 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hello World Test</title>
+    <title>Yeltay Bayandinov – Product Manager</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body {
+        font-family: system-ui, sans-serif;
+      }
+    </style>
   </head>
-  <body>
-    <h1>Hello world</h1>
+  <body class="bg-gray-50 min-h-screen flex flex-col">
+    <!-- Language Switcher -->
+    <nav class="w-full flex justify-end p-4">
+      <div class="space-x-2 text-sm font-semibold">
+        <button id="en-btn" class="text-blue-700 underline">EN</button>
+        <span>|</span>
+        <button id="ru-btn" class="text-gray-500 hover:text-blue-700">
+          RU
+        </button>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="flex flex-col items-center justify-center flex-1 px-4 py-8">
+      <img
+        src="my-photo.jpg"
+        alt="Yeltay Bayandinov"
+        class="w-32 h-32 rounded-full object-cover shadow mb-6"
+      />
+      <h1 class="text-3xl md:text-4xl font-bold mb-2">Yeltay Bayandinov</h1>
+      <p
+        class="text-lg md:text-xl text-gray-700 mb-6 text-center"
+        id="tagline-en"
+      >
+        Product Manager helping people grow through EdTech.
+      </p>
+      <p
+        class="text-lg md:text-xl text-gray-700 mb-6 text-center hidden"
+        id="tagline-ru"
+      >
+        Продакт-менеджер, помогающий людям расти через EdTech.
+      </p>
+    </section>
+
+    <!-- About Me Section -->
+    <section class="max-w-xl mx-auto px-4 py-8">
+      <h2 class="text-2xl font-semibold mb-4 text-center" id="about-title-en">
+        About Me
+      </h2>
+      <h2
+        class="text-2xl font-semibold mb-4 text-center hidden"
+        id="about-title-ru"
+      >
+        Обо мне
+      </h2>
+      <p class="text-gray-700 text-center mb-4" id="about-en">
+        I was a teacher for many years and realized I could help even more
+        people by creating my own product. That's how Y-Boost.com was born.
+      </p>
+      <p class="text-gray-700 text-center mb-4 hidden" id="about-ru">
+        Раньше я преподавал, но понял, что смогу помочь большему количеству
+        людей, если создам собственный продукт. Так появился Y-Boost.com.
+      </p>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="max-w-xl mx-auto px-4 py-8">
+      <h2 class="text-2xl font-semibold mb-4 text-center" id="contact-title-en">
+        Contact
+      </h2>
+      <h2
+        class="text-2xl font-semibold mb-4 text-center hidden"
+        id="contact-title-ru"
+      >
+        Контакты
+      </h2>
+      <div class="flex flex-col items-center space-y-2">
+        <div>
+          <span class="font-medium">Email:</span>
+          <a
+            href="mailto:bayandinov13@gmail.com"
+            class="text-blue-700 hover:underline"
+            >bayandinov13@gmail.com</a
+          >
+        </div>
+        <div>
+          <span class="font-medium">Phone:</span>
+          <a href="tel:+77081475323" class="text-blue-700 hover:underline"
+            >+7 (708) 1475323</a
+          >
+        </div>
+        <div>
+          <span class="font-medium">LinkedIn:</span>
+          <a
+            href="https://linkedin.com/in/yeltay"
+            class="text-blue-700 hover:underline"
+            target="_blank"
+            >linkedin.com/in/yeltay</a
+          >
+        </div>
+        <div>
+          <span class="font-medium">Website:</span>
+          <a
+            href="https://y-boost.com"
+            class="text-blue-700 hover:underline"
+            target="_blank"
+            >y-boost.com</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- Resume Download Section -->
+    <section class="max-w-xl mx-auto px-4 py-8 flex flex-col items-center">
+      <h2 class="text-2xl font-semibold mb-4 text-center" id="resume-title-en">
+        Resume
+      </h2>
+      <h2
+        class="text-2xl font-semibold mb-4 text-center hidden"
+        id="resume-title-ru"
+      >
+        Резюме
+      </h2>
+      <div class="flex flex-col md:flex-row gap-4">
+        <a
+          href="Yeltay_Bayandinov_Product_Manager.pdf"
+          download
+          class="px-6 py-3 bg-blue-700 text-white rounded-full font-semibold shadow hover:bg-blue-800 transition"
+          id="resume-en"
+          >Download Resume (English)</a
+        >
+        <a
+          href="Yeltay_Bayandinov_Product_Manager.pdf"
+          download
+          class="px-6 py-3 bg-gray-200 text-gray-800 rounded-full font-semibold shadow hover:bg-gray-300 transition hidden"
+          id="resume-ru"
+          >Скачать резюме (на русском)</a
+        >
+      </div>
+    </section>
+
+    <footer class="w-full py-6 text-center text-gray-400 text-sm mt-auto">
+      &copy; 2025 Yeltay Bayandinov
+    </footer>
+
+    <!-- Language Switcher Script (minimal, inline) -->
+    <script>
+      const enBtn = document.getElementById("en-btn");
+      const ruBtn = document.getElementById("ru-btn");
+      const enEls = [
+        document.getElementById("tagline-en"),
+        document.getElementById("about-title-en"),
+        document.getElementById("about-en"),
+        document.getElementById("contact-title-en"),
+        document.getElementById("resume-title-en"),
+        document.getElementById("resume-en"),
+      ];
+      const ruEls = [
+        document.getElementById("tagline-ru"),
+        document.getElementById("about-title-ru"),
+        document.getElementById("about-ru"),
+        document.getElementById("contact-title-ru"),
+        document.getElementById("resume-title-ru"),
+        document.getElementById("resume-ru"),
+      ];
+      enBtn.onclick = () => {
+        enEls.forEach((el) => el.classList.remove("hidden"));
+        ruEls.forEach((el) => el.classList.add("hidden"));
+        enBtn.classList.add("text-blue-700", "underline");
+        enBtn.classList.remove("text-gray-500");
+        ruBtn.classList.remove("text-blue-700", "underline");
+        ruBtn.classList.add("text-gray-500");
+      };
+      ruBtn.onclick = () => {
+        ruEls.forEach((el) => el.classList.remove("hidden"));
+        enEls.forEach((el) => el.classList.add("hidden"));
+        ruBtn.classList.add("text-blue-700", "underline");
+        ruBtn.classList.remove("text-gray-500");
+        enBtn.classList.remove("text-blue-700", "underline");
+        enBtn.classList.add("text-gray-500");
+      };
+    </script>
   </body>
 </html>
