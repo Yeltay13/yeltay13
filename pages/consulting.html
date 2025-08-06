@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Consulting – Yeltay Bayandinov</title>
+    <link rel="icon" href="../favicon.ico" />
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
       body {
@@ -20,7 +21,7 @@
         class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center"
       >
         <nav class="hidden md:flex space-x-6 font-semibold text-sm">
-          <a href="./index.html">
+          <a href="../index.html">
             <span id="nav-home-en">Home</span>
             <span id="nav-home-ru" class="hidden">Главная</span>
           </a>
@@ -28,11 +29,11 @@
             <span id="nav-consult-en">Consulting</span>
             <span id="nav-consult-ru" class="hidden">Консалтинг</span>
           </a>
-          <a href="./index.html#resume">
+          <a href="../index.html#resume">
             <span id="nav-resume-en">Résumé</span>
             <span id="nav-resume-ru" class="hidden">Резюме</span>
           </a>
-          <a href="./index.html#contact">
+          <a href="../index.html#contact">
             <span id="nav-contact-en">Contact</span>
             <span id="nav-contact-ru" class="hidden">Контакты</span>
           </a>
@@ -152,12 +153,9 @@
       const enEls = enIDs.map((id) => document.getElementById(id)),
         ruEls = ruIDs.map((id) => document.getElementById(id));
 
-      enBtn.onclick = () => switchLang("en");
-      ruBtn.onclick = () => switchLang("ru");
-
       function switchLang(lang) {
-        const show = lang === "en" ? enEls : ruEls,
-          hide = lang === "en" ? ruEls : enEls;
+        const show = lang === "en" ? enEls : ruEls;
+        const hide = lang === "en" ? ruEls : enEls;
         show.forEach((el) => el.classList.remove("hidden"));
         hide.forEach((el) => el.classList.add("hidden"));
 
@@ -168,6 +166,9 @@
         ruBtn.classList.toggle("underline", lang === "ru");
         ruBtn.classList.toggle("text-gray-500", lang !== "ru");
       }
+
+      enBtn.onclick = () => switchLang("en");
+      ruBtn.onclick = () => switchLang("ru");
     </script>
   </body>
 </html>

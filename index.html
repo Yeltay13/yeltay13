@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Yeltay Bayandinov – Product Manager</title>
+    <link rel="icon" href="favicon.ico" />
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
       body {
@@ -20,26 +21,26 @@
         class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center"
       >
         <nav class="hidden md:flex space-x-6 font-semibold text-sm">
-          <a href="./index.html">
-            <span id="nav-home-en">Home</span>
-            <span id="nav-home-ru" class="hidden">Главная</span>
-          </a>
-          <a href="./consulting.html">
-            <span id="nav-consult-en">Consulting</span>
-            <span id="nav-consult-ru" class="hidden">Консалтинг</span>
-          </a>
-          <a href="./index.html#resume">
-            <span id="nav-resume-en">Résumé</span>
-            <span id="nav-resume-ru" class="hidden">Резюме</span>
-          </a>
-          <a href="./index.html#contact">
-            <span id="nav-contact-en">Contact</span>
-            <span id="nav-contact-ru" class="hidden">Контакты</span>
-          </a>
+          <a href="./index.html"
+            ><span id="nav-home-en">Home</span
+            ><span id="nav-home-ru" class="hidden">Главная</span></a
+          >
+          <a href="./pages/consulting.html"
+            ><span id="nav-consult-en">Consulting</span
+            ><span id="nav-consult-ru" class="hidden">Консалтинг</span></a
+          >
+          <a href="#resume"
+            ><span id="nav-resume-en">Résumé</span
+            ><span id="nav-resume-ru" class="hidden">Резюме</span></a
+          >
+          <a href="#contact"
+            ><span id="nav-contact-en">Contact</span
+            ><span id="nav-contact-ru" class="hidden">Контакты</span></a
+          >
         </nav>
         <div class="space-x-1 text-sm font-semibold">
-          <button id="en-btn" class="text-blue-700 underline">EN</button>
-          <span>|</span>
+          <button id="en-btn" class="text-blue-700 underline">EN</button
+          ><span>|</span>
           <button id="ru-btn" class="text-gray-500 hover:text-blue-700">
             RU
           </button>
@@ -54,7 +55,7 @@
       class="flex flex-col items-center text-center py-20 px-4"
     >
       <img
-        src="./my-photo.jpg"
+        src="./assets/images/my-photo.jpg"
         alt="Yeltay Bayandinov"
         class="w-36 h-36 md:w-44 md:h-44 rounded-full object-cover shadow mb-6"
       />
@@ -81,11 +82,11 @@
         </h2>
         <div class="space-y-4 text-lg leading-relaxed">
           <p id="about-en">
-            I started as an English teacher, working one-on-one with 2 000+ IT
+            I started as an English teacher, working one-on-one with 2,000+ IT
             professionals. That led me to found <strong>Y-Boost.com</strong>, an
-            EdTech service for real-world English practice. Today I build B2C
-            &amp; B2B products as a Product Manager, focusing on sustainable
-            growth and user value.
+            EdTech service for real-world English practice. Today I build B2C &
+            B2B products as a Product Manager, focusing on sustainable growth
+            and user value.
           </p>
           <p id="about-ru" class="hidden">
             Мой путь начался с преподавания английского: я провёл более 2 000
@@ -123,13 +124,11 @@
         >
           Резюме в формате PDF:
         </p>
-
         <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-          <!-- English card -->
           <div class="text-center">
             <h3 class="text-xl font-semibold mb-4">English</h3>
             <a
-              href="./Yeltay_Bayandinov_Product_Manager.pdf"
+              href="./assets/pdfs/Yeltay_Bayandinov_Product_Manager.pdf"
               target="_blank"
               class="relative inline-block group hover:opacity-90 transition"
             >
@@ -137,8 +136,8 @@
                 class="border-8 border-black overflow-hidden w-64 h-64 mx-auto"
               >
                 <img
-                  src="./resume_preview_en.jpg"
-                  alt="EN résumé preview"
+                  src="./assets/images/resume_preview_en.jpg"
+                  alt="English resume preview of Yeltay Bayandinov"
                   class="w-full h-full object-cover"
                 />
               </div>
@@ -148,11 +147,10 @@
               >
             </a>
           </div>
-          <!-- Russian card -->
           <div class="text-center">
             <h3 class="text-xl font-semibold mb-4">Русский</h3>
             <a
-              href="./Yeltay_Bayandinov_Product_Manager_RU.pdf"
+              href="./assets/pdfs/Yeltay_Bayandinov_Product_Manager_RU.pdf"
               target="_blank"
               class="relative inline-block group hover:opacity-90 transition"
             >
@@ -160,8 +158,8 @@
                 class="border-8 border-black overflow-hidden w-64 h-64 mx-auto"
               >
                 <img
-                  src="./resume_preview_ru.jpg"
-                  alt="RU résumé preview"
+                  src="./assets/images/resume_preview_ru.jpg"
+                  alt="Russian resume preview of Yeltay Bayandinov"
                   class="w-full h-full object-cover"
                 />
               </div>
@@ -217,7 +215,7 @@
       © 2025 Yeltay Bayandinov
     </footer>
 
-    <!-- Language Toggle Script -->
+    <!-- Language Switcher Script -->
     <script>
       const enBtn = document.getElementById("en-btn"),
         ruBtn = document.getElementById("ru-btn"),
@@ -251,12 +249,9 @@
       const enEls = enIDs.map((id) => document.getElementById(id)),
         ruEls = ruIDs.map((id) => document.getElementById(id));
 
-      enBtn.onclick = () => switchLang("en");
-      ruBtn.onclick = () => switchLang("ru");
-
       function switchLang(lang) {
-        const show = lang === "en" ? enEls : ruEls,
-          hide = lang === "en" ? ruEls : enEls;
+        const show = lang === "en" ? enEls : ruEls;
+        const hide = lang === "en" ? ruEls : enEls;
         show.forEach((el) => el.classList.remove("hidden"));
         hide.forEach((el) => el.classList.add("hidden"));
 
@@ -267,6 +262,9 @@
         ruBtn.classList.toggle("underline", lang === "ru");
         ruBtn.classList.toggle("text-gray-500", lang !== "ru");
       }
+
+      enBtn.onclick = () => switchLang("en");
+      ruBtn.onclick = () => switchLang("ru");
     </script>
   </body>
 </html>
