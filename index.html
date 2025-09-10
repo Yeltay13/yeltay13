@@ -4,183 +4,447 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Yeltay Bayandinov – Product Manager & Mentor</title>
+
+    <!-- SEO basics -->
+    <meta
+      name="description"
+      content="Product Manager & Mentor. I build and scale EdTech and B2C/B2B products and help IT specialists grow through practical, career-focused mentoring."
+    />
+    <link rel="canonical" href="https://yeltay.com/" />
+
+    <!-- Open Graph / Twitter -->
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="Yeltay Bayandinov – Product Manager & Mentor"
+    />
+    <meta
+      property="og:description"
+      content="I build and scale products with sustainable unit economics and mentor IT professionals for interviews, presentations, and clear communication."
+    />
+    <meta property="og:image" content="./assets/images/og-cover.jpg" />
+    <meta property="og:url" content="https://yeltay.com/" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Icons -->
     <link rel="icon" href="favicon.ico" />
+
+    <!-- Tailwind -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
       body {
-        font-family: system-ui, sans-serif;
+        font-family:
+          system-ui,
+          -apple-system,
+          Segoe UI,
+          Roboto,
+          Helvetica,
+          Arial,
+          "Apple Color Emoji",
+          "Segoe UI Emoji",
+          "Segoe UI Symbol",
+          sans-serif;
       }
     </style>
+
+    <!-- Structured data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Yeltay Bayandinov",
+        "url": "https://yeltay.com/",
+        "jobTitle": "Product Manager & Mentor",
+        "email": "mailto:bayandinov13@gmail.com",
+        "sameAs": [
+          "https://linkedin.com/in/yeltay",
+          "https://t.me/yelty",
+          "https://y-boost.com"
+        ]
+      }
+    </script>
   </head>
   <body class="bg-gray-50 text-gray-800 flex flex-col min-h-screen">
-    <!-- Navbar -->
-    <header
-      class="fixed inset-x-0 top-0 z-50 backdrop-blur bg-white/70 shadow-sm"
-    >
+    <!-- Sticky Navbar (always visible) -->
+    <header class="sticky top-0 z-50 backdrop-blur bg-white/70 shadow-sm">
       <div
-        class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center"
+        class="h-16 max-w-7xl mx-auto px-4 flex justify-between items-center"
       >
-        <nav class="hidden md:flex space-x-6 font-semibold text-sm">
-          <a href="./index.html"
-            ><span id="nav-home-en">Home</span
-            ><span id="nav-home-ru" class="hidden">Главная</span></a
+        <a href="#home" class="font-extrabold tracking-tight">Yeltay</a>
+        <nav class="flex items-center gap-6 font-semibold text-sm">
+          <a href="#mentoring" class="hover:text-blue-700"
+            ><span class="en">Mentoring</span
+            ><span class="ru hidden">Менторство</span></a
           >
-          <a href="./pages/consulting.html"
-            ><span id="nav-consult-en">Consulting</span
-            ><span id="nav-consult-ru" class="hidden">Консалтинг</span></a
+          <a href="#work" class="hover:text-blue-700"
+            ><span class="en">Product Work</span
+            ><span class="ru hidden">Продукты</span></a
           >
-          <a href="#resume"
-            ><span id="nav-resume-en">Résumé</span
-            ><span id="nav-resume-ru" class="hidden">Резюме</span></a
+          <a href="#resume" class="hover:text-blue-700"
+            ><span class="en">Résumé</span
+            ><span class="ru hidden">Резюме</span></a
           >
-          <a href="#contact"
-            ><span id="nav-contact-en">Contact</span
-            ><span id="nav-contact-ru" class="hidden">Контакты</span></a
+          <a href="#contact" class="hover:text-blue-700"
+            ><span class="en">Contact</span
+            ><span class="ru hidden">Контакты</span></a
           >
         </nav>
-        <div class="space-x-1 text-sm font-semibold">
-          <button id="en-btn" class="text-blue-700 underline">EN</button
-          ><span>|</span>
+        <div class="flex items-center gap-2 text-sm font-semibold">
+          <button id="en-btn" class="text-blue-700 underline">EN</button>
+          <span class="opacity-40">|</span>
           <button id="ru-btn" class="text-gray-500 hover:text-blue-700">
             RU
           </button>
         </div>
       </div>
     </header>
-    <div class="h-16"></div>
 
-    <!-- Hero -->
-    <section
-      id="home"
-      class="flex flex-col items-center text-center py-20 px-4"
-    >
-      <img
-        src="./assets/images/my-photo.jpg"
-        alt="Yeltay Bayandinov"
-        class="w-36 h-36 md:w-44 md:h-44 rounded-full object-cover shadow mb-6"
-      />
-      <h1 class="text-4xl md:text-5xl font-extrabold mb-2">
-        <span id="name-en">Yeltay Bayandinov</span>
-        <span id="name-ru" class="hidden">Ельтай Баяндинов</span>
-      </h1>
-      <p id="tagline-en" class="text-xl text-gray-600 max-w-xl">
-        Product Manager helping people grow through EdTech.
-      </p>
-      <p id="tagline-ru" class="hidden text-xl text-gray-600 max-w-xl">
-        Продакт-менеджер, помогающий людям расти через EdTech.
-      </p>
+    <!-- Hero / Value prop -->
+    <section id="home" class="relative overflow-hidden scroll-mt-16">
+      <div
+        class="max-w-7xl mx-auto px-4 py-20 grid md:grid-cols-2 gap-10 items-center"
+      >
+        <div>
+          <p class="text-sm uppercase tracking-widest text-blue-700 mb-2">
+            <span class="en">Product Manager • Mentor</span>
+            <span class="ru hidden">Продакт-менеджер • Ментор</span>
+          </p>
+          <h1 class="text-4xl md:text-5xl font-extrabold leading-tight">
+            <span class="en">I build products and help people grow.</span>
+            <span class="ru hidden"
+              >Создаю продукты и помогаю людям расти.</span
+            >
+          </h1>
+          <p class="mt-4 text-lg text-gray-700 max-w-xl">
+            <span class="en"
+              >I specialize in EdTech and B2C/B2B growth. As a mentor, I coach
+              IT professionals for interviews, roadmaps, and clear
+              communication.</span
+            >
+            <span class="ru hidden"
+              >Специализируюсь на EdTech и росте B2C/B2B. Как ментор, готовлю
+              IT-специалистов к интервью, презентациям roadmap и чёткой
+              коммуникации.</span
+            >
+          </p>
+
+          <div class="mt-8 flex flex-col sm:flex-row gap-3">
+            <a
+              href="#mentoring"
+              class="px-6 py-3 rounded-full bg-blue-700 text-white font-semibold shadow hover:bg-blue-800"
+            >
+              <span class="en">Book mentoring</span
+              ><span class="ru hidden">Записаться на менторство</span>
+            </a>
+            <a
+              href="#hire"
+              class="px-6 py-3 rounded-full bg-gray-200 text-gray-900 font-semibold shadow hover:bg-gray-300"
+            >
+              <span class="en">Hire me</span
+              ><span class="ru hidden">Нанять</span>
+            </a>
+          </div>
+
+          <!-- Quick proof points -->
+          <ul class="mt-8 grid grid-cols-2 sm:grid-cols-3 gap-4 text-sm">
+            <li class="bg-white rounded-xl p-4 shadow-sm">
+              <div class="font-bold">+1,088% ARR</div>
+              <div class="text-gray-500">
+                <span class="en">from bootstrapped EdTech</span>
+                <span class="ru hidden">в бутстрап-EdTech</span>
+              </div>
+            </li>
+            <li class="bg-white rounded-xl p-4 shadow-sm">
+              <div class="font-bold">2,000+ 1:1</div>
+              <div class="text-gray-500">
+                <span class="en">sessions with IT pros</span>
+                <span class="ru hidden">сессий с IT-специалистами</span>
+              </div>
+            </li>
+            <li class="bg-white rounded-xl p-4 shadow-sm">
+              <div class="font-bold">NPS 87+</div>
+              <div class="text-gray-500">
+                <span class="en">long-term retention</span>
+                <span class="ru hidden">долгая ретенция</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="flex justify-center md:justify-end">
+          <img
+            src="./assets/images/my-photo.jpg"
+            alt="Yeltay Bayandinov"
+            class="w-48 h-48 md:w-64 md:h-64 rounded-2xl object-cover shadow-xl"
+          />
+        </div>
+      </div>
     </section>
 
-    <!-- About -->
-    <section id="about" class="bg-white py-20 px-4">
-      <div class="max-w-3xl mx-auto space-y-6">
-        <h2 id="about-title-en" class="text-3xl font-bold text-center">
-          My Story
-        </h2>
-        <h2 id="about-title-ru" class="hidden text-3xl font-bold text-center">
-          Моя история
-        </h2>
-        <div class="space-y-4 text-lg leading-relaxed">
-          <p id="about-en">
-            I started as an English teacher, working one-on-one with 2,000+ IT
-            professionals. That led me to found <strong>Y-Boost.com</strong>, an
-            EdTech service for real-world English practice. Today I build B2C &
-            B2B products as a Product Manager, focusing on sustainable growth
-            and user value.
+    <!-- Mentoring section -->
+    <section id="mentoring" class="py-16 px-4 bg-white scroll-mt-16">
+      <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 items-start">
+        <div>
+          <h2 class="text-3xl font-extrabold">
+            <span class="en">Mentoring for IT Specialists</span>
+            <span class="ru hidden">Менторство для IT-специалистов</span>
+          </h2>
+          <p class="mt-3 text-gray-700">
+            <span class="en"
+              >Practical, career-focused sessions. We work on exactly what moves
+              your career forward.</span
+            >
+            <span class="ru hidden"
+              >Практические, карьерно-ориентированные сессии. Работаем над тем,
+              что реально двигает вашу карьеру.</span
+            >
           </p>
-          <p id="about-ru" class="hidden">
-            Мой путь начался с преподавания английского: я провёл более 2 000
-            занятий с IT-специалистами. Так я основал
-            <strong>Y-Boost.com</strong> — сервис для практики английского на
-            реальных кейсах. Сейчас я развиваю B2C и B2B-продукты как
-            продакт-менеджер, концентрируясь на устойчивом росте и ценности для
-            пользователей.
+          <ul class="mt-6 grid sm:grid-cols-2 gap-3 text-sm">
+            <li class="bg-gray-100 rounded-xl p-4">
+              Mock interviews (PM/Eng, EN)
+            </li>
+            <li class="bg-gray-100 rounded-xl p-4">
+              Roadmaps & stakeholder comms
+            </li>
+            <li class="bg-gray-100 rounded-xl p-4">
+              User stories, specs, PRDs
+            </li>
+            <li class="bg-gray-100 rounded-xl p-4">Presentations & demos</li>
+            <li class="bg-gray-100 rounded-xl p-4">
+              Job hunt & portfolio review
+            </li>
+            <li class="bg-gray-100 rounded-xl p-4">English for work (C2)</li>
+          </ul>
+          <div class="mt-6 flex flex-wrap gap-3">
+            <a
+              href="https://calendly.com/yeltay/full-1-1"
+              target="_blank"
+              class="px-6 py-3 rounded-full bg-blue-700 text-white font-semibold shadow hover:bg-blue-800"
+              ><span class="en">Free 30-min strategy session</span
+              ><span class="ru hidden">Бесплатная стратегия, 30 минут</span></a
+            >
+            <a
+              href="https://t.me/yelty"
+              target="_blank"
+              class="px-6 py-3 rounded-full bg-gray-200 text-gray-900 font-semibold shadow hover:bg-gray-300"
+              ><span class="en">Chat on Telegram</span
+              ><span class="ru hidden">Написать в Telegram</span></a
+            >
+          </div>
+        </div>
+        <div class="space-y-4">
+          <div class="bg-white border rounded-2xl p-5 shadow-sm">
+            <h3 class="font-bold mb-1">
+              <span class="en">Results you can expect</span>
+              <span class="ru hidden">Результаты</span>
+            </h3>
+            <ul class="list-disc pl-5 text-sm text-gray-700 space-y-1">
+              <li>Clear, confident English in interviews & meetings</li>
+              <li>Stronger product storytelling and stakeholder alignment</li>
+              <li>Polished PRDs, user stories and docs people actually read</li>
+              <li>Faster job search with targeted portfolio & CV</li>
+            </ul>
+          </div>
+          <div class="bg-white border rounded-2xl p-5 shadow-sm">
+            <h3 class="font-bold mb-1">Testimonials</h3>
+            <p class="text-sm text-gray-700">
+              “Practical and direct. My interview answers became crisp, and I
+              landed offers in 4 weeks.” — <em>Software Engineer</em>
+            </p>
+            <p class="text-sm text-gray-700 mt-2">
+              “We re-wrote my roadmap presentation; stakeholders finally said
+              ‘yes’.” — <em>Product Manager</em>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Product work / credibility -->
+    <section id="work" class="py-16 px-4 scroll-mt-16">
+      <div class="max-w-7xl mx-auto">
+        <h2 class="text-3xl font-extrabold">
+          <span class="en">Selected Product Work</span>
+          <span class="ru hidden">Ключевые кейсы</span>
+        </h2>
+        <div class="mt-8 grid md:grid-cols-3 gap-6">
+          <!-- Case 1 -->
+          <article class="bg-white rounded-2xl border p-6 shadow-sm">
+            <h3 class="font-bold">Y-Boost (EdTech)</h3>
+            <p class="text-sm text-gray-700 mt-1">
+              Bootstrapped service for IT professionals learning English through
+              real-world practice.
+            </p>
+            <ul class="mt-3 text-sm text-gray-800 space-y-1">
+              <li>• +1,088% ARR growth</li>
+              <li>• 300+ VIP clients across 8 countries</li>
+              <li>• NPS 87+, retention 1.8y, LTV $1,200+</li>
+            </ul>
+            <div class="mt-4 flex gap-3">
+              <a
+                href="https://y-boost.com"
+                target="_blank"
+                class="text-blue-700 font-semibold hover:underline"
+                >Website</a
+              >
+              <a
+                href="./assets/pdfs/Yeltay_Bayandinov_Product_Manager.pdf"
+                target="_blank"
+                class="text-blue-700 font-semibold hover:underline"
+                >One-page résumé</a
+              >
+            </div>
+          </article>
+          <!-- Case 2 -->
+          <article class="bg-white rounded-2xl border p-6 shadow-sm">
+            <h3 class="font-bold">Discovery & JTBD</h3>
+            <p class="text-sm text-gray-700 mt-1">
+              Systematic interviews, funnel fixes, and proposition work to reach
+              PMF.
+            </p>
+            <ul class="mt-3 text-sm text-gray-800 space-y-1">
+              <li>• +38% trial→paid conversion</li>
+              <li>• +420% paid conversion after funnel overhaul</li>
+              <li>• Built MVP (Astro/JS/Tailwind) at 10% of prior cost</li>
+            </ul>
+          </article>
+          <!-- Case 3 -->
+          <article class="bg-white rounded-2xl border p-6 shadow-sm">
+            <h3 class="font-bold">Team & Ops</h3>
+            <p class="text-sm text-gray-700 mt-1">
+              Lean & Agile ops with behavioral analytics and A/B testing.
+            </p>
+            <ul class="mt-3 text-sm text-gray-800 space-y-1">
+              <li>• Built and led a distributed team of 5</li>
+              <li>• Tripled capacity with flat costs</li>
+              <li>• Customer sat. 95%+ across 2,000+ sessions</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Hire me block -->
+    <section id="hire" class="py-16 px-4 bg-white scroll-mt-16">
+      <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 items-center">
+        <div>
+          <h2 class="text-3xl font-extrabold">
+            <span class="en">For Employers</span>
+            <span class="ru hidden">Для работодателей</span>
+          </h2>
+          <p class="mt-3 text-gray-700">
+            <span class="en"
+              >I build sustainable growth with unit economics, discovery, and
+              crisp execution.</span
+            >
+            <span class="ru hidden"
+              >Делаю устойчивый рост за счёт юнит-экономики, discovery и чёткой
+              реализации.</span
+            >
+          </p>
+          <ul class="mt-5 grid sm:grid-cols-2 gap-3 text-sm">
+            <li class="bg-gray-100 rounded-xl p-4">
+              PMF via JTBD & interviews
+            </li>
+            <li class="bg-gray-100 rounded-xl p-4">Analytics, A/B testing</li>
+            <li class="bg-gray-100 rounded-xl p-4">
+              Roadmaps & prioritization
+            </li>
+            <li class="bg-gray-100 rounded-xl p-4">Team leadership & ops</li>
+          </ul>
+          <div class="mt-6 flex flex-wrap gap-3">
+            <a
+              href="./assets/pdfs/Yeltay_Bayandinov_Product_Manager.pdf"
+              target="_blank"
+              class="px-6 py-3 rounded-full bg-blue-700 text-white font-semibold shadow hover:bg-blue-800"
+              ><span class="en">Download résumé (EN)</span
+              ><span class="ru hidden">Скачать резюме (EN)</span></a
+            >
+            <a
+              href="./assets/pdfs/Yeltay_Bayandinov_Product_Manager_RU.pdf"
+              target="_blank"
+              class="px-6 py-3 rounded-full bg-gray-200 text-gray-900 font-semibold shadow hover:bg-gray-300"
+              ><span class="en">Download résumé (RU)</span
+              ><span class="ru hidden">Скачать резюме (RU)</span></a
+            >
+          </div>
+        </div>
+        <div class="bg-white border rounded-2xl p-6 shadow-sm">
+          <h3 class="font-bold mb-2">
+            <span class="en">Selected Skills & Tools</span>
+            <span class="ru hidden">Навыки и инструменты</span>
+          </h3>
+          <p class="text-sm text-gray-700">
+            Jira • Confluence • Miro • Figma • Notion • SQL • GA • Tableau •
+            Zapier • Git • React • JavaScript
           </p>
         </div>
       </div>
     </section>
 
     <!-- Résumé -->
-    <section id="resume" class="bg-white py-20 px-4">
-      <div class="max-w-5xl mx-auto">
-        <h2
-          id="resume-title-en"
-          class="text-4xl font-extrabold text-center mb-8"
-        >
-          My Résumé
+    <section id="resume" class="py-16 px-4 scroll-mt-16">
+      <div class="max-w-7xl mx-auto text-center">
+        <h2 class="text-3xl font-extrabold mb-6">
+          <span class="en">My Résumé</span>
+          <span class="ru hidden">Моё резюме</span>
         </h2>
-        <h2
-          id="resume-title-ru"
-          class="hidden text-4xl font-extrabold text-center mb-8"
-        >
-          Моё резюме
-        </h2>
-        <p id="resume-sub-en" class="text-xl font-semibold text-center mb-6">
-          Resume in PDF Format:
+        <p class="text-lg text-gray-700 max-w-2xl mx-auto">
+          <span class="en"
+            >Full résumé available in English and Russian. PDF previews
+            below.</span
+          >
+          <span class="ru hidden"
+            >Полное резюме на английском и русском. Превью PDF ниже.</span
+          >
         </p>
-        <p
-          id="resume-sub-ru"
-          class="hidden text-xl font-semibold text-center mb-6"
-        >
-          Резюме в формате PDF:
-        </p>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-          <div class="text-center">
-            <h3 class="text-xl font-semibold mb-4">English</h3>
-            <a
-              href="./assets/pdfs/Yeltay_Bayandinov_Product_Manager.pdf"
-              target="_blank"
-              class="relative inline-block group hover:opacity-90 transition"
+        <div class="mt-10 grid grid-cols-1 md:grid-cols-2 gap-10">
+          <a
+            href="./assets/pdfs/Yeltay_Bayandinov_Product_Manager.pdf"
+            target="_blank"
+            class="group inline-block"
+          >
+            <div
+              class="border-8 border-black overflow-hidden w-64 h-64 mx-auto"
             >
-              <div
-                class="border-8 border-black overflow-hidden w-64 h-64 mx-auto"
-              >
-                <img
-                  src="./assets/images/resume_preview_en.jpg"
-                  alt="English resume preview of Yeltay Bayandinov"
-                  class="w-full h-full object-cover"
-                />
-              </div>
-              <span
-                class="absolute -bottom-4 left-0 bg-white px-4 py-2 text-lg font-bold"
-                >View as PDF</span
-              >
-            </a>
-          </div>
-          <div class="text-center">
-            <h3 class="text-xl font-semibold mb-4">Русский</h3>
-            <a
-              href="./assets/pdfs/Yeltay_Bayandinov_Product_Manager_RU.pdf"
-              target="_blank"
-              class="relative inline-block group hover:opacity-90 transition"
+              <img
+                src="./assets/images/resume_preview_en.jpg"
+                alt="English resume preview"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <span class="block mt-3 font-bold group-hover:underline"
+              ><span class="en">View as PDF</span
+              ><span class="ru hidden">Открыть PDF</span></span
             >
-              <div
-                class="border-8 border-black overflow-hidden w-64 h-64 mx-auto"
-              >
-                <img
-                  src="./assets/images/resume_preview_ru.jpg"
-                  alt="Russian resume preview of Yeltay Bayandinov"
-                  class="w-full h-full object-cover"
-                />
-              </div>
-              <span
-                class="absolute -bottom-4 left-0 bg-white px-4 py-2 text-lg font-bold"
-                >Открыть PDF</span
-              >
-            </a>
-          </div>
+          </a>
+          <a
+            href="./assets/pdfs/Yeltay_Bayandinov_Product_Manager_RU.pdf"
+            target="_blank"
+            class="group inline-block"
+          >
+            <div
+              class="border-8 border-black overflow-hidden w-64 h-64 mx-auto"
+            >
+              <img
+                src="./assets/images/resume_preview_ru.jpg"
+                alt="Russian resume preview"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <span class="block mt-3 font-bold group-hover:underline"
+              >Открыть PDF</span
+            >
+          </a>
         </div>
       </div>
     </section>
 
     <!-- Contact -->
-    <section id="contact" class="py-20 px-4">
+    <section id="contact" class="py-16 px-4 bg-white scroll-mt-16">
       <div class="max-w-xl mx-auto text-center space-y-4 text-lg">
-        <h2 id="contact-title-en" class="text-3xl font-bold mb-6">
-          Get in Touch
-        </h2>
-        <h2 id="contact-title-ru" class="hidden text-3xl font-bold mb-6">
-          Связаться
+        <h2 class="text-3xl font-extrabold mb-2">
+          <span class="en">Get in touch</span>
+          <span class="ru hidden">Связаться</span>
         </h2>
         <div>
           <span class="font-semibold">Email:</span>
@@ -212,59 +476,35 @@
     </section>
 
     <footer class="py-6 text-center text-sm text-gray-400">
-      © 2025 Yeltay Bayandinov
+      © <span id="year"></span> Yeltay Bayandinov
     </footer>
 
-    <!-- Language Switcher Script -->
+    <!-- Language Switcher -->
     <script>
-      const enBtn = document.getElementById("en-btn"),
-        ruBtn = document.getElementById("ru-btn"),
-        enIDs = [
-          "nav-home-en",
-          "nav-consult-en",
-          "nav-resume-en",
-          "nav-contact-en",
-          "name-en",
-          "tagline-en",
-          "about-title-en",
-          "about-en",
-          "resume-title-en",
-          "resume-sub-en",
-          "contact-title-en",
-        ],
-        ruIDs = [
-          "nav-home-ru",
-          "nav-consult-ru",
-          "nav-resume-ru",
-          "nav-contact-ru",
-          "name-ru",
-          "tagline-ru",
-          "about-title-ru",
-          "about-ru",
-          "resume-title-ru",
-          "resume-sub-ru",
-          "contact-title-ru",
-        ];
+      const enBtn = document.getElementById("en-btn");
+      const ruBtn = document.getElementById("ru-btn");
+      const enEls = Array.from(document.querySelectorAll(".en"));
+      const ruEls = Array.from(document.querySelectorAll(".ru"));
 
-      const enEls = enIDs.map((id) => document.getElementById(id)),
-        ruEls = ruIDs.map((id) => document.getElementById(id));
-
-      function switchLang(lang) {
-        const show = lang === "en" ? enEls : ruEls;
-        const hide = lang === "en" ? ruEls : enEls;
-        show.forEach((el) => el.classList.remove("hidden"));
-        hide.forEach((el) => el.classList.add("hidden"));
-
-        enBtn.classList.toggle("text-blue-700", lang === "en");
-        enBtn.classList.toggle("underline", lang === "en");
-        enBtn.classList.toggle("text-gray-500", lang !== "en");
-        ruBtn.classList.toggle("text-blue-700", lang === "ru");
-        ruBtn.classList.toggle("underline", lang === "ru");
-        ruBtn.classList.toggle("text-gray-500", lang !== "ru");
+      function applyLang(lang) {
+        const isEN = lang === "en";
+        enEls.forEach((el) => el.classList.toggle("hidden", !isEN));
+        ruEls.forEach((el) => el.classList.toggle("hidden", isEN));
+        enBtn.classList.toggle("text-blue-700", isEN);
+        enBtn.classList.toggle("underline", isEN);
+        enBtn.classList.toggle("text-gray-500", !isEN);
+        ruBtn.classList.toggle("text-blue-700", !isEN);
+        ruBtn.classList.toggle("underline", !isEN);
+        ruBtn.classList.toggle("text-gray-500", isEN);
+        localStorage.setItem("lang", lang);
+        document.documentElement.setAttribute("lang", isEN ? "en" : "ru");
       }
 
-      enBtn.onclick = () => switchLang("en");
-      ruBtn.onclick = () => switchLang("ru");
+      enBtn?.addEventListener("click", () => applyLang("en"));
+      ruBtn?.addEventListener("click", () => applyLang("ru"));
+      applyLang(localStorage.getItem("lang") || "en");
+
+      document.getElementById("year").textContent = new Date().getFullYear();
     </script>
   </body>
 </html>
