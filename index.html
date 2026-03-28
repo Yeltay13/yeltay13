@@ -31,6 +31,12 @@
 
     <!-- Icons -->
     <link rel="icon" href="favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- Tailwind -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -92,18 +98,17 @@
 
       body {
         font-family:
+          "Manrope",
           system-ui,
           -apple-system,
-          Segoe UI,
-          Roboto,
-          Helvetica,
-          Arial,
-          "Apple Color Emoji",
-          "Segoe UI Emoji",
-          "Segoe UI Symbol",
+          BlinkMacSystemFont,
+          "Segoe UI",
           sans-serif;
-        background:
-          radial-gradient(circle at top left, var(--bg-glow), transparent 30%),
+        background: radial-gradient(
+            circle at top left,
+            var(--bg-glow),
+            transparent 30%
+          ),
           radial-gradient(
             circle at top right,
             var(--bg-glow-strong),
@@ -114,6 +119,15 @@
         transition:
           background-color 220ms ease,
           color 220ms ease;
+      }
+
+      h1,
+      h2,
+      h3,
+      .nav-brand,
+      .nav-link,
+      .section-eyebrow {
+        font-family: "Sora", "Manrope", system-ui, sans-serif;
       }
 
       body,
@@ -132,13 +146,17 @@
       }
 
       header {
-        background: var(--header);
-        border-bottom: 1px solid var(--border);
+        background: transparent;
+        border-bottom: 0;
+        padding-top: 0.8rem;
       }
 
       html[data-theme="dark"] body {
-        background:
-          radial-gradient(circle at top left, rgba(59, 130, 246, 0.2), transparent 32%),
+        background: radial-gradient(
+            circle at top left,
+            rgba(59, 130, 246, 0.2),
+            transparent 32%
+          ),
           radial-gradient(
             circle at top right,
             rgba(16, 185, 129, 0.16),
@@ -186,8 +204,11 @@
         height: 1.95rem;
         padding: 0.16rem;
         border-radius: 999px;
-        background:
-          linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(226, 232, 240, 0.92));
+        background: linear-gradient(
+          145deg,
+          rgba(255, 255, 255, 0.98),
+          rgba(226, 232, 240, 0.92)
+        );
         border: 1px solid rgba(148, 163, 184, 0.28);
         box-shadow:
           inset 0 2px 8px rgba(255, 255, 255, 0.92),
@@ -232,8 +253,11 @@
       }
 
       html[data-theme="dark"] .theme-switch {
-        background:
-          linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(203, 213, 225, 0.88));
+        background: linear-gradient(
+          145deg,
+          rgba(255, 255, 255, 0.96),
+          rgba(203, 213, 225, 0.88)
+        );
         border-color: rgba(226, 232, 240, 0.34);
         box-shadow:
           inset 0 2px 8px rgba(255, 255, 255, 0.92),
@@ -274,7 +298,6 @@
         backdrop-filter: blur(18px);
       }
 
-      html[data-theme="dark"] header,
       html[data-theme="dark"] .bg-white,
       html[data-theme="dark"] .bg-white\/70 {
         background-color: #0f172a !important;
@@ -337,6 +360,51 @@
         box-shadow: 0 16px 42px rgba(2, 6, 23, 0.36) !important;
       }
 
+      .btn-primary,
+      .btn-secondary {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 3.2rem;
+        padding: 0.9rem 1.35rem;
+        border-radius: 999px;
+        font-size: 0.96rem;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        box-shadow: 0 18px 34px rgba(15, 23, 42, 0.12);
+      }
+
+      .btn-primary {
+        background: linear-gradient(135deg, #2563eb, #1d4ed8);
+        color: #eff6ff;
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 22px 40px rgba(37, 99, 235, 0.28);
+      }
+
+      .btn-secondary {
+        background: rgba(255, 255, 255, 0.78);
+        color: var(--text);
+        border: 1px solid rgba(148, 163, 184, 0.16);
+      }
+
+      .btn-secondary:hover {
+        transform: translateY(-1px);
+        background: rgba(255, 255, 255, 0.94);
+      }
+
+      html[data-theme="dark"] .btn-secondary {
+        background: rgba(15, 23, 42, 0.88);
+        color: #e5eefb;
+        border-color: rgba(148, 163, 184, 0.16);
+      }
+
+      html[data-theme="dark"] .btn-secondary:hover {
+        background: rgba(30, 41, 59, 0.94);
+      }
+
       .testimonial-section {
         position: relative;
       }
@@ -344,19 +412,32 @@
       .testimonial-shell {
         padding: 2rem;
         border-radius: 2rem;
-        background:
-          linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(241, 245, 249, 0.88));
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.92),
+          rgba(241, 245, 249, 0.88)
+        );
         border: 1px solid rgba(148, 163, 184, 0.14);
         box-shadow: 0 26px 56px rgba(15, 23, 42, 0.1);
       }
 
       .testimonial-card {
         height: 100%;
-        padding: 1.5rem;
+        padding: 1.25rem;
         border-radius: 1.5rem;
-        background:
-          linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(248, 250, 252, 0.92));
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.94),
+          rgba(248, 250, 252, 0.92)
+        );
         border: 1px solid rgba(148, 163, 184, 0.16);
+      }
+
+      .testimonial-quote {
+        display: -webkit-box;
+        overflow: hidden;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 5;
       }
 
       .testimonial-avatar {
@@ -367,14 +448,22 @@
         height: 3.4rem;
         flex-shrink: 0;
         border-radius: 999px;
-        background:
-          radial-gradient(circle at 30% 30%, #bfdbfe, transparent 55%),
+        background: radial-gradient(circle at 30% 30%, #bfdbfe, transparent 55%),
           linear-gradient(145deg, #2563eb, #7c3aed);
         color: white;
         font-size: 1rem;
         font-weight: 800;
         letter-spacing: 0.04em;
         box-shadow: 0 14px 28px rgba(37, 99, 235, 0.24);
+      }
+
+      .testimonial-photo {
+        width: 3.4rem;
+        height: 3.4rem;
+        flex-shrink: 0;
+        border-radius: 999px;
+        object-fit: cover;
+        box-shadow: 0 14px 28px rgba(15, 23, 42, 0.14);
       }
 
       .testimonial-link {
@@ -431,15 +520,21 @@
       }
 
       html[data-theme="dark"] .testimonial-shell {
-        background:
-          linear-gradient(180deg, rgba(9, 18, 34, 0.9), rgba(15, 23, 42, 0.94));
+        background: linear-gradient(
+          180deg,
+          rgba(9, 18, 34, 0.9),
+          rgba(15, 23, 42, 0.94)
+        );
         border-color: rgba(148, 163, 184, 0.16);
         box-shadow: 0 30px 60px rgba(2, 6, 23, 0.34);
       }
 
       html[data-theme="dark"] .testimonial-card {
-        background:
-          linear-gradient(180deg, rgba(15, 23, 42, 0.96), rgba(18, 31, 52, 0.92));
+        background: linear-gradient(
+          180deg,
+          rgba(15, 23, 42, 0.96),
+          rgba(18, 31, 52, 0.92)
+        );
         border-color: rgba(148, 163, 184, 0.14);
       }
 
@@ -471,6 +566,415 @@
         background: #93c5fd;
         box-shadow: 0 0 0 6px rgba(147, 197, 253, 0.14);
       }
+
+      .nav-shell {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 0.85rem 1.1rem;
+        border-radius: 1.35rem;
+        background: rgba(255, 255, 255, 0.7);
+        border: 1px solid rgba(148, 163, 184, 0.16);
+        box-shadow: 0 18px 40px rgba(15, 23, 42, 0.1);
+        backdrop-filter: blur(18px) saturate(160%);
+      }
+
+      .nav-brand {
+        padding: 0.35rem 0.5rem;
+        border-radius: 0.75rem;
+        color: var(--text);
+        font-size: 1.04rem;
+        font-weight: 800;
+        letter-spacing: -0.04em;
+      }
+
+      .nav-brand:hover {
+        background: rgba(59, 130, 246, 0.08);
+        color: #2563eb;
+      }
+
+      .nav-main {
+        display: flex;
+        align-items: center;
+        gap: 0.7rem;
+        margin-left: auto;
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 0.16rem;
+        padding: 0.22rem;
+        border-radius: 999px;
+        background: rgba(148, 163, 184, 0.1);
+        border: 1px solid rgba(148, 163, 184, 0.14);
+      }
+
+      .nav-link {
+        padding: 0.58rem 0.84rem;
+        border-radius: 999px;
+        color: var(--text-muted);
+        font-size: 0.92rem;
+        font-weight: 700;
+        letter-spacing: -0.01em;
+      }
+
+      .nav-link:hover {
+        background: rgba(59, 130, 246, 0.1);
+        color: var(--text);
+      }
+
+      .nav-links .theme-switch {
+        margin-left: 0.14rem;
+      }
+
+      .locale-switch {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.16rem;
+        padding: 0.22rem;
+        border-radius: 999px;
+        background: rgba(148, 163, 184, 0.1);
+        border: 1px solid rgba(148, 163, 184, 0.14);
+      }
+
+      .locale-btn {
+        min-width: 2.4rem;
+        padding: 0.5rem 0.66rem;
+        border-radius: 999px;
+        color: var(--text-soft);
+        font-size: 0.84rem;
+        font-weight: 700;
+        line-height: 1;
+      }
+
+      .locale-btn:hover {
+        background: rgba(59, 130, 246, 0.08);
+        color: var(--text);
+      }
+
+      .locale-btn.is-active {
+        background: var(--surface-strong);
+        color: #2563eb;
+        box-shadow: 0 10px 20px rgba(15, 23, 42, 0.12);
+      }
+
+      .section-eyebrow {
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: #60a5fa;
+      }
+
+      .hero-shell {
+        display: grid;
+        grid-template-columns: minmax(0, 1.25fr) minmax(260px, 0.75fr);
+        gap: 3rem;
+        align-items: center;
+        padding-top: 1rem;
+      }
+
+      .hero-title {
+        max-width: 12ch;
+        font-size: clamp(3rem, 7vw, 5rem);
+        line-height: 0.96;
+        letter-spacing: -0.05em;
+      }
+
+      .hero-description {
+        max-width: 36rem;
+        font-size: 1.08rem;
+        line-height: 1.78;
+        color: var(--text-muted);
+      }
+
+      .hero-proof-card {
+        min-height: 5.5rem;
+        border-radius: 1.2rem;
+        border: 1px solid rgba(148, 163, 184, 0.12);
+        background: rgba(15, 23, 42, 0.08);
+        backdrop-filter: blur(14px);
+      }
+
+      .hero-proof-value {
+        font-family: "Sora", "Manrope", system-ui, sans-serif;
+        font-size: 1.2rem;
+        font-weight: 700;
+        letter-spacing: -0.04em;
+      }
+
+      .hero-proof-label {
+        margin-top: 0.45rem;
+        line-height: 1.55;
+        color: var(--text-muted);
+      }
+
+      .hero-portrait-shell {
+        position: relative;
+        width: min(100%, 24rem);
+        margin-left: auto;
+        padding: 1rem;
+        border-radius: 1.9rem;
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.22),
+          rgba(255, 255, 255, 0.08)
+        );
+        border: 1px solid rgba(148, 163, 184, 0.16);
+        box-shadow: 0 28px 60px rgba(15, 23, 42, 0.18);
+      }
+
+      .hero-portrait-ring {
+        position: absolute;
+        inset: -1.1rem auto auto -1.2rem;
+        width: 8rem;
+        height: 8rem;
+        border-radius: 999px;
+        background: radial-gradient(
+          circle,
+          rgba(96, 165, 250, 0.38),
+          transparent 68%
+        );
+        filter: blur(8px);
+        pointer-events: none;
+      }
+
+      .hero-portrait-image {
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        border-radius: 1.5rem;
+        object-fit: cover;
+      }
+
+      .mentor-shell,
+      .product-shell,
+      .employer-shell,
+      .resume-shell,
+      .contact-shell {
+        border-radius: 1.9rem;
+        border: 1px solid rgba(148, 163, 184, 0.12);
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.9),
+          rgba(248, 250, 252, 0.88)
+        );
+        box-shadow: 0 24px 54px rgba(15, 23, 42, 0.08);
+      }
+
+      .mentor-chip,
+      .employer-chip {
+        border-radius: 1rem;
+        border: 1px solid rgba(148, 163, 184, 0.1);
+        background: rgba(15, 23, 42, 0.06);
+      }
+
+      .insight-card {
+        border-radius: 1.25rem;
+        border: 1px solid rgba(148, 163, 184, 0.12);
+        background: rgba(255, 255, 255, 0.72);
+      }
+
+      .case-card {
+        height: 100%;
+        border-radius: 1.5rem;
+        border: 1px solid rgba(148, 163, 184, 0.12);
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.92),
+          rgba(244, 247, 251, 0.88)
+        );
+      }
+
+      .resume-preview-shell {
+        width: 17rem;
+        height: 17rem;
+        border-width: 10px;
+        border-color: rgba(148, 163, 184, 0.4);
+        border-radius: 1rem;
+        box-shadow: 0 20px 44px rgba(15, 23, 42, 0.12);
+      }
+
+      .contact-links {
+        display: grid;
+        gap: 0.9rem;
+        margin-top: 2rem;
+      }
+
+      .contact-link-card {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 1rem 1.15rem;
+        border-radius: 1.1rem;
+        border: 1px solid rgba(148, 163, 184, 0.12);
+        background: rgba(255, 255, 255, 0.78);
+        text-align: left;
+      }
+
+      .contact-link-label {
+        font-size: 0.76rem;
+        font-weight: 800;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: #60a5fa;
+      }
+
+      .contact-link-value {
+        color: var(--text);
+        font-size: 1rem;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+      }
+
+      .contact-link-action {
+        color: #2563eb;
+        font-size: 0.92rem;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+      }
+
+      html[data-theme="dark"] .nav-shell,
+      html[data-theme="dark"] .mentor-shell,
+      html[data-theme="dark"] .product-shell,
+      html[data-theme="dark"] .employer-shell,
+      html[data-theme="dark"] .resume-shell,
+      html[data-theme="dark"] .contact-shell,
+      html[data-theme="dark"] .case-card {
+        background: linear-gradient(
+          180deg,
+          rgba(10, 18, 34, 0.9),
+          rgba(15, 23, 42, 0.94)
+        );
+        border-color: rgba(148, 163, 184, 0.14);
+        box-shadow: 0 28px 58px rgba(2, 6, 23, 0.28);
+      }
+
+      html[data-theme="dark"] .nav-links,
+      html[data-theme="dark"] .locale-switch,
+      html[data-theme="dark"] .hero-proof-card,
+      html[data-theme="dark"] .mentor-chip,
+      html[data-theme="dark"] .employer-chip,
+      html[data-theme="dark"] .insight-card {
+        background: rgba(148, 163, 184, 0.08);
+        border-color: rgba(148, 163, 184, 0.14);
+      }
+
+      html[data-theme="dark"] .nav-brand,
+      html[data-theme="dark"] .nav-link,
+      html[data-theme="dark"] .locale-btn {
+        color: #d8e1ef !important;
+      }
+
+      html[data-theme="dark"] .nav-link:hover,
+      html[data-theme="dark"] .locale-btn:hover {
+        background: rgba(96, 165, 250, 0.12);
+        color: #f8fbff !important;
+      }
+
+      html[data-theme="dark"] .locale-btn.is-active {
+        background: rgba(15, 23, 42, 0.94);
+        color: #93c5fd !important;
+        box-shadow: 0 12px 22px rgba(2, 6, 23, 0.34);
+      }
+
+      html[data-theme="dark"] .hero-portrait-shell {
+        background: linear-gradient(
+          180deg,
+          rgba(30, 41, 59, 0.54),
+          rgba(15, 23, 42, 0.28)
+        );
+      }
+
+      html[data-theme="dark"] .contact-link-card {
+        background: rgba(15, 23, 42, 0.78);
+        border-color: rgba(148, 163, 184, 0.14);
+      }
+
+      html[data-theme="dark"] .resume-preview-shell {
+        border-color: rgba(148, 163, 184, 0.32) !important;
+      }
+
+      .testimonial-card:hover,
+      .case-card:hover,
+      .insight-card:hover,
+      .mentor-chip:hover,
+      .employer-chip:hover,
+      .contact-link-card:hover,
+      .resume-preview-shell:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 24px 44px rgba(15, 23, 42, 0.12);
+      }
+
+      html[data-theme="dark"] .testimonial-card:hover,
+      html[data-theme="dark"] .case-card:hover,
+      html[data-theme="dark"] .insight-card:hover,
+      html[data-theme="dark"] .mentor-chip:hover,
+      html[data-theme="dark"] .employer-chip:hover,
+      html[data-theme="dark"] .contact-link-card:hover,
+      html[data-theme="dark"] .resume-preview-shell:hover {
+        box-shadow: 0 28px 48px rgba(2, 6, 23, 0.34);
+      }
+
+      @media (max-width: 1024px) {
+        .hero-shell {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+
+        .hero-portrait-shell {
+          margin: 0 auto;
+        }
+      }
+
+      @media (max-width: 768px) {
+        header {
+          padding-top: 0.65rem;
+        }
+
+        .nav-shell {
+          padding: 0.8rem 0.9rem;
+          border-radius: 1.1rem;
+        }
+
+        .nav-main {
+          width: 100%;
+          flex-direction: column;
+          align-items: stretch;
+        }
+
+        .nav-links {
+          width: 100%;
+          justify-content: center;
+          flex-wrap: wrap;
+        }
+
+        .locale-switch {
+          align-self: center;
+        }
+
+        .hero-description {
+          font-size: 1rem;
+          line-height: 1.7;
+        }
+
+        .mentor-shell,
+        .product-shell,
+        .employer-shell,
+        .resume-shell,
+        .contact-shell,
+        .testimonial-shell {
+          padding-left: 1.25rem !important;
+          padding-right: 1.25rem !important;
+        }
+
+        .resume-preview-shell {
+          width: 14rem;
+          height: 14rem;
+        }
+      }
     </style>
 
     <!-- Structured data -->
@@ -492,279 +996,275 @@
   </head>
   <body class="bg-gray-50 text-gray-800 flex flex-col min-h-screen">
     <!-- Sticky Navbar (always visible) -->
-    <header class="sticky top-0 z-50 backdrop-blur bg-white/70 shadow-sm">
-      <div
-        class="min-h-16 max-w-7xl mx-auto px-4 py-3 flex flex-wrap justify-between items-center gap-3"
-      >
-        <a href="#home" class="font-extrabold tracking-tight mr-auto">Yeltay</a>
-        <nav
-          class="order-3 w-full flex items-center justify-center gap-4 font-semibold text-sm sm:order-none sm:w-auto sm:gap-6"
-        >
-          <a href="#mentoring" class="hover:text-blue-700"
-            ><span class="en">Mentoring</span
-            ><span class="ru hidden">Менторство</span></a
-          >
-          <a href="#testimonials" class="hover:text-blue-700"
-            ><span class="en">Testimonials</span
-            ><span class="ru hidden">Отзывы</span></a
-          >
-          <a href="#work" class="hover:text-blue-700"
-            ><span class="en">Product Work</span
-            ><span class="ru hidden">Продукты</span></a
-          >
-          <a href="#resume" class="hover:text-blue-700"
-            ><span class="en">Résumé</span
-            ><span class="ru hidden">Резюме</span></a
-          >
-          <a href="#contact" class="hover:text-blue-700"
-            ><span class="en">Contact</span
-            ><span class="ru hidden">Контакты</span></a
-          >
-          <button
-            id="theme-btn"
-            type="button"
-            aria-label="Toggle theme"
-            aria-pressed="false"
-            class="theme-switch shrink-0"
-          >
-            <span class="theme-switch-thumb">
-              <span class="theme-switch-icon theme-switch-sun">☀</span>
-              <span class="theme-switch-icon theme-switch-moon">☾</span>
-            </span>
-          </button>
-        </nav>
-        <div class="flex items-center gap-2 text-sm font-semibold">
-          <button id="en-btn" type="button" class="text-blue-700 underline">
-            EN
-          </button>
-          <span class="opacity-40">|</span>
-          <button
-            id="ru-btn"
-            type="button"
-            class="text-gray-500 hover:text-blue-700"
-          >
-            RU
-          </button>
+    <header class="sticky top-0 z-50 px-4">
+      <div class="nav-shell max-w-7xl mx-auto px-4">
+        <a href="#home" class="nav-brand">Yeltay</a>
+        <div class="nav-main">
+          <nav class="nav-links">
+            <a href="#mentoring" class="nav-link"
+              ><span class="en">Mentoring</span
+              ><span class="ru hidden">Менторство</span></a
+            >
+            <a href="#testimonials" class="nav-link"
+              ><span class="en">Testimonials</span
+              ><span class="ru hidden">Отзывы</span></a
+            >
+            <a href="#work" class="nav-link"
+              ><span class="en">Product Work</span
+              ><span class="ru hidden">Продукты</span></a
+            >
+            <a href="#resume" class="nav-link"
+              ><span class="en">Résumé</span
+              ><span class="ru hidden">Резюме</span></a
+            >
+            <a href="#contact" class="nav-link"
+              ><span class="en">Contact</span
+              ><span class="ru hidden">Контакты</span></a
+            >
+            <button
+              id="theme-btn"
+              type="button"
+              aria-label="Toggle theme"
+              aria-pressed="false"
+              class="theme-switch shrink-0"
+            >
+              <span class="theme-switch-thumb">
+                <span class="theme-switch-icon theme-switch-sun">☀</span>
+                <span class="theme-switch-icon theme-switch-moon">☾</span>
+              </span>
+            </button>
+          </nav>
+          <div class="locale-switch">
+            <button
+              id="en-btn"
+              type="button"
+              class="locale-btn is-active"
+              aria-pressed="true"
+            >
+              EN
+            </button>
+            <button
+              id="ru-btn"
+              type="button"
+              class="locale-btn"
+              aria-pressed="false"
+            >
+              RU
+            </button>
+          </div>
         </div>
       </div>
     </header>
 
     <!-- Hero / Value prop -->
     <section id="home" class="relative overflow-hidden scroll-mt-16">
-      <div
-        class="max-w-7xl mx-auto px-4 py-20 grid md:grid-cols-2 gap-10 items-center"
-      >
-        <div>
-          <p class="text-sm uppercase tracking-widest text-blue-700 mb-2">
-            <span class="en">Product Manager • Mentor</span>
-            <span class="ru hidden">Продакт-менеджер • Ментор</span>
-          </p>
-          <h1 class="text-4xl md:text-5xl font-extrabold leading-tight">
-            <span class="en">I build products and help people grow.</span>
-            <span class="ru hidden"
-              >Создаю продукты и помогаю людям расти.</span
-            >
-          </h1>
-          <p class="mt-4 text-lg text-gray-700 max-w-xl">
-            <span class="en"
-              >I specialize in EdTech and B2C/B2B growth. As a mentor, I coach
-              IT professionals for interviews, roadmaps, and clear
-              communication.</span
-            >
-            <span class="ru hidden"
-              >Специализируюсь на EdTech и росте B2C/B2B. Как ментор, готовлю
-              IT-специалистов к интервью, презентациям roadmap и чёткой
-              коммуникации.</span
-            >
-          </p>
+      <div class="max-w-7xl mx-auto px-4 py-24 md:py-28">
+        <div class="hero-shell">
+          <div>
+            <p class="section-eyebrow mb-4">
+              <span class="en">Product Manager • Mentor</span>
+              <span class="ru hidden">Продакт-менеджер • Ментор</span>
+            </p>
+            <h1 class="hero-title font-extrabold">
+              <span class="en"
+                >I build products that grow and help people do the same.</span
+              >
+              <span class="ru hidden"
+                >Создаю растущие продукты и помогаю людям расти вместе с
+                ними.</span
+              >
+            </h1>
+            <p class="hero-description mt-6">
+              <span class="en"
+                >I specialize in EdTech and B2C/B2B growth, and I mentor IT
+                professionals on interviews, roadmaps, and executive-level
+                communication.</span
+              >
+              <span class="ru hidden"
+                >Специализируюсь на EdTech и росте B2C/B2B, а также помогаю
+                IT-специалистам прокачивать интервью, roadmap и сильную рабочую
+                коммуникацию.</span
+              >
+            </p>
 
-          <div class="mt-8 flex flex-col sm:flex-row gap-3">
-            <a
-              href="#mentoring"
-              class="px-6 py-3 rounded-full bg-blue-700 text-white font-semibold shadow hover:bg-blue-800"
-            >
+            <div class="mt-8 flex flex-col sm:flex-row gap-3">
+            <a href="#contact" class="btn-primary">
               <span class="en">Book mentoring</span
               ><span class="ru hidden">Записаться на менторство</span>
             </a>
-            <a
-              href="#hire"
-              class="px-6 py-3 rounded-full bg-gray-200 text-gray-900 font-semibold shadow hover:bg-gray-300"
-            >
+            <a href="#contact" class="btn-secondary">
               <span class="en">Hire me</span
               ><span class="ru hidden">Нанять</span>
             </a>
-          </div>
+            </div>
 
-          <!-- Quick proof points -->
-          <ul class="mt-8 grid grid-cols-2 sm:grid-cols-3 gap-4 text-sm">
-            <li class="bg-white rounded-xl p-4 shadow-sm">
-              <div class="font-bold">+1,088% ARR</div>
-              <div class="text-gray-500">
-                <span class="en">from bootstrapped EdTech</span>
-                <span class="ru hidden">в бутстрап-EdTech</span>
-              </div>
-            </li>
-            <li class="bg-white rounded-xl p-4 shadow-sm">
-              <div class="font-bold">2,000+ 1:1</div>
-              <div class="text-gray-500">
-                <span class="en">sessions with IT pros</span>
-                <span class="ru hidden">сессий с IT-специалистами</span>
-              </div>
-            </li>
-            <li class="bg-white rounded-xl p-4 shadow-sm">
-              <div class="font-bold">NPS 87+</div>
-              <div class="text-gray-500">
-                <span class="en">long-term retention</span>
-                <span class="ru hidden">долгая ретенция</span>
-              </div>
-            </li>
-          </ul>
-        </div>
-        <div class="flex justify-center md:justify-end">
-          <img
-            src="./assets/images/my-photo.jpg"
-            alt="Yeltay Bayandinov"
-            class="w-48 h-48 md:w-64 md:h-64 rounded-2xl object-cover shadow-xl"
-          />
+            <ul class="mt-10 grid grid-cols-2 sm:grid-cols-3 gap-4 text-sm">
+              <li class="hero-proof-card rounded-xl p-4 shadow-sm">
+                <div class="hero-proof-value">+1,088% ARR</div>
+                <div class="hero-proof-label">
+                  <span class="en">from bootstrapped EdTech</span>
+                  <span class="ru hidden">в бутстрап-EdTech</span>
+                </div>
+              </li>
+              <li class="hero-proof-card rounded-xl p-4 shadow-sm">
+                <div class="hero-proof-value">2,000+ 1:1</div>
+                <div class="hero-proof-label">
+                  <span class="en">sessions with IT pros</span>
+                  <span class="ru hidden">сессий с IT-специалистами</span>
+                </div>
+              </li>
+              <li class="hero-proof-card rounded-xl p-4 shadow-sm">
+                <div class="hero-proof-value">NPS 87+</div>
+                <div class="hero-proof-label">
+                  <span class="en">long-term retention</span>
+                  <span class="ru hidden">долгая ретенция</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="hero-portrait-shell">
+            <div class="hero-portrait-ring"></div>
+            <img
+              src="./assets/images/my-photo.jpg"
+              alt="Yeltay Bayandinov"
+              class="hero-portrait-image shadow-xl"
+            />
+          </div>
         </div>
       </div>
     </section>
 
     <!-- Mentoring section -->
-    <section id="mentoring" class="py-16 px-4 bg-white scroll-mt-16">
-      <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 items-start">
-        <div>
-          <h2 class="text-3xl font-extrabold">
-            <span class="en">Mentoring for IT Specialists</span>
-            <span class="ru hidden">Менторство для IT-специалистов</span>
-          </h2>
-          <p class="mt-3 text-gray-700">
-            <span class="en"
-              >Practical, career-focused sessions. We work on exactly what moves
-              your career forward.</span
-            >
-            <span class="ru hidden"
-              >Практические, карьерно-ориентированные сессии. Работаем над тем,
-              что реально двигает вашу карьеру.</span
-            >
-          </p>
-          <ul class="mt-6 grid sm:grid-cols-2 gap-3 text-sm">
-            <li class="bg-gray-100 rounded-xl p-4">
-              <span class="en">Mock interviews (PM/Eng, EN)</span>
-              <span class="ru hidden">Пробные интервью (PM/Eng, EN)</span>
-            </li>
-            <li class="bg-gray-100 rounded-xl p-4">
-              <span class="en">Roadmaps & stakeholder comms</span>
-              <span class="ru hidden"
-                >Roadmap и коммуникация со стейкхолдерами</span
+    <section id="mentoring" class="py-16 px-4 scroll-mt-16">
+      <div class="max-w-7xl mx-auto mentor-shell p-8 md:p-10">
+        <div class="grid md:grid-cols-[1.1fr_0.9fr] gap-10 items-start">
+          <div>
+            <p class="section-eyebrow mb-4">
+              <span class="en">Mentoring</span>
+              <span class="ru hidden">Менторство</span>
+            </p>
+            <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight">
+              <span class="en">Mentoring for IT Specialists</span>
+              <span class="ru hidden">Менторство для IT-специалистов</span>
+            </h2>
+            <p class="mt-4 text-lg leading-8 text-gray-700 max-w-2xl">
+              <span class="en"
+                >Practical, outcome-focused sessions for people who want sharper
+                interviews, clearer roadmaps, and stronger communication at
+                work.</span
               >
-            </li>
-            <li class="bg-gray-100 rounded-xl p-4">
-              <span class="en">User stories, specs, PRDs</span>
-              <span class="ru hidden">User stories, спеки, PRD</span>
-            </li>
-            <li class="bg-gray-100 rounded-xl p-4">
-              <span class="en">Presentations & demos</span>
-              <span class="ru hidden">Презентации и демо</span>
-            </li>
-            <li class="bg-gray-100 rounded-xl p-4">
-              <span class="en">Job hunt & portfolio review</span>
-              <span class="ru hidden">Поиск работы и разбор портфолио</span>
-            </li>
-            <li class="bg-gray-100 rounded-xl p-4">
-              <span class="en">English for work (C2)</span>
-              <span class="ru hidden">Английский для работы (C2)</span>
-            </li>
-          </ul>
-          <div class="mt-6 flex flex-wrap gap-3">
-            <a
-              href="https://calendly.com/yeltay/full-1-1"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="px-6 py-3 rounded-full bg-blue-700 text-white font-semibold shadow hover:bg-blue-800"
-              ><span class="en">Free 30-min strategy session</span
-              ><span class="ru hidden">Бесплатная стратегия, 30 минут</span></a
-            >
-            <a
-              href="https://t.me/yelty"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="px-6 py-3 rounded-full bg-gray-200 text-gray-900 font-semibold shadow hover:bg-gray-300"
-              ><span class="en">Chat on Telegram</span
-              ><span class="ru hidden">Написать в Telegram</span></a
-            >
-          </div>
-        </div>
-        <div class="space-y-4">
-          <div class="bg-white border rounded-2xl p-5 shadow-sm">
-            <h3 class="font-bold mb-1">
-              <span class="en">Results you can expect</span>
-              <span class="ru hidden">Результаты</span>
-            </h3>
-            <ul class="list-disc pl-5 text-sm text-gray-700 space-y-1">
-              <li>
-                <span class="en"
-                  >Clear, confident English in interviews & meetings</span
-                >
+              <span class="ru hidden"
+                >Практические, ориентированные на результат сессии для тех, кто
+                хочет сильнее проходить интервью, увереннее вести roadmap и чище
+                коммуницировать на работе.</span
+              >
+            </p>
+            <ul class="mt-8 grid sm:grid-cols-2 gap-3 text-sm">
+              <li class="mentor-chip rounded-xl p-4">
+                <span class="en">Mock interviews (PM/Eng, EN)</span>
+                <span class="ru hidden">Пробные интервью (PM/Eng, EN)</span>
+              </li>
+              <li class="mentor-chip rounded-xl p-4">
+                <span class="en">Roadmaps & stakeholder comms</span>
                 <span class="ru hidden"
-                  >Чёткий, уверенный английский на интервью и встречах</span
+                  >Roadmap и коммуникация со стейкхолдерами</span
                 >
               </li>
-              <li>
-                <span class="en"
-                  >Stronger product storytelling and stakeholder alignment</span
-                >
-                <span class="ru hidden"
-                  >Более сильный product storytelling и alignment со
-                  стейкхолдерами</span
-                >
+              <li class="mentor-chip rounded-xl p-4">
+                <span class="en">User stories, specs, PRDs</span>
+                <span class="ru hidden">User stories, спеки, PRD</span>
               </li>
-              <li>
-                <span class="en"
-                  >Polished PRDs, user stories and docs people actually read</span
-                >
-                <span class="ru hidden"
-                  >Проработанные PRD, user stories и документы, которые правда
-                  читают</span
-                >
+              <li class="mentor-chip rounded-xl p-4">
+                <span class="en">Presentations & demos</span>
+                <span class="ru hidden">Презентации и демо</span>
               </li>
-              <li>
-                <span class="en"
-                  >Faster job search with targeted portfolio & CV</span
-                >
-                <span class="ru hidden"
-                  >Более быстрый поиск работы через точечную доработку
-                  портфолио и CV</span
-                >
+              <li class="mentor-chip rounded-xl p-4">
+                <span class="en">Job hunt & portfolio review</span>
+                <span class="ru hidden">Поиск работы и разбор портфолио</span>
+              </li>
+              <li class="mentor-chip rounded-xl p-4">
+                <span class="en">English for work (C2)</span>
+                <span class="ru hidden">Английский для работы (C2)</span>
               </li>
             </ul>
+            <div class="mt-6 flex flex-wrap gap-3">
+              <a
+                href="https://t.me/yelty"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn-secondary"
+                ><span class="en">Chat on Telegram</span
+                ><span class="ru hidden">Написать в Telegram</span></a
+              >
+            </div>
           </div>
-          <div class="bg-white border rounded-2xl p-5 shadow-sm">
-            <h3 class="font-bold mb-1">
-              <span class="en">Testimonials</span>
-              <span class="ru hidden">Отзывы</span>
-            </h3>
-            <p class="text-sm text-gray-700">
-              <span class="en"
-                >“Practical and direct. My interview answers became crisp, and I
-                landed offers in 4 weeks.” — <em>Software Engineer</em></span
+          <div class="space-y-4">
+            <div class="insight-card rounded-2xl p-6 shadow-sm">
+              <h3 class="font-bold text-lg mb-3">
+                <span class="en">Results you can expect</span>
+                <span class="ru hidden">Результаты</span>
+              </h3>
+              <ul
+                class="list-disc pl-5 text-sm leading-7 text-gray-700 space-y-1"
               >
-              <span class="ru hidden"
-                >«Практично и по делу. Мои ответы на интервью стали чёткими, и я
-                получил офферы за 4 недели». —
-                <em>Software Engineer</em></span
-              >
-            </p>
-            <p class="text-sm text-gray-700 mt-2">
-              <span class="en"
-                >“We re-wrote my roadmap presentation; stakeholders finally said
-                ‘yes’.” — <em>Product Manager</em></span
-              >
-              <span class="ru hidden"
-                >«Мы переписали мою roadmap-презентацию, и стейкхолдеры наконец
-                сказали “да”». — <em>Product Manager</em></span
-              >
-            </p>
+                <li>
+                  <span class="en"
+                    >Clear, confident English in interviews & meetings</span
+                  >
+                  <span class="ru hidden"
+                    >Чёткий, уверенный английский на интервью и встречах</span
+                  >
+                </li>
+                <li>
+                  <span class="en"
+                    >Stronger product storytelling and stakeholder
+                    alignment</span
+                  >
+                  <span class="ru hidden"
+                    >Более сильный product storytelling и alignment со
+                    стейкхолдерами</span
+                  >
+                </li>
+                <li>
+                  <span class="en"
+                    >Polished PRDs, user stories and docs people actually
+                    read</span
+                  >
+                  <span class="ru hidden"
+                    >Проработанные PRD, user stories и документы, которые правда
+                    читают</span
+                  >
+                </li>
+                <li>
+                  <span class="en"
+                    >Faster job search with targeted portfolio & CV</span
+                  >
+                  <span class="ru hidden"
+                    >Более быстрый поиск работы через точечную доработку
+                    портфолио и CV</span
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="insight-card rounded-2xl p-6 shadow-sm">
+              <h3 class="font-bold text-lg mb-3">
+                <span class="en">How sessions usually feel</span>
+                <span class="ru hidden">Как обычно проходит работа</span>
+              </h3>
+              <p class="text-sm leading-7 text-gray-700">
+                <span class="en"
+                  >Direct, structured, and tailored to the next career move that
+                  actually matters. We focus on sharp feedback, practical
+                  rehearsal, and clearer thinking, not generic advice.</span
+                >
+                <span class="ru hidden"
+                  >Прямо, структурно и под следующий карьерный шаг, который
+                  реально важен. Фокус на точной обратной связи, практической
+                  тренировке и более ясном мышлении, а не на общих
+                  советах.</span
+                >
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -776,26 +1276,28 @@
     >
       <div class="max-w-7xl mx-auto">
         <div class="testimonial-shell">
-          <div class="text-center max-w-3xl mx-auto">
-            <p class="text-sm uppercase tracking-[0.3em] text-blue-700">
-              <span class="en">Career stories</span>
-              <span class="ru hidden">Истории роста</span>
+          <div class="text-center max-w-4xl mx-auto">
+            <p class="section-eyebrow">
+              <span class="en">Testimonials</span>
+              <span class="ru hidden">Отзывы</span>
             </p>
-            <h2 class="mt-3 text-3xl md:text-4xl font-extrabold">
-              <span class="en">What clients say after working with Y-Boost</span>
-              <span class="ru hidden"
-                >Что говорят клиенты после работы с Y-Boost</span
-              >
+            <h2
+              class="mt-4 text-3xl sm:text-4xl lg:text-[3.5rem] font-extrabold tracking-tight leading-[1.02]"
+            >
+              <span class="en">Client stories</span>
+              <span class="ru hidden">Истории клиентов</span>
             </h2>
-            <p class="mt-4 text-lg text-gray-700">
+            <p
+              class="mt-5 max-w-2xl mx-auto text-base sm:text-lg leading-8 text-gray-700"
+            >
               <span class="en"
                 >Real feedback from engineers, managers, designers, and founders
                 who strengthened communication, confidence, and career
                 momentum.</span
               >
               <span class="ru hidden"
-                >Реальные отзывы инженеров, менеджеров, дизайнеров и
-                фаундеров, которые усилили коммуникацию, уверенность и карьерный
+                >Реальные отзывы инженеров, менеджеров, дизайнеров и фаундеров,
+                которые усилили коммуникацию, уверенность и карьерный
                 импульс.</span
               >
             </p>
@@ -803,7 +1305,7 @@
 
           <div
             id="testimonials-grid"
-            class="mt-12 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 transition-opacity duration-300 opacity-100"
+            class="mt-10 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 transition-opacity duration-300 opacity-100"
           ></div>
 
           <div class="testimonial-controls">
@@ -831,16 +1333,33 @@
 
     <!-- Product work / credibility -->
     <section id="work" class="py-16 px-4 scroll-mt-16">
-      <div class="max-w-7xl mx-auto">
-        <h2 class="text-3xl font-extrabold">
+      <div class="max-w-7xl mx-auto product-shell p-8 md:p-10">
+        <p class="section-eyebrow mb-4">
+          <span class="en">Product work</span>
+          <span class="ru hidden">Продуктовая работа</span>
+        </p>
+        <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight">
           <span class="en">Selected Product Work</span>
           <span class="ru hidden">Ключевые кейсы</span>
         </h2>
-        <div class="mt-8 grid md:grid-cols-3 gap-6">
+        <p class="mt-4 max-w-3xl text-lg leading-8 text-gray-700">
+          <span class="en"
+            >A few examples that show how I work across growth, discovery, and
+            operating systems, not just feature delivery.</span
+          >
+          <span class="ru hidden"
+            >Несколько кейсов, которые показывают мою работу не только с фичами,
+            но и с ростом, discovery и операционной системой продукта.</span
+          >
+        </p>
+        <div class="mt-10 grid md:grid-cols-3 gap-6">
           <!-- Case 1 -->
-          <article class="bg-white rounded-2xl border p-6 shadow-sm">
-            <h3 class="font-bold">Y-Boost (EdTech)</h3>
-            <p class="text-sm text-gray-700 mt-1">
+          <article class="case-card p-6 shadow-sm">
+            <p class="section-eyebrow !tracking-[0.18em] !text-[0.68rem] mb-3">
+              EdTech
+            </p>
+            <h3 class="text-xl font-bold">Y-Boost</h3>
+            <p class="text-sm leading-7 text-gray-700 mt-3">
               <span class="en"
                 >Bootstrapped service for IT professionals learning English
                 through real-world practice.</span
@@ -850,7 +1369,7 @@
                 практику из реальной работы.</span
               >
             </p>
-            <ul class="mt-3 text-sm text-gray-800 space-y-1">
+            <ul class="mt-4 text-sm text-gray-800 space-y-2">
               <li>
                 <span class="en">• +1,088% ARR growth</span>
                 <span class="ru hidden">• Рост ARR на +1,088%</span>
@@ -866,7 +1385,7 @@
                 >
               </li>
             </ul>
-            <div class="mt-4 flex gap-3">
+            <div class="mt-5 flex gap-4">
               <a
                 href="https://y-boost.com"
                 target="_blank"
@@ -886,12 +1405,15 @@
             </div>
           </article>
           <!-- Case 2 -->
-          <article class="bg-white rounded-2xl border p-6 shadow-sm">
-            <h3 class="font-bold">
+          <article class="case-card p-6 shadow-sm">
+            <p class="section-eyebrow !tracking-[0.18em] !text-[0.68rem] mb-3">
+              Discovery
+            </p>
+            <h3 class="text-xl font-bold">
               <span class="en">Discovery & JTBD</span>
               <span class="ru hidden">Discovery и JTBD</span>
             </h3>
-            <p class="text-sm text-gray-700 mt-1">
+            <p class="text-sm leading-7 text-gray-700 mt-3">
               <span class="en"
                 >Systematic interviews, funnel fixes, and proposition work to
                 reach PMF.</span
@@ -901,7 +1423,7 @@
                 proposition для выхода к PMF.</span
               >
             </p>
-            <ul class="mt-3 text-sm text-gray-800 space-y-1">
+            <ul class="mt-4 text-sm text-gray-800 space-y-2">
               <li>
                 <span class="en">• +38% trial→paid conversion</span>
                 <span class="ru hidden">• +38% к конверсии trial→paid</span>
@@ -926,12 +1448,15 @@
             </ul>
           </article>
           <!-- Case 3 -->
-          <article class="bg-white rounded-2xl border p-6 shadow-sm">
-            <h3 class="font-bold">
+          <article class="case-card p-6 shadow-sm">
+            <p class="section-eyebrow !tracking-[0.18em] !text-[0.68rem] mb-3">
+              Operations
+            </p>
+            <h3 class="text-xl font-bold">
               <span class="en">Team & Ops</span>
               <span class="ru hidden">Команда и операции</span>
             </h3>
-            <p class="text-sm text-gray-700 mt-1">
+            <p class="text-sm leading-7 text-gray-700 mt-3">
               <span class="en"
                 >Lean & Agile ops with behavioral analytics and A/B
                 testing.</span
@@ -941,7 +1466,7 @@
                 тестами.</span
               >
             </p>
-            <ul class="mt-3 text-sm text-gray-800 space-y-1">
+            <ul class="mt-4 text-sm text-gray-800 space-y-2">
               <li>
                 <span class="en">• Built and led a distributed team of 5</span>
                 <span class="ru hidden"
@@ -970,93 +1495,122 @@
     </section>
 
     <!-- Hire me block -->
-    <section id="hire" class="py-16 px-4 bg-white scroll-mt-16">
-      <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 items-center">
-        <div>
-          <h2 class="text-3xl font-extrabold">
-            <span class="en">For Employers</span>
-            <span class="ru hidden">Для работодателей</span>
-          </h2>
-          <p class="mt-3 text-gray-700">
-            <span class="en"
-              >I build sustainable growth with unit economics, discovery, and
-              crisp execution.</span
-            >
-            <span class="ru hidden"
-              >Делаю устойчивый рост за счёт юнит-экономики, discovery и чёткой
-              реализации.</span
-            >
-          </p>
-          <ul class="mt-5 grid sm:grid-cols-2 gap-3 text-sm">
-            <li class="bg-gray-100 rounded-xl p-4">
-              <span class="en">PMF via JTBD & interviews</span>
-              <span class="ru hidden">PMF через JTBD и интервью</span>
-            </li>
-            <li class="bg-gray-100 rounded-xl p-4">
-              <span class="en">Analytics, A/B testing</span>
-              <span class="ru hidden">Аналитика, A/B тестирование</span>
-            </li>
-            <li class="bg-gray-100 rounded-xl p-4">
-              <span class="en">Roadmaps & prioritization</span>
-              <span class="ru hidden">Roadmap и приоритизация</span>
-            </li>
-            <li class="bg-gray-100 rounded-xl p-4">
-              <span class="en">Team leadership & ops</span>
-              <span class="ru hidden">Лидерство команды и операции</span>
-            </li>
-          </ul>
-          <div class="mt-6 flex flex-wrap gap-3">
-            <a
-              href="./assets/pdfs/Yeltay_Bayandinov_Product_Manager.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="px-6 py-3 rounded-full bg-blue-700 text-white font-semibold shadow hover:bg-blue-800"
-              ><span class="en">Download résumé (EN)</span
-              ><span class="ru hidden">Скачать резюме (EN)</span></a
-            >
-            <a
-              href="./assets/pdfs/Yeltay_Bayandinov_Product_Manager_RU.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="px-6 py-3 rounded-full bg-gray-200 text-gray-900 font-semibold shadow hover:bg-gray-300"
-              ><span class="en">Download résumé (RU)</span
-              ><span class="ru hidden">Скачать резюме (RU)</span></a
-            >
+    <section id="hire" class="py-16 px-4 scroll-mt-16">
+      <div class="max-w-7xl mx-auto employer-shell p-8 md:p-10">
+        <div class="grid md:grid-cols-[1.05fr_0.95fr] gap-10 items-center">
+          <div>
+            <p class="section-eyebrow mb-4">
+              <span class="en">For employers</span>
+              <span class="ru hidden">Для работодателей</span>
+            </p>
+            <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight">
+              <span class="en"
+                >A product partner for growth, clarity, and execution</span
+              >
+              <span class="ru hidden"
+                >Продуктовый партнёр для роста, ясности и сильного
+                execution</span
+              >
+            </h2>
+            <p class="mt-4 text-lg leading-8 text-gray-700 max-w-2xl">
+              <span class="en"
+                >I help teams find sharper product direction, build sustainable
+                growth loops, and turn strategy into operating momentum.</span
+              >
+              <span class="ru hidden"
+                >Помогаю командам находить более точное продуктовое направление,
+                строить устойчивые петли роста и превращать стратегию в
+                работающий execution.</span
+              >
+            </p>
+            <ul class="mt-5 grid sm:grid-cols-2 gap-3 text-sm">
+              <li class="employer-chip rounded-xl p-4">
+                <span class="en">PMF via JTBD & interviews</span>
+                <span class="ru hidden">PMF через JTBD и интервью</span>
+              </li>
+              <li class="employer-chip rounded-xl p-4">
+                <span class="en">Analytics, A/B testing</span>
+                <span class="ru hidden">Аналитика, A/B тестирование</span>
+              </li>
+              <li class="employer-chip rounded-xl p-4">
+                <span class="en">Roadmaps & prioritization</span>
+                <span class="ru hidden">Roadmap и приоритизация</span>
+              </li>
+              <li class="employer-chip rounded-xl p-4">
+                <span class="en">Team leadership & ops</span>
+                <span class="ru hidden">Лидерство команды и операции</span>
+              </li>
+            </ul>
+            <div class="mt-6 flex flex-wrap gap-3">
+              <a
+                href="./assets/pdfs/Yeltay_Bayandinov_Product_Manager.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn-primary"
+                ><span class="en">Download résumé (EN)</span
+                ><span class="ru hidden">Скачать резюме (EN)</span></a
+              >
+              <a
+                href="./assets/pdfs/Yeltay_Bayandinov_Product_Manager_RU.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn-secondary"
+                ><span class="en">Download résumé (RU)</span
+                ><span class="ru hidden">Скачать резюме (RU)</span></a
+              >
+            </div>
           </div>
-        </div>
-        <div class="bg-white border rounded-2xl p-6 shadow-sm">
-          <h3 class="font-bold mb-2">
-            <span class="en">Selected Skills & Tools</span>
-            <span class="ru hidden">Навыки и инструменты</span>
-          </h3>
-          <p class="text-sm text-gray-700">
-            <span class="en"
-              >Jira • Confluence • Miro • Figma • Notion • SQL • GA • Tableau •
-              Zapier • Git • React • JavaScript</span
-            >
-            <span class="ru hidden"
-              >Jira • Confluence • Miro • Figma • Notion • SQL • GA • Tableau •
-              Zapier • Git • React • JavaScript</span
-            >
-          </p>
+          <div class="insight-card rounded-2xl p-6 shadow-sm">
+            <h3 class="text-lg font-bold mb-3">
+              <span class="en">Where I add the most value</span>
+              <span class="ru hidden">Где я даю максимум ценности</span>
+            </h3>
+            <p class="text-sm leading-7 text-gray-700">
+              <span class="en"
+                >Early growth questions, product-market fit work, messy
+                prioritization, roadmap communication, and turning lean teams
+                into reliable operating systems.</span
+              >
+              <span class="ru hidden"
+                >Ранний рост, поиск product-market fit, сложная приоритизация,
+                коммуникация roadmap и превращение небольшой команды в надёжную
+                операционную систему.</span
+              >
+            </p>
+            <p class="text-sm text-gray-700 mt-4">
+              <span class="en"
+                >Jira • Confluence • Miro • Figma • Notion • SQL • GA • Tableau
+                • Zapier • Git • React • JavaScript</span
+              >
+              <span class="ru hidden"
+                >Jira • Confluence • Miro • Figma • Notion • SQL • GA • Tableau
+                • Zapier • Git • React • JavaScript</span
+              >
+            </p>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- Résumé -->
     <section id="resume" class="py-16 px-4 scroll-mt-16">
-      <div class="max-w-7xl mx-auto text-center">
-        <h2 class="text-3xl font-extrabold mb-6">
+      <div class="max-w-7xl mx-auto text-center resume-shell p-8 md:p-10">
+        <p class="section-eyebrow mb-4">
+          <span class="en">Résumé</span>
+          <span class="ru hidden">Резюме</span>
+        </p>
+        <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight mb-4">
           <span class="en">My Résumé</span>
           <span class="ru hidden">Моё резюме</span>
         </h2>
-        <p class="text-lg text-gray-700 max-w-2xl mx-auto">
+        <p class="text-lg leading-8 text-gray-700 max-w-2xl mx-auto">
           <span class="en"
-            >Full résumé available in English and Russian. PDF previews
-            below.</span
+            >Full résumé available in English and Russian, with quick previews
+            below for teams that want the high-level scan first.</span
           >
           <span class="ru hidden"
-            >Полное резюме на английском и русском. Превью PDF ниже.</span
+            >Полное резюме доступно на английском и русском, а ниже можно быстро
+            посмотреть превью перед открытием PDF.</span
           >
         </p>
         <div class="mt-10 grid grid-cols-1 md:grid-cols-2 gap-10">
@@ -1066,9 +1620,7 @@
             rel="noopener noreferrer"
             class="group inline-block"
           >
-            <div
-              class="border-8 border-black overflow-hidden w-64 h-64 mx-auto"
-            >
+            <div class="resume-preview-shell overflow-hidden mx-auto">
               <img
                 src="./assets/images/resume_preview_en.jpg"
                 alt="English resume preview"
@@ -1086,9 +1638,7 @@
             rel="noopener noreferrer"
             class="group inline-block"
           >
-            <div
-              class="border-8 border-black overflow-hidden w-64 h-64 mx-auto"
-            >
+            <div class="resume-preview-shell overflow-hidden mx-auto">
               <img
                 src="./assets/images/resume_preview_ru.jpg"
                 alt="Russian resume preview"
@@ -1105,39 +1655,69 @@
     </section>
 
     <!-- Contact -->
-    <section id="contact" class="py-16 px-4 bg-white scroll-mt-16">
-      <div class="max-w-xl mx-auto text-center space-y-4 text-lg">
-        <h2 class="text-3xl font-extrabold mb-2">
+    <section id="contact" class="py-16 px-4 scroll-mt-16">
+      <div class="max-w-3xl mx-auto contact-shell p-8 md:p-10 text-center">
+        <p class="section-eyebrow mb-4">
+          <span class="en">Contact</span>
+          <span class="ru hidden">Контакты</span>
+        </p>
+        <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight mb-4">
           <span class="en">Get in touch</span>
           <span class="ru hidden">Связаться</span>
         </h2>
-        <div>
-          <span class="font-semibold">Email:</span>
-          <a
-            href="mailto:bayandinov13@gmail.com"
-            class="text-blue-700 hover:underline"
-            >bayandinov13@gmail.com</a
+        <p class="max-w-2xl mx-auto text-lg leading-8 text-gray-700">
+          <span class="en"
+            >The fastest next step is a message on Telegram or LinkedIn. If you
+            are hiring, mentoring, or exploring a collaboration, I’m happy to
+            continue there.</span
           >
-        </div>
-        <div>
-          <span class="font-semibold">LinkedIn:</span>
+          <span class="ru hidden"
+            >Самый быстрый следующий шаг — написать в Telegram или LinkedIn.
+            Если вы рассматриваете найм, менторство или совместную работу,
+            продолжим там.</span
+          >
+        </p>
+        <div class="contact-links">
+          <a href="mailto:bayandinov13@gmail.com" class="contact-link-card">
+            <div>
+              <div class="contact-link-label">Email</div>
+              <div class="contact-link-value">bayandinov13@gmail.com</div>
+            </div>
+            <span class="contact-link-action"
+              ><span class="en">Open</span
+              ><span class="ru hidden">Открыть</span></span
+            >
+          </a>
           <a
             href="https://linkedin.com/in/yeltay"
             target="_blank"
             rel="noopener noreferrer"
-            class="text-blue-700 hover:underline"
-            >linkedin.com/in/yeltay</a
+            class="contact-link-card"
           >
-        </div>
-        <div>
-          <span class="font-semibold">Telegram:</span>
+            <div>
+              <div class="contact-link-label">LinkedIn</div>
+              <div class="contact-link-value">linkedin.com/in/yeltay</div>
+            </div>
+            <span class="contact-link-action"
+              ><span class="en">Open</span
+              ><span class="ru hidden">Открыть</span></span
+            >
+          </a>
           <a
             href="https://t.me/yelty"
             target="_blank"
             rel="noopener noreferrer"
-            class="text-blue-700 hover:underline"
-            >@yelty</a
+            class="contact-link-card"
           >
+            <div>
+              <div class="contact-link-label">Telegram</div>
+              <div class="contact-link-value">@yelty</div>
+            </div>
+            <span class="contact-link-action"
+              ><span class="en">Open</span
+              ><span class="ru hidden">Открыть</span></span
+            >
+          </a>
         </div>
       </div>
     </section>
@@ -1160,116 +1740,133 @@
       const testimonialPages = [
         [
           {
-            name: "Irina Atroshonok",
-            title: "QA Engineer",
+            name: "Artem Lomonosov",
+            title: "Design Lead",
+            image: "./assets/testimonials/artem_lomonosov.jpg",
             quote: {
-              en: "Thanks to Y-Boost, I landed a great job at a top international company. Their guidance improved my soft skills and made communicating with colleagues from different cultures so much easier. Living and working abroad feels smoother now.",
-              ru: "Благодаря Y-Boost я получила отличную работу в международной компании. Их помощь улучшила мои soft skills и сделала общение с коллегами из разных культур гораздо проще. Жить и работать за границей стало намного комфортнее."
+              en: "Yeltay's coaching dramatically enhanced my career and communication skills. Colleague interactions are smoother, and work travel is more efficient. Highly recommend for professional growth.",
+              ru: "Коучинг от Ельтай значительно улучшил мои навыки общения. Работа и командировки стали проще и приятнее.",
             },
-            linkedin: "https://www.linkedin.com/in/irina-atroshonok/"
+            linkedin: "https://www.linkedin.com/in/artlomonosov/",
           },
           {
             name: "Alexandr Kazachenko",
             title: "Senior Frontend Developer",
+            image: "./assets/testimonials/alexander_kazachenko.jpg",
             quote: {
-              en: "I'm deeply thankful for Y-Boost's guidance in enhancing my soft skills, which helped me secure a job at a leading international company. The improved communication skills have eased my interactions with diverse colleagues and made living abroad smoother.",
-              ru: "Благодаря Y-Boost я улучшил свои soft skills и получил работу в крупной международной компании. Общение с коллегами стало проще, а переезд комфортнее. Очень рекомендую."
+              en: "I'm deeply thankful for Yeltay's guidance in enhancing my soft skills, which helped me secure a job at a leading international company. The improved communication skills have eased my interactions with diverse colleagues and made living abroad smoother.",
+              ru: "Благодаря Ельтай я улучшил свои soft skills и получил работу в крупной международной компании. Общение с коллегами стало проще, а переезд комфортнее. Очень рекомендую.",
             },
-            linkedin: "https://www.linkedin.com/in/alexandr-kazachenko-237ab7b8/"
+            linkedin:
+              "https://www.linkedin.com/in/alexandr-kazachenko-237ab7b8/",
           },
           {
             name: "Vladimir Sokolov",
             title: ".NET Developer",
+            image: "./assets/testimonials/vladimir_sokolov.jpg",
             quote: {
-              en: "Y-Boost significantly enhanced my soft skills, paving the way for me to secure a position at an international firm. Communication with colleagues has become smooth and effortless, and relocation felt seamless.",
-              ru: "Y-Boost помог прокачать мои soft skills, что открыло двери в международную компанию. Переезд прошел легко, и общение стало естественным."
+              en: "Yeltay significantly enhanced my soft skills, paving the way for me to secure a position at an international firm. Communication with colleagues has become smooth and effortless, and relocation felt seamless.",
+              ru: "Ельтай помог прокачать мои soft skills, что открыло двери в международную компанию. Переезд прошел легко, и общение стало естественным.",
             },
-            linkedin: "https://www.linkedin.com/in/sokoloffvl/"
+            linkedin: "https://www.linkedin.com/in/sokoloffvl/",
           },
+        ],
+        [
           {
-            name: "Artem Lomonosov",
-            title: "Senior Product Designer and DesignOps",
+            name: "Irina Atroshonok",
+            title: "QA Engineer",
+            image: "./assets/testimonials/irina_atroshonok.jpg",
             quote: {
-              en: "Y-Boost's coaching dramatically enhanced my career and communication skills. Colleague interactions are smoother, and work travel is more efficient. Highly recommend for professional growth.",
-              ru: "Коучинг от Y-Boost значительно улучшил мои навыки общения. Работа и командировки стали проще и приятнее."
+              en: "Thanks to Yeltay, I landed a great job at a top international company. Their guidance improved my soft skills and made communicating with colleagues from different cultures so much easier. Living and working abroad feels smoother now.",
+              ru: "Благодаря Ельтай я получила отличную работу в международной компании. Их помощь улучшила мои soft skills и сделала общение с коллегами из разных культур гораздо проще. Жить и работать за границей стало намного комфортнее.",
             },
-            linkedin: "https://www.linkedin.com/in/artem-lomonosov/"
+            linkedin: "https://www.linkedin.com/in/irina-atroshonok/",
           },
           {
             name: "Roman Nevolin",
             title: "Lead Frontend Developer",
+            image: "./assets/testimonials/artem_nevolin.jpg",
             quote: {
-              en: "Y-Boost’s guidance boosted my soft skills, enhancing work performance and colleague interactions. Their support improved my confidence in new environments and eased travel.",
-              ru: "Поддержка от Y-Boost повысила мои soft skills и уверенность при переезде и работе в новых условиях."
+              en: "Yeltay’s guidance boosted my soft skills, enhancing work performance and colleague interactions. Their support improved my confidence in new environments and eased travel.",
+              ru: "Поддержка от Ельтай повысила мои soft skills и уверенность при переезде и работе в новых условиях.",
             },
-            linkedin: "https://www.linkedin.com/in/nulladdict/"
+            linkedin: "https://www.linkedin.com/in/nulladdict/",
           },
           {
             name: "Artem Krivenkov",
             title: "Lead Java Developer",
+            image: "./assets/testimonials/artem_krivenkov.jpg",
             quote: {
-              en: "Y-Boost's training dramatically enhanced my soft skills, boosting my career and easing communication. Thanks to them, traveling is smoother and my confidence in professional interactions has soared.",
-              ru: "Обучение в Y-Boost значительно прокачало мои soft skills, повысило уверенность и сделало рабочие поездки комфортнее."
+              en: "Yeltay's training dramatically enhanced my soft skills, boosting my career and easing communication. Thanks to them, traveling is smoother and my confidence in professional interactions has soared.",
+              ru: "Обучение у Ельтай значительно прокачало мои soft skills, повысило уверенность и сделало рабочие поездки комфортнее.",
             },
-            linkedin: "https://www.linkedin.com/in/artem-krivenkov-42896b296/"
-          }
+            linkedin: "https://www.linkedin.com/in/artem-krivenkov-42896b296/",
+          },
         ],
         [
           {
             name: "Marina Zavgorodnyaya",
             title: "Engineering Manager",
+            image: "./assets/testimonials/marina_zavgorodnyaya.jpg",
             quote: {
-              en: "Thanks to Y-Boost, my career has seen remarkable growth through improved soft skills. Communication with colleagues is more streamlined, and traveling has never been easier.",
-              ru: "С Y-Boost моя карьера резко пошла в гору: soft skills улучшились, и работа с коллегами стала проще."
+              en: "Thanks to Yeltay, my career has seen remarkable growth through improved soft skills. Communication with colleagues is more streamlined, and traveling has never been easier.",
+              ru: "С Ельтай моя карьера резко пошла в гору: soft skills улучшились, и работа с коллегами стала проще.",
             },
-            linkedin: "https://www.linkedin.com/in/marina-zavgorodnyaya-58b4b273/"
+            linkedin:
+              "https://www.linkedin.com/in/marina-zavgorodnyaya-58b4b273/",
           },
           {
             name: "Liza Sudareva",
             title: "Marketing Lead",
+            image: "./assets/testimonials/liza_sudareva.jpg",
             quote: {
-              en: "Y-Boost had a huge impact on my professional life. My soft skills are much stronger, which has led to career growth, better team interactions, and smoother work trips.",
-              ru: "Y-Boost сильно повлиял на мою карьеру. Soft skills на новом уровне, и это улучшило взаимодействие с командой и командировки."
+              en: "Yeltay had a huge impact on my professional life. My soft skills are much stronger, which has led to career growth, better team interactions, and smoother work trips.",
+              ru: "Ельтай сильно повлиял на мою карьеру. Soft skills на новом уровне, и это улучшило взаимодействие с командой и командировки.",
             },
-            linkedin: "https://www.linkedin.com/in/liza-sudareva-0b1b20116/"
+            linkedin: "https://www.linkedin.com/in/liza-sudareva-0b1b20116/",
           },
           {
             name: "Irina Andronova",
             title: "Head of Department",
+            image: "./assets/testimonials/irina_andronova.jpg",
             quote: {
-              en: "Y-Boost’s focus on soft skills has been a game-changer for me. My career’s taken a leap, working with colleagues is simpler, and traveling is more enjoyable.",
-              ru: "Фокус Y-Boost на soft skills кардинально изменил мой карьерный путь. Общение стало легче, а поездки приятнее."
+              en: "Yeltay’s focus on soft skills has been a game-changer for me. My career’s taken a leap, working with colleagues is simpler, and traveling is more enjoyable.",
+              ru: "Фокус Ельтай на soft skills кардинально изменил мой карьерный путь. Общение стало легче, а поездки приятнее.",
             },
-            linkedin: "https://www.linkedin.com/in/iandronova/"
+            linkedin: "https://www.linkedin.com/in/iandronova/",
           },
+        ],
+        [
           {
             name: "Ilya Saldin",
             title: "Senior Software Engineer",
             quote: {
-              en: "Thanks to Y-Boost, my soft skills are on point, and it's doing wonders for my career. I’m getting along better with my team, and traveling for work is a lot easier now.",
-              ru: "Мои soft skills вышли на новый уровень благодаря Y-Boost. Работа с командой и поездки стали комфортнее."
+              en: "Thanks to Yeltay, my soft skills are on point, and it's doing wonders for my career. I’m getting along better with my team, and traveling for work is a lot easier now.",
+              ru: "Мои soft skills вышли на новый уровень благодаря Ельтай. Работа с командой и поездки стали комфортнее.",
             },
-            linkedin: "https://www.linkedin.com/in/ilya-saldin-49200140/"
+            linkedin: "https://www.linkedin.com/in/ilya-saldin-49200140/",
           },
           {
             name: "Gleb Bodiachevskii",
             title: "Founder",
+            image: "./assets/testimonials/gleb_bodiachevskii.jpg",
             quote: {
-              en: "Y-Boost’s training seriously changed how I handle professional communication. I’m better at presenting, my career is moving forward, and business trips are much less stressful.",
-              ru: "Y-Boost кардинально изменил мой подход к профессиональному общению. Карьера пошла вверх, поездки стали проще."
+              en: "Yeltay’s training seriously changed how I handle professional communication. I’m better at presenting, my career is moving forward, and business trips are much less stressful.",
+              ru: "Ельтай кардинально изменил мой подход к профессиональному общению. Карьера пошла вверх, поездки стали проще.",
             },
-            linkedin: "https://www.linkedin.com/in/glebbo/"
+            linkedin: "https://www.linkedin.com/in/glebbo/",
           },
           {
             name: "Olga Krasova",
             title: "Integration Analyst",
+            image: "./assets/testimonials/olga_krasova.jpg",
             quote: {
-              en: "Y-Boost really helped me level up my soft skills. My career’s taken off, chatting with coworkers is smoother, and traveling for work has become a breeze.",
-              ru: "Y-Boost помог мне вывести soft skills на новый уровень. Карьера пошла в гору, общение стало легким."
+              en: "Yeltay really helped me level up my soft skills. My career’s taken off, chatting with coworkers is smoother, and traveling for work has become a breeze.",
+              ru: "Ельтай помог мне вывести soft skills на новый уровень. Карьера пошла в гору, общение стало легким.",
             },
-            linkedin: "https://www.linkedin.com/in/olgamelkova/"
-          }
-        ]
+            linkedin: "https://www.linkedin.com/in/olgamelkova/",
+          },
+        ],
       ];
       let currentTestimonialPage = 0;
       let testimonialSwapTimer = null;
@@ -1314,7 +1911,7 @@
                 aria-pressed="${index === currentTestimonialPage}"
                 data-page="${index}"
               ></button>
-            `
+            `,
           )
           .join("");
 
@@ -1323,7 +1920,7 @@
             button.addEventListener("click", () => {
               showTestimonialPage(Number(button.dataset.page));
             });
-          }
+          },
         );
       }
 
@@ -1339,12 +1936,22 @@
             (testimonial) => `
               <article class="testimonial-card shadow-sm">
                 <div class="flex items-start gap-4">
-                  <div class="testimonial-avatar" aria-hidden="true">${getInitials(
-                    testimonial.name
-                  )}</div>
+                  ${
+                    testimonial.image
+                      ? `<img
+                           src="${testimonial.image}"
+                           alt="${testimonial.name}"
+                           class="testimonial-photo"
+                           loading="lazy"
+                           referrerpolicy="no-referrer"
+                         />`
+                      : `<div class="testimonial-avatar" aria-hidden="true">${getInitials(
+                          testimonial.name,
+                        )}</div>`
+                  }
                   <div>
-                    <h3 class="text-lg font-bold">${testimonial.name}</h3>
-                    <p class="mt-1 text-sm text-gray-500">${testimonial.title}</p>
+                    <h3 class="text-base font-bold leading-tight">${testimonial.name}</h3>
+                    <p class="mt-1 text-xs uppercase tracking-[0.12em] text-gray-500">${testimonial.title}</p>
                     <a
                       href="${testimonial.linkedin}"
                       target="_blank"
@@ -1353,11 +1960,11 @@
                     >${linkedinLabel}</a>
                   </div>
                 </div>
-                <p class="mt-5 text-sm leading-7 text-gray-700">${
+                <p class="testimonial-quote mt-5 text-sm leading-7 text-gray-700">${
                   testimonial.quote[lang] || testimonial.quote.en
                 }</p>
               </article>
-            `
+            `,
           )
           .join("");
 
@@ -1387,7 +1994,7 @@
         themeBtn?.setAttribute("aria-pressed", String(isDark));
         themeBtn?.setAttribute(
           "aria-label",
-          isDark ? "Switch to light theme" : "Switch to dark theme"
+          isDark ? "Switch to light theme" : "Switch to dark theme",
         );
         setStoredValue("theme", isDark ? "dark" : "light");
       }
@@ -1396,12 +2003,10 @@
         const isEN = lang === "en";
         enEls.forEach((el) => el.classList.toggle("hidden", !isEN));
         ruEls.forEach((el) => el.classList.toggle("hidden", isEN));
-        enBtn.classList.toggle("text-blue-700", isEN);
-        enBtn.classList.toggle("underline", isEN);
-        enBtn.classList.toggle("text-gray-500", !isEN);
-        ruBtn.classList.toggle("text-blue-700", !isEN);
-        ruBtn.classList.toggle("underline", !isEN);
-        ruBtn.classList.toggle("text-gray-500", isEN);
+        enBtn.classList.toggle("is-active", isEN);
+        ruBtn.classList.toggle("is-active", !isEN);
+        enBtn.setAttribute("aria-pressed", String(isEN));
+        ruBtn.setAttribute("aria-pressed", String(!isEN));
         setStoredValue("lang", lang);
         document.documentElement.setAttribute("lang", isEN ? "en" : "ru");
         renderTestimonials(lang);
@@ -1409,16 +2014,16 @@
 
       themeBtn?.addEventListener("click", () =>
         applyTheme(
-          document.documentElement.dataset.theme === "dark" ? "light" : "dark"
-        )
+          document.documentElement.dataset.theme === "dark" ? "light" : "dark",
+        ),
       );
       enBtn?.addEventListener("click", () => applyLang("en"));
       ruBtn?.addEventListener("click", () => applyLang("ru"));
       testimonialsPrev?.addEventListener("click", () =>
-        showTestimonialPage(currentTestimonialPage - 1)
+        showTestimonialPage(currentTestimonialPage - 1),
       );
       testimonialsNext?.addEventListener("click", () =>
-        showTestimonialPage(currentTestimonialPage + 1)
+        showTestimonialPage(currentTestimonialPage + 1),
       );
       applyTheme(document.documentElement.dataset.theme || "light");
       applyLang(getStoredValue("lang") || "en");
