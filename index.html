@@ -22,7 +22,10 @@
       property="og:description"
       content="I build and scale products with sustainable unit economics and mentor IT professionals for interviews, presentations, and clear communication."
     />
-    <meta property="og:image" content="./assets/images/og-cover.jpg" />
+    <meta
+      property="og:image"
+      content="https://yeltay.com/assets/images/my-photo.jpg"
+    />
     <meta property="og:url" content="https://yeltay.com/" />
     <meta name="twitter:card" content="summary_large_image" />
 
@@ -31,7 +34,62 @@
 
     <!-- Tailwind -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      (() => {
+        let savedTheme = null;
+
+        try {
+          savedTheme = localStorage.getItem("theme");
+        } catch (error) {
+          savedTheme = null;
+        }
+
+        const preferredTheme =
+          savedTheme ||
+          (window.matchMedia("(prefers-color-scheme: dark)").matches
+            ? "dark"
+            : "light");
+
+        document.documentElement.dataset.theme = preferredTheme;
+      })();
+    </script>
     <style>
+      :root {
+        color-scheme: light;
+        --bg: #f8fafc;
+        --bg-glow: rgba(59, 130, 246, 0.12);
+        --bg-glow-strong: rgba(14, 165, 233, 0.16);
+        --surface: rgba(255, 255, 255, 0.9);
+        --surface-strong: #ffffff;
+        --surface-soft: #e5e7eb;
+        --surface-soft-hover: #d1d5db;
+        --text: #1f2937;
+        --text-muted: #4b5563;
+        --text-soft: #94a3b8;
+        --border: rgba(15, 23, 42, 0.08);
+        --header: rgba(255, 255, 255, 0.72);
+        --shadow: 0 18px 48px rgba(15, 23, 42, 0.08);
+        --shadow-soft: 0 10px 28px rgba(15, 23, 42, 0.08);
+      }
+
+      html[data-theme="dark"] {
+        color-scheme: dark;
+        --bg: #08111f;
+        --bg-glow: rgba(59, 130, 246, 0.16);
+        --bg-glow-strong: rgba(34, 197, 94, 0.14);
+        --surface: rgba(15, 23, 42, 0.9);
+        --surface-strong: #111827;
+        --surface-soft: #1f2937;
+        --surface-soft-hover: #334155;
+        --text: #e5eefb;
+        --text-muted: #cbd5e1;
+        --text-soft: #94a3b8;
+        --border: rgba(148, 163, 184, 0.18);
+        --header: rgba(8, 17, 31, 0.78);
+        --shadow: 0 22px 60px rgba(2, 6, 23, 0.38);
+        --shadow-soft: 0 14px 36px rgba(2, 6, 23, 0.3);
+      }
+
       body {
         font-family:
           system-ui,
@@ -44,6 +102,374 @@
           "Segoe UI Emoji",
           "Segoe UI Symbol",
           sans-serif;
+        background:
+          radial-gradient(circle at top left, var(--bg-glow), transparent 30%),
+          radial-gradient(
+            circle at top right,
+            var(--bg-glow-strong),
+            transparent 28%
+          ),
+          var(--bg);
+        color: var(--text);
+        transition:
+          background-color 220ms ease,
+          color 220ms ease;
+      }
+
+      body,
+      header,
+      section,
+      article,
+      div,
+      a,
+      button,
+      img {
+        transition:
+          background-color 220ms ease,
+          border-color 220ms ease,
+          color 220ms ease,
+          box-shadow 220ms ease;
+      }
+
+      header {
+        background: var(--header);
+        border-bottom: 1px solid var(--border);
+      }
+
+      html[data-theme="dark"] body {
+        background:
+          radial-gradient(circle at top left, rgba(59, 130, 246, 0.2), transparent 32%),
+          radial-gradient(
+            circle at top right,
+            rgba(16, 185, 129, 0.16),
+            transparent 30%
+          ),
+          #08111f !important;
+        color: #e5eefb !important;
+      }
+
+      .bg-white {
+        background-color: var(--surface-strong);
+      }
+
+      .bg-gray-100,
+      .bg-gray-200 {
+        background-color: var(--surface-soft);
+      }
+
+      .text-gray-900,
+      .text-gray-800 {
+        color: var(--text);
+      }
+
+      .text-gray-700,
+      .text-gray-500,
+      .text-gray-400 {
+        color: var(--text-muted);
+      }
+
+      .border,
+      .border-black {
+        border-color: var(--border);
+      }
+
+      .shadow-sm,
+      .shadow,
+      .shadow-xl {
+        box-shadow: var(--shadow-soft);
+      }
+
+      .theme-switch {
+        display: inline-flex;
+        align-items: center;
+        width: 3.45rem;
+        height: 1.95rem;
+        padding: 0.16rem;
+        border-radius: 999px;
+        background:
+          linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(226, 232, 240, 0.92));
+        border: 1px solid rgba(148, 163, 184, 0.28);
+        box-shadow:
+          inset 0 2px 8px rgba(255, 255, 255, 0.92),
+          inset 0 -6px 12px rgba(148, 163, 184, 0.22),
+          0 12px 28px rgba(15, 23, 42, 0.14);
+      }
+
+      .theme-switch:hover {
+        transform: translateY(-1px);
+        box-shadow:
+          inset 0 2px 8px rgba(255, 255, 255, 0.92),
+          inset 0 -6px 12px rgba(148, 163, 184, 0.2),
+          0 16px 30px rgba(15, 23, 42, 0.16);
+      }
+
+      .theme-switch-thumb {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 1.62rem;
+        height: 1.62rem;
+        border-radius: 999px;
+        background: linear-gradient(180deg, #ffffff, #f8fafc);
+        box-shadow:
+          0 10px 18px rgba(148, 163, 184, 0.34),
+          inset 0 1px 0 rgba(255, 255, 255, 0.9);
+        transform: translateX(0);
+      }
+
+      .theme-switch-icon {
+        line-height: 1;
+        font-size: 0.92rem;
+      }
+
+      .theme-switch-sun {
+        color: #f7c948;
+      }
+
+      .theme-switch-moon {
+        display: none;
+        color: #f8fafc;
+      }
+
+      html[data-theme="dark"] .theme-switch {
+        background:
+          linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(203, 213, 225, 0.88));
+        border-color: rgba(226, 232, 240, 0.34);
+        box-shadow:
+          inset 0 2px 8px rgba(255, 255, 255, 0.92),
+          inset 0 -8px 14px rgba(148, 163, 184, 0.22),
+          0 16px 34px rgba(2, 6, 23, 0.34);
+      }
+
+      html[data-theme="dark"] .theme-switch-thumb {
+        background: linear-gradient(180deg, #252528, #18181b);
+        box-shadow:
+          0 12px 20px rgba(2, 6, 23, 0.35),
+          inset 0 1px 0 rgba(255, 255, 255, 0.06);
+        transform: translateX(1.48rem);
+      }
+
+      html[data-theme="dark"] .theme-switch-sun {
+        display: none;
+      }
+
+      html[data-theme="dark"] .theme-switch-moon {
+        display: inline;
+      }
+
+      html[data-theme="dark"] .hover\:bg-gray-300:hover {
+        background-color: #334155;
+        color: #f8fafc;
+      }
+
+      html[data-theme="light"] .hover\:bg-gray-300:hover {
+        background-color: #d1d5db;
+      }
+
+      html[data-theme="dark"] .hover\:text-blue-700:hover {
+        color: #93c5fd;
+      }
+
+      html[data-theme="dark"] .backdrop-blur {
+        backdrop-filter: blur(18px);
+      }
+
+      html[data-theme="dark"] header,
+      html[data-theme="dark"] .bg-white,
+      html[data-theme="dark"] .bg-white\/70 {
+        background-color: #0f172a !important;
+        background: rgba(8, 17, 31, 0.86) !important;
+        border-color: rgba(148, 163, 184, 0.18) !important;
+      }
+
+      html[data-theme="dark"] .bg-gray-100,
+      html[data-theme="dark"] .bg-gray-200 {
+        background-color: #182334 !important;
+        border-color: rgba(148, 163, 184, 0.16) !important;
+      }
+
+      html[data-theme="dark"] .text-gray-900,
+      html[data-theme="dark"] .text-gray-800,
+      html[data-theme="dark"] .font-bold,
+      html[data-theme="dark"] h1,
+      html[data-theme="dark"] h2,
+      html[data-theme="dark"] h3,
+      html[data-theme="dark"] a:not(.bg-blue-700):not(.bg-gray-200),
+      html[data-theme="dark"] button {
+        color: #e5eefb !important;
+      }
+
+      html[data-theme="dark"] .text-gray-700,
+      html[data-theme="dark"] .text-gray-500,
+      html[data-theme="dark"] .text-gray-400,
+      html[data-theme="dark"] p,
+      html[data-theme="dark"] li,
+      html[data-theme="dark"] footer {
+        color: #cbd5e1 !important;
+      }
+
+      html[data-theme="dark"] .text-blue-700 {
+        color: #93c5fd !important;
+      }
+
+      html[data-theme="dark"] .bg-blue-700 {
+        background-color: #2563eb !important;
+        color: #eff6ff !important;
+      }
+
+      html[data-theme="dark"] .hover\:bg-blue-800:hover {
+        background-color: #1d4ed8 !important;
+      }
+
+      html[data-theme="dark"] .hover\:underline:hover,
+      html[data-theme="dark"] .hover\:text-blue-700:hover {
+        color: #bfdbfe !important;
+      }
+
+      html[data-theme="dark"] .border,
+      html[data-theme="dark"] .border-black {
+        border-color: rgba(148, 163, 184, 0.2) !important;
+      }
+
+      html[data-theme="dark"] .shadow-sm,
+      html[data-theme="dark"] .shadow,
+      html[data-theme="dark"] .shadow-xl {
+        box-shadow: 0 16px 42px rgba(2, 6, 23, 0.36) !important;
+      }
+
+      .testimonial-section {
+        position: relative;
+      }
+
+      .testimonial-shell {
+        padding: 2rem;
+        border-radius: 2rem;
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(241, 245, 249, 0.88));
+        border: 1px solid rgba(148, 163, 184, 0.14);
+        box-shadow: 0 26px 56px rgba(15, 23, 42, 0.1);
+      }
+
+      .testimonial-card {
+        height: 100%;
+        padding: 1.5rem;
+        border-radius: 1.5rem;
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(248, 250, 252, 0.92));
+        border: 1px solid rgba(148, 163, 184, 0.16);
+      }
+
+      .testimonial-avatar {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 3.4rem;
+        height: 3.4rem;
+        flex-shrink: 0;
+        border-radius: 999px;
+        background:
+          radial-gradient(circle at 30% 30%, #bfdbfe, transparent 55%),
+          linear-gradient(145deg, #2563eb, #7c3aed);
+        color: white;
+        font-size: 1rem;
+        font-weight: 800;
+        letter-spacing: 0.04em;
+        box-shadow: 0 14px 28px rgba(37, 99, 235, 0.24);
+      }
+
+      .testimonial-link {
+        color: #2563eb;
+        font-weight: 600;
+      }
+
+      .testimonial-link:hover {
+        color: #1d4ed8;
+      }
+
+      .testimonial-controls {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.9rem;
+        margin-top: 2rem;
+      }
+
+      .testimonial-arrow {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 2.8rem;
+        height: 2.8rem;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.9);
+        border: 1px solid rgba(148, 163, 184, 0.16);
+        color: var(--text);
+        box-shadow: 0 12px 24px rgba(15, 23, 42, 0.08);
+      }
+
+      .testimonial-arrow:hover {
+        background: rgba(59, 130, 246, 0.1);
+        color: #1d4ed8;
+      }
+
+      .testimonial-dots {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.6rem;
+      }
+
+      .testimonial-dot {
+        width: 0.75rem;
+        height: 0.75rem;
+        border-radius: 999px;
+        background: rgba(148, 163, 184, 0.5);
+      }
+
+      .testimonial-dot.is-active {
+        background: #2563eb;
+        box-shadow: 0 0 0 6px rgba(37, 99, 235, 0.12);
+      }
+
+      html[data-theme="dark"] .testimonial-shell {
+        background:
+          linear-gradient(180deg, rgba(9, 18, 34, 0.9), rgba(15, 23, 42, 0.94));
+        border-color: rgba(148, 163, 184, 0.16);
+        box-shadow: 0 30px 60px rgba(2, 6, 23, 0.34);
+      }
+
+      html[data-theme="dark"] .testimonial-card {
+        background:
+          linear-gradient(180deg, rgba(15, 23, 42, 0.96), rgba(18, 31, 52, 0.92));
+        border-color: rgba(148, 163, 184, 0.14);
+      }
+
+      html[data-theme="dark"] .testimonial-link {
+        color: #93c5fd;
+      }
+
+      html[data-theme="dark"] .testimonial-link:hover {
+        color: #bfdbfe;
+      }
+
+      html[data-theme="dark"] .testimonial-arrow {
+        background: rgba(15, 23, 42, 0.92);
+        border-color: rgba(148, 163, 184, 0.16);
+        color: #e5eefb;
+        box-shadow: 0 14px 28px rgba(2, 6, 23, 0.28);
+      }
+
+      html[data-theme="dark"] .testimonial-arrow:hover {
+        background: rgba(37, 99, 235, 0.18);
+        color: #bfdbfe;
+      }
+
+      html[data-theme="dark"] .testimonial-dot {
+        background: rgba(148, 163, 184, 0.42);
+      }
+
+      html[data-theme="dark"] .testimonial-dot.is-active {
+        background: #93c5fd;
+        box-shadow: 0 0 0 6px rgba(147, 197, 253, 0.14);
       }
     </style>
 
@@ -68,13 +494,19 @@
     <!-- Sticky Navbar (always visible) -->
     <header class="sticky top-0 z-50 backdrop-blur bg-white/70 shadow-sm">
       <div
-        class="h-16 max-w-7xl mx-auto px-4 flex justify-between items-center"
+        class="min-h-16 max-w-7xl mx-auto px-4 py-3 flex flex-wrap justify-between items-center gap-3"
       >
-        <a href="#home" class="font-extrabold tracking-tight">Yeltay</a>
-        <nav class="flex items-center gap-6 font-semibold text-sm">
+        <a href="#home" class="font-extrabold tracking-tight mr-auto">Yeltay</a>
+        <nav
+          class="order-3 w-full flex items-center justify-center gap-4 font-semibold text-sm sm:order-none sm:w-auto sm:gap-6"
+        >
           <a href="#mentoring" class="hover:text-blue-700"
             ><span class="en">Mentoring</span
             ><span class="ru hidden">Менторство</span></a
+          >
+          <a href="#testimonials" class="hover:text-blue-700"
+            ><span class="en">Testimonials</span
+            ><span class="ru hidden">Отзывы</span></a
           >
           <a href="#work" class="hover:text-blue-700"
             ><span class="en">Product Work</span
@@ -88,11 +520,29 @@
             ><span class="en">Contact</span
             ><span class="ru hidden">Контакты</span></a
           >
+          <button
+            id="theme-btn"
+            type="button"
+            aria-label="Toggle theme"
+            aria-pressed="false"
+            class="theme-switch shrink-0"
+          >
+            <span class="theme-switch-thumb">
+              <span class="theme-switch-icon theme-switch-sun">☀</span>
+              <span class="theme-switch-icon theme-switch-moon">☾</span>
+            </span>
+          </button>
         </nav>
         <div class="flex items-center gap-2 text-sm font-semibold">
-          <button id="en-btn" class="text-blue-700 underline">EN</button>
+          <button id="en-btn" type="button" class="text-blue-700 underline">
+            EN
+          </button>
           <span class="opacity-40">|</span>
-          <button id="ru-btn" class="text-gray-500 hover:text-blue-700">
+          <button
+            id="ru-btn"
+            type="button"
+            class="text-gray-500 hover:text-blue-700"
+          >
             RU
           </button>
         </div>
@@ -200,24 +650,37 @@
           </p>
           <ul class="mt-6 grid sm:grid-cols-2 gap-3 text-sm">
             <li class="bg-gray-100 rounded-xl p-4">
-              Mock interviews (PM/Eng, EN)
+              <span class="en">Mock interviews (PM/Eng, EN)</span>
+              <span class="ru hidden">Пробные интервью (PM/Eng, EN)</span>
             </li>
             <li class="bg-gray-100 rounded-xl p-4">
-              Roadmaps & stakeholder comms
+              <span class="en">Roadmaps & stakeholder comms</span>
+              <span class="ru hidden"
+                >Roadmap и коммуникация со стейкхолдерами</span
+              >
             </li>
             <li class="bg-gray-100 rounded-xl p-4">
-              User stories, specs, PRDs
+              <span class="en">User stories, specs, PRDs</span>
+              <span class="ru hidden">User stories, спеки, PRD</span>
             </li>
-            <li class="bg-gray-100 rounded-xl p-4">Presentations & demos</li>
             <li class="bg-gray-100 rounded-xl p-4">
-              Job hunt & portfolio review
+              <span class="en">Presentations & demos</span>
+              <span class="ru hidden">Презентации и демо</span>
             </li>
-            <li class="bg-gray-100 rounded-xl p-4">English for work (C2)</li>
+            <li class="bg-gray-100 rounded-xl p-4">
+              <span class="en">Job hunt & portfolio review</span>
+              <span class="ru hidden">Поиск работы и разбор портфолио</span>
+            </li>
+            <li class="bg-gray-100 rounded-xl p-4">
+              <span class="en">English for work (C2)</span>
+              <span class="ru hidden">Английский для работы (C2)</span>
+            </li>
           </ul>
           <div class="mt-6 flex flex-wrap gap-3">
             <a
               href="https://calendly.com/yeltay/full-1-1"
               target="_blank"
+              rel="noopener noreferrer"
               class="px-6 py-3 rounded-full bg-blue-700 text-white font-semibold shadow hover:bg-blue-800"
               ><span class="en">Free 30-min strategy session</span
               ><span class="ru hidden">Бесплатная стратегия, 30 минут</span></a
@@ -225,6 +688,7 @@
             <a
               href="https://t.me/yelty"
               target="_blank"
+              rel="noopener noreferrer"
               class="px-6 py-3 rounded-full bg-gray-200 text-gray-900 font-semibold shadow hover:bg-gray-300"
               ><span class="en">Chat on Telegram</span
               ><span class="ru hidden">Написать в Telegram</span></a
@@ -238,22 +702,128 @@
               <span class="ru hidden">Результаты</span>
             </h3>
             <ul class="list-disc pl-5 text-sm text-gray-700 space-y-1">
-              <li>Clear, confident English in interviews & meetings</li>
-              <li>Stronger product storytelling and stakeholder alignment</li>
-              <li>Polished PRDs, user stories and docs people actually read</li>
-              <li>Faster job search with targeted portfolio & CV</li>
+              <li>
+                <span class="en"
+                  >Clear, confident English in interviews & meetings</span
+                >
+                <span class="ru hidden"
+                  >Чёткий, уверенный английский на интервью и встречах</span
+                >
+              </li>
+              <li>
+                <span class="en"
+                  >Stronger product storytelling and stakeholder alignment</span
+                >
+                <span class="ru hidden"
+                  >Более сильный product storytelling и alignment со
+                  стейкхолдерами</span
+                >
+              </li>
+              <li>
+                <span class="en"
+                  >Polished PRDs, user stories and docs people actually read</span
+                >
+                <span class="ru hidden"
+                  >Проработанные PRD, user stories и документы, которые правда
+                  читают</span
+                >
+              </li>
+              <li>
+                <span class="en"
+                  >Faster job search with targeted portfolio & CV</span
+                >
+                <span class="ru hidden"
+                  >Более быстрый поиск работы через точечную доработку
+                  портфолио и CV</span
+                >
+              </li>
             </ul>
           </div>
           <div class="bg-white border rounded-2xl p-5 shadow-sm">
-            <h3 class="font-bold mb-1">Testimonials</h3>
+            <h3 class="font-bold mb-1">
+              <span class="en">Testimonials</span>
+              <span class="ru hidden">Отзывы</span>
+            </h3>
             <p class="text-sm text-gray-700">
-              “Practical and direct. My interview answers became crisp, and I
-              landed offers in 4 weeks.” — <em>Software Engineer</em>
+              <span class="en"
+                >“Practical and direct. My interview answers became crisp, and I
+                landed offers in 4 weeks.” — <em>Software Engineer</em></span
+              >
+              <span class="ru hidden"
+                >«Практично и по делу. Мои ответы на интервью стали чёткими, и я
+                получил офферы за 4 недели». —
+                <em>Software Engineer</em></span
+              >
             </p>
             <p class="text-sm text-gray-700 mt-2">
-              “We re-wrote my roadmap presentation; stakeholders finally said
-              ‘yes’.” — <em>Product Manager</em>
+              <span class="en"
+                >“We re-wrote my roadmap presentation; stakeholders finally said
+                ‘yes’.” — <em>Product Manager</em></span
+              >
+              <span class="ru hidden"
+                >«Мы переписали мою roadmap-презентацию, и стейкхолдеры наконец
+                сказали “да”». — <em>Product Manager</em></span
+              >
             </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      id="testimonials"
+      class="testimonial-section py-20 px-4 scroll-mt-24"
+    >
+      <div class="max-w-7xl mx-auto">
+        <div class="testimonial-shell">
+          <div class="text-center max-w-3xl mx-auto">
+            <p class="text-sm uppercase tracking-[0.3em] text-blue-700">
+              <span class="en">Career stories</span>
+              <span class="ru hidden">Истории роста</span>
+            </p>
+            <h2 class="mt-3 text-3xl md:text-4xl font-extrabold">
+              <span class="en">What clients say after working with Y-Boost</span>
+              <span class="ru hidden"
+                >Что говорят клиенты после работы с Y-Boost</span
+              >
+            </h2>
+            <p class="mt-4 text-lg text-gray-700">
+              <span class="en"
+                >Real feedback from engineers, managers, designers, and founders
+                who strengthened communication, confidence, and career
+                momentum.</span
+              >
+              <span class="ru hidden"
+                >Реальные отзывы инженеров, менеджеров, дизайнеров и
+                фаундеров, которые усилили коммуникацию, уверенность и карьерный
+                импульс.</span
+              >
+            </p>
+          </div>
+
+          <div
+            id="testimonials-grid"
+            class="mt-12 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 transition-opacity duration-300 opacity-100"
+          ></div>
+
+          <div class="testimonial-controls">
+            <button
+              id="testimonials-prev"
+              type="button"
+              class="testimonial-arrow"
+              aria-label="Previous testimonials"
+            >
+              &#8592;
+            </button>
+            <div id="testimonials-dots" class="testimonial-dots"></div>
+            <button
+              id="testimonials-next"
+              type="button"
+              class="testimonial-arrow"
+              aria-label="Next testimonials"
+            >
+              &#8594;
+            </button>
           </div>
         </div>
       </div>
@@ -271,52 +841,128 @@
           <article class="bg-white rounded-2xl border p-6 shadow-sm">
             <h3 class="font-bold">Y-Boost (EdTech)</h3>
             <p class="text-sm text-gray-700 mt-1">
-              Bootstrapped service for IT professionals learning English through
-              real-world practice.
+              <span class="en"
+                >Bootstrapped service for IT professionals learning English
+                through real-world practice.</span
+              >
+              <span class="ru hidden"
+                >Бутстрап-сервис для IT-специалистов, изучающих английский через
+                практику из реальной работы.</span
+              >
             </p>
             <ul class="mt-3 text-sm text-gray-800 space-y-1">
-              <li>• +1,088% ARR growth</li>
-              <li>• 300+ VIP clients across 8 countries</li>
-              <li>• NPS 87+, retention 1.8y, LTV $1,200+</li>
+              <li>
+                <span class="en">• +1,088% ARR growth</span>
+                <span class="ru hidden">• Рост ARR на +1,088%</span>
+              </li>
+              <li>
+                <span class="en">• 300+ VIP clients across 8 countries</span>
+                <span class="ru hidden">• 300+ VIP-клиентов в 8 странах</span>
+              </li>
+              <li>
+                <span class="en">• NPS 87+, retention 1.8y, LTV $1,200+</span>
+                <span class="ru hidden"
+                  >• NPS 87+, retention 1.8 года, LTV $1,200+</span
+                >
+              </li>
             </ul>
             <div class="mt-4 flex gap-3">
               <a
                 href="https://y-boost.com"
                 target="_blank"
+                rel="noopener noreferrer"
                 class="text-blue-700 font-semibold hover:underline"
-                >Website</a
+                ><span class="en">Website</span
+                ><span class="ru hidden">Сайт</span></a
               >
               <a
                 href="./assets/pdfs/Yeltay_Bayandinov_Product_Manager.pdf"
                 target="_blank"
+                rel="noopener noreferrer"
                 class="text-blue-700 font-semibold hover:underline"
-                >One-page résumé</a
+                ><span class="en">One-page résumé</span
+                ><span class="ru hidden">Резюме на одной странице</span></a
               >
             </div>
           </article>
           <!-- Case 2 -->
           <article class="bg-white rounded-2xl border p-6 shadow-sm">
-            <h3 class="font-bold">Discovery & JTBD</h3>
+            <h3 class="font-bold">
+              <span class="en">Discovery & JTBD</span>
+              <span class="ru hidden">Discovery и JTBD</span>
+            </h3>
             <p class="text-sm text-gray-700 mt-1">
-              Systematic interviews, funnel fixes, and proposition work to reach
-              PMF.
+              <span class="en"
+                >Systematic interviews, funnel fixes, and proposition work to
+                reach PMF.</span
+              >
+              <span class="ru hidden"
+                >Системные интервью, исправление воронки и работа над value
+                proposition для выхода к PMF.</span
+              >
             </p>
             <ul class="mt-3 text-sm text-gray-800 space-y-1">
-              <li>• +38% trial→paid conversion</li>
-              <li>• +420% paid conversion after funnel overhaul</li>
-              <li>• Built MVP (Astro/JS/Tailwind) at 10% of prior cost</li>
+              <li>
+                <span class="en">• +38% trial→paid conversion</span>
+                <span class="ru hidden">• +38% к конверсии trial→paid</span>
+              </li>
+              <li>
+                <span class="en"
+                  >• +420% paid conversion after funnel overhaul</span
+                >
+                <span class="ru hidden"
+                  >• +420% к paid conversion после переделки воронки</span
+                >
+              </li>
+              <li>
+                <span class="en"
+                  >• Built MVP (Astro/JS/Tailwind) at 10% of prior cost</span
+                >
+                <span class="ru hidden"
+                  >• Собрал MVP (Astro/JS/Tailwind) за 10% от прежней
+                  стоимости</span
+                >
+              </li>
             </ul>
           </article>
           <!-- Case 3 -->
           <article class="bg-white rounded-2xl border p-6 shadow-sm">
-            <h3 class="font-bold">Team & Ops</h3>
+            <h3 class="font-bold">
+              <span class="en">Team & Ops</span>
+              <span class="ru hidden">Команда и операции</span>
+            </h3>
             <p class="text-sm text-gray-700 mt-1">
-              Lean & Agile ops with behavioral analytics and A/B testing.
+              <span class="en"
+                >Lean & Agile ops with behavioral analytics and A/B
+                testing.</span
+              >
+              <span class="ru hidden"
+                >Lean- и Agile-операции с поведенческой аналитикой и A/B
+                тестами.</span
+              >
             </p>
             <ul class="mt-3 text-sm text-gray-800 space-y-1">
-              <li>• Built and led a distributed team of 5</li>
-              <li>• Tripled capacity with flat costs</li>
-              <li>• Customer sat. 95%+ across 2,000+ sessions</li>
+              <li>
+                <span class="en">• Built and led a distributed team of 5</span>
+                <span class="ru hidden"
+                  >• Собрал и руководил распределённой командой из 5
+                  человек</span
+                >
+              </li>
+              <li>
+                <span class="en">• Tripled capacity with flat costs</span>
+                <span class="ru hidden"
+                  >• Утроил capacity без роста затрат</span
+                >
+              </li>
+              <li>
+                <span class="en"
+                  >• Customer sat. 95%+ across 2,000+ sessions</span
+                >
+                <span class="ru hidden"
+                  >• Удовлетворённость клиентов 95%+ на 2,000+ сессиях</span
+                >
+              </li>
             </ul>
           </article>
         </div>
@@ -343,18 +989,27 @@
           </p>
           <ul class="mt-5 grid sm:grid-cols-2 gap-3 text-sm">
             <li class="bg-gray-100 rounded-xl p-4">
-              PMF via JTBD & interviews
+              <span class="en">PMF via JTBD & interviews</span>
+              <span class="ru hidden">PMF через JTBD и интервью</span>
             </li>
-            <li class="bg-gray-100 rounded-xl p-4">Analytics, A/B testing</li>
             <li class="bg-gray-100 rounded-xl p-4">
-              Roadmaps & prioritization
+              <span class="en">Analytics, A/B testing</span>
+              <span class="ru hidden">Аналитика, A/B тестирование</span>
             </li>
-            <li class="bg-gray-100 rounded-xl p-4">Team leadership & ops</li>
+            <li class="bg-gray-100 rounded-xl p-4">
+              <span class="en">Roadmaps & prioritization</span>
+              <span class="ru hidden">Roadmap и приоритизация</span>
+            </li>
+            <li class="bg-gray-100 rounded-xl p-4">
+              <span class="en">Team leadership & ops</span>
+              <span class="ru hidden">Лидерство команды и операции</span>
+            </li>
           </ul>
           <div class="mt-6 flex flex-wrap gap-3">
             <a
               href="./assets/pdfs/Yeltay_Bayandinov_Product_Manager.pdf"
               target="_blank"
+              rel="noopener noreferrer"
               class="px-6 py-3 rounded-full bg-blue-700 text-white font-semibold shadow hover:bg-blue-800"
               ><span class="en">Download résumé (EN)</span
               ><span class="ru hidden">Скачать резюме (EN)</span></a
@@ -362,6 +1017,7 @@
             <a
               href="./assets/pdfs/Yeltay_Bayandinov_Product_Manager_RU.pdf"
               target="_blank"
+              rel="noopener noreferrer"
               class="px-6 py-3 rounded-full bg-gray-200 text-gray-900 font-semibold shadow hover:bg-gray-300"
               ><span class="en">Download résumé (RU)</span
               ><span class="ru hidden">Скачать резюме (RU)</span></a
@@ -374,8 +1030,14 @@
             <span class="ru hidden">Навыки и инструменты</span>
           </h3>
           <p class="text-sm text-gray-700">
-            Jira • Confluence • Miro • Figma • Notion • SQL • GA • Tableau •
-            Zapier • Git • React • JavaScript
+            <span class="en"
+              >Jira • Confluence • Miro • Figma • Notion • SQL • GA • Tableau •
+              Zapier • Git • React • JavaScript</span
+            >
+            <span class="ru hidden"
+              >Jira • Confluence • Miro • Figma • Notion • SQL • GA • Tableau •
+              Zapier • Git • React • JavaScript</span
+            >
           </p>
         </div>
       </div>
@@ -401,6 +1063,7 @@
           <a
             href="./assets/pdfs/Yeltay_Bayandinov_Product_Manager.pdf"
             target="_blank"
+            rel="noopener noreferrer"
             class="group inline-block"
           >
             <div
@@ -420,6 +1083,7 @@
           <a
             href="./assets/pdfs/Yeltay_Bayandinov_Product_Manager_RU.pdf"
             target="_blank"
+            rel="noopener noreferrer"
             class="group inline-block"
           >
             <div
@@ -432,7 +1096,8 @@
               />
             </div>
             <span class="block mt-3 font-bold group-hover:underline"
-              >Открыть PDF</span
+              ><span class="en">View as PDF</span
+              ><span class="ru hidden">Открыть PDF</span></span
             >
           </a>
         </div>
@@ -459,6 +1124,7 @@
           <a
             href="https://linkedin.com/in/yeltay"
             target="_blank"
+            rel="noopener noreferrer"
             class="text-blue-700 hover:underline"
             >linkedin.com/in/yeltay</a
           >
@@ -468,6 +1134,7 @@
           <a
             href="https://t.me/yelty"
             target="_blank"
+            rel="noopener noreferrer"
             class="text-blue-700 hover:underline"
             >@yelty</a
           >
@@ -481,10 +1148,249 @@
 
     <!-- Language Switcher -->
     <script>
+      const themeBtn = document.getElementById("theme-btn");
       const enBtn = document.getElementById("en-btn");
       const ruBtn = document.getElementById("ru-btn");
       const enEls = Array.from(document.querySelectorAll(".en"));
       const ruEls = Array.from(document.querySelectorAll(".ru"));
+      const testimonialsGrid = document.getElementById("testimonials-grid");
+      const testimonialsDots = document.getElementById("testimonials-dots");
+      const testimonialsPrev = document.getElementById("testimonials-prev");
+      const testimonialsNext = document.getElementById("testimonials-next");
+      const testimonialPages = [
+        [
+          {
+            name: "Irina Atroshonok",
+            title: "QA Engineer",
+            quote: {
+              en: "Thanks to Y-Boost, I landed a great job at a top international company. Their guidance improved my soft skills and made communicating with colleagues from different cultures so much easier. Living and working abroad feels smoother now.",
+              ru: "Благодаря Y-Boost я получила отличную работу в международной компании. Их помощь улучшила мои soft skills и сделала общение с коллегами из разных культур гораздо проще. Жить и работать за границей стало намного комфортнее."
+            },
+            linkedin: "https://www.linkedin.com/in/irina-atroshonok/"
+          },
+          {
+            name: "Alexandr Kazachenko",
+            title: "Senior Frontend Developer",
+            quote: {
+              en: "I'm deeply thankful for Y-Boost's guidance in enhancing my soft skills, which helped me secure a job at a leading international company. The improved communication skills have eased my interactions with diverse colleagues and made living abroad smoother.",
+              ru: "Благодаря Y-Boost я улучшил свои soft skills и получил работу в крупной международной компании. Общение с коллегами стало проще, а переезд комфортнее. Очень рекомендую."
+            },
+            linkedin: "https://www.linkedin.com/in/alexandr-kazachenko-237ab7b8/"
+          },
+          {
+            name: "Vladimir Sokolov",
+            title: ".NET Developer",
+            quote: {
+              en: "Y-Boost significantly enhanced my soft skills, paving the way for me to secure a position at an international firm. Communication with colleagues has become smooth and effortless, and relocation felt seamless.",
+              ru: "Y-Boost помог прокачать мои soft skills, что открыло двери в международную компанию. Переезд прошел легко, и общение стало естественным."
+            },
+            linkedin: "https://www.linkedin.com/in/sokoloffvl/"
+          },
+          {
+            name: "Artem Lomonosov",
+            title: "Senior Product Designer and DesignOps",
+            quote: {
+              en: "Y-Boost's coaching dramatically enhanced my career and communication skills. Colleague interactions are smoother, and work travel is more efficient. Highly recommend for professional growth.",
+              ru: "Коучинг от Y-Boost значительно улучшил мои навыки общения. Работа и командировки стали проще и приятнее."
+            },
+            linkedin: "https://www.linkedin.com/in/artem-lomonosov/"
+          },
+          {
+            name: "Roman Nevolin",
+            title: "Lead Frontend Developer",
+            quote: {
+              en: "Y-Boost’s guidance boosted my soft skills, enhancing work performance and colleague interactions. Their support improved my confidence in new environments and eased travel.",
+              ru: "Поддержка от Y-Boost повысила мои soft skills и уверенность при переезде и работе в новых условиях."
+            },
+            linkedin: "https://www.linkedin.com/in/nulladdict/"
+          },
+          {
+            name: "Artem Krivenkov",
+            title: "Lead Java Developer",
+            quote: {
+              en: "Y-Boost's training dramatically enhanced my soft skills, boosting my career and easing communication. Thanks to them, traveling is smoother and my confidence in professional interactions has soared.",
+              ru: "Обучение в Y-Boost значительно прокачало мои soft skills, повысило уверенность и сделало рабочие поездки комфортнее."
+            },
+            linkedin: "https://www.linkedin.com/in/artem-krivenkov-42896b296/"
+          }
+        ],
+        [
+          {
+            name: "Marina Zavgorodnyaya",
+            title: "Engineering Manager",
+            quote: {
+              en: "Thanks to Y-Boost, my career has seen remarkable growth through improved soft skills. Communication with colleagues is more streamlined, and traveling has never been easier.",
+              ru: "С Y-Boost моя карьера резко пошла в гору: soft skills улучшились, и работа с коллегами стала проще."
+            },
+            linkedin: "https://www.linkedin.com/in/marina-zavgorodnyaya-58b4b273/"
+          },
+          {
+            name: "Liza Sudareva",
+            title: "Marketing Lead",
+            quote: {
+              en: "Y-Boost had a huge impact on my professional life. My soft skills are much stronger, which has led to career growth, better team interactions, and smoother work trips.",
+              ru: "Y-Boost сильно повлиял на мою карьеру. Soft skills на новом уровне, и это улучшило взаимодействие с командой и командировки."
+            },
+            linkedin: "https://www.linkedin.com/in/liza-sudareva-0b1b20116/"
+          },
+          {
+            name: "Irina Andronova",
+            title: "Head of Department",
+            quote: {
+              en: "Y-Boost’s focus on soft skills has been a game-changer for me. My career’s taken a leap, working with colleagues is simpler, and traveling is more enjoyable.",
+              ru: "Фокус Y-Boost на soft skills кардинально изменил мой карьерный путь. Общение стало легче, а поездки приятнее."
+            },
+            linkedin: "https://www.linkedin.com/in/iandronova/"
+          },
+          {
+            name: "Ilya Saldin",
+            title: "Senior Software Engineer",
+            quote: {
+              en: "Thanks to Y-Boost, my soft skills are on point, and it's doing wonders for my career. I’m getting along better with my team, and traveling for work is a lot easier now.",
+              ru: "Мои soft skills вышли на новый уровень благодаря Y-Boost. Работа с командой и поездки стали комфортнее."
+            },
+            linkedin: "https://www.linkedin.com/in/ilya-saldin-49200140/"
+          },
+          {
+            name: "Gleb Bodiachevskii",
+            title: "Founder",
+            quote: {
+              en: "Y-Boost’s training seriously changed how I handle professional communication. I’m better at presenting, my career is moving forward, and business trips are much less stressful.",
+              ru: "Y-Boost кардинально изменил мой подход к профессиональному общению. Карьера пошла вверх, поездки стали проще."
+            },
+            linkedin: "https://www.linkedin.com/in/glebbo/"
+          },
+          {
+            name: "Olga Krasova",
+            title: "Integration Analyst",
+            quote: {
+              en: "Y-Boost really helped me level up my soft skills. My career’s taken off, chatting with coworkers is smoother, and traveling for work has become a breeze.",
+              ru: "Y-Boost помог мне вывести soft skills на новый уровень. Карьера пошла в гору, общение стало легким."
+            },
+            linkedin: "https://www.linkedin.com/in/olgamelkova/"
+          }
+        ]
+      ];
+      let currentTestimonialPage = 0;
+      let testimonialSwapTimer = null;
+
+      function getStoredValue(key) {
+        try {
+          return localStorage.getItem(key);
+        } catch (error) {
+          return null;
+        }
+      }
+
+      function setStoredValue(key, value) {
+        try {
+          localStorage.setItem(key, value);
+        } catch (error) {
+          return;
+        }
+      }
+
+      function getInitials(name) {
+        return name
+          .split(" ")
+          .filter(Boolean)
+          .slice(0, 2)
+          .map((part) => part[0].toUpperCase())
+          .join("");
+      }
+
+      function updateTestimonialDots() {
+        if (!testimonialsDots) return;
+
+        testimonialsDots.innerHTML = testimonialPages
+          .map(
+            (_, index) => `
+              <button
+                type="button"
+                class="testimonial-dot${
+                  index === currentTestimonialPage ? " is-active" : ""
+                }"
+                aria-label="Show testimonial page ${index + 1}"
+                aria-pressed="${index === currentTestimonialPage}"
+                data-page="${index}"
+              ></button>
+            `
+          )
+          .join("");
+
+        Array.from(testimonialsDots.querySelectorAll("[data-page]")).forEach(
+          (button) => {
+            button.addEventListener("click", () => {
+              showTestimonialPage(Number(button.dataset.page));
+            });
+          }
+        );
+      }
+
+      function renderTestimonials(lang) {
+        if (!testimonialsGrid) return;
+
+        const page = testimonialPages[currentTestimonialPage];
+        const linkedinLabel =
+          lang === "ru" ? "Профиль LinkedIn" : "LinkedIn profile";
+
+        testimonialsGrid.innerHTML = page
+          .map(
+            (testimonial) => `
+              <article class="testimonial-card shadow-sm">
+                <div class="flex items-start gap-4">
+                  <div class="testimonial-avatar" aria-hidden="true">${getInitials(
+                    testimonial.name
+                  )}</div>
+                  <div>
+                    <h3 class="text-lg font-bold">${testimonial.name}</h3>
+                    <p class="mt-1 text-sm text-gray-500">${testimonial.title}</p>
+                    <a
+                      href="${testimonial.linkedin}"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="testimonial-link mt-2 inline-flex text-sm"
+                    >${linkedinLabel}</a>
+                  </div>
+                </div>
+                <p class="mt-5 text-sm leading-7 text-gray-700">${
+                  testimonial.quote[lang] || testimonial.quote.en
+                }</p>
+              </article>
+            `
+          )
+          .join("");
+
+        updateTestimonialDots();
+      }
+
+      function showTestimonialPage(pageIndex) {
+        if (!testimonialsGrid) return;
+
+        currentTestimonialPage =
+          (pageIndex + testimonialPages.length) % testimonialPages.length;
+        testimonialsGrid.classList.add("opacity-0");
+
+        if (testimonialSwapTimer) {
+          clearTimeout(testimonialSwapTimer);
+        }
+
+        testimonialSwapTimer = window.setTimeout(() => {
+          renderTestimonials(document.documentElement.lang || "en");
+          testimonialsGrid.classList.remove("opacity-0");
+        }, 180);
+      }
+
+      function applyTheme(theme) {
+        const isDark = theme === "dark";
+        document.documentElement.dataset.theme = isDark ? "dark" : "light";
+        themeBtn?.setAttribute("aria-pressed", String(isDark));
+        themeBtn?.setAttribute(
+          "aria-label",
+          isDark ? "Switch to light theme" : "Switch to dark theme"
+        );
+        setStoredValue("theme", isDark ? "dark" : "light");
+      }
 
       function applyLang(lang) {
         const isEN = lang === "en";
@@ -496,13 +1402,26 @@
         ruBtn.classList.toggle("text-blue-700", !isEN);
         ruBtn.classList.toggle("underline", !isEN);
         ruBtn.classList.toggle("text-gray-500", isEN);
-        localStorage.setItem("lang", lang);
+        setStoredValue("lang", lang);
         document.documentElement.setAttribute("lang", isEN ? "en" : "ru");
+        renderTestimonials(lang);
       }
 
+      themeBtn?.addEventListener("click", () =>
+        applyTheme(
+          document.documentElement.dataset.theme === "dark" ? "light" : "dark"
+        )
+      );
       enBtn?.addEventListener("click", () => applyLang("en"));
       ruBtn?.addEventListener("click", () => applyLang("ru"));
-      applyLang(localStorage.getItem("lang") || "en");
+      testimonialsPrev?.addEventListener("click", () =>
+        showTestimonialPage(currentTestimonialPage - 1)
+      );
+      testimonialsNext?.addEventListener("click", () =>
+        showTestimonialPage(currentTestimonialPage + 1)
+      );
+      applyTheme(document.documentElement.dataset.theme || "light");
+      applyLang(getStoredValue("lang") || "en");
 
       document.getElementById("year").textContent = new Date().getFullYear();
     </script>
