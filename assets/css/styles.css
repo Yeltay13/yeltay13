@@ -1398,6 +1398,15 @@ html[data-theme="dark"] .resume-preview-shell:hover {
   .nav-controls {
     margin-left: auto;
   }
+
+  .hero-shell {
+    align-items: start;
+  }
+
+  .hero-portrait-shell {
+    align-self: start;
+    margin-top: 1.6rem;
+  }
 }
 
 @media (min-width: 768px) {
