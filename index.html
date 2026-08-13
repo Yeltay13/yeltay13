@@ -1,26 +1,19 @@
 <!doctype html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" data-theme="light">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Yeltay Bayandinov – Product Manager & Mentor</title>
-
-    <!-- SEO basics -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Yeltay Bayandinov - Product Manager</title>
     <meta
       name="description"
-      content="Product Manager & Mentor. I build and scale EdTech and B2C/B2B products and help IT specialists grow through practical, career-focused mentoring."
+      content="Product Manager responsible for growth across activation, retention, and revenue. Leads active-lister growth at Krisha.kz and built Y-Boost to $118.8K ARR."
     />
     <link rel="canonical" href="https://yeltay.com/" />
-
-    <!-- Open Graph / Twitter -->
     <meta property="og:type" content="website" />
-    <meta
-      property="og:title"
-      content="Yeltay Bayandinov – Product Manager & Mentor"
-    />
+    <meta property="og:title" content="Yeltay Bayandinov - Product Manager" />
     <meta
       property="og:description"
-      content="I build and scale products with sustainable unit economics and mentor IT professionals for interviews, presentations, and clear communication."
+      content="Product Manager responsible for measurable growth across activation, retention, and revenue."
     />
     <meta
       property="og:image"
@@ -28,861 +21,557 @@
     />
     <meta property="og:url" content="https://yeltay.com/" />
     <meta name="twitter:card" content="summary_large_image" />
-
-    <!-- Icons -->
-    <link rel="icon" href="favicon.ico" />
+    <link rel="icon" href="./favicon.ico" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap"
       rel="stylesheet"
     />
-
-    <!-- Tailwind -->
-    <script src="https://cdn.tailwindcss.com"></script>
     <script>
       (() => {
-        let savedTheme = null;
-
         try {
-          savedTheme = localStorage.getItem("theme");
-        } catch (error) {
-          savedTheme = null;
+          const savedTheme = localStorage.getItem("theme");
+          const theme =
+            savedTheme ||
+            (window.matchMedia("(prefers-color-scheme: dark)").matches
+              ? "dark"
+              : "light");
+          document.documentElement.dataset.theme = theme;
+        } catch {
+          document.documentElement.dataset.theme = "light";
         }
-
-        const preferredTheme =
-          savedTheme ||
-          (window.matchMedia("(prefers-color-scheme: dark)").matches
-            ? "dark"
-            : "light");
-
-        document.documentElement.dataset.theme = preferredTheme;
       })();
     </script>
     <link rel="stylesheet" href="./assets/css/styles.css" />
-
-    <!-- Structured data -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "Person",
         "name": "Yeltay Bayandinov",
         "url": "https://yeltay.com/",
-        "jobTitle": "Product Manager & Mentor",
+        "jobTitle": "Product Manager",
         "email": "mailto:bayandinov13@gmail.com",
-        "sameAs": [
-          "https://linkedin.com/in/yeltay",
-          "https://t.me/yelty",
-          "https://y-boost.com"
-        ]
+        "sameAs": ["https://linkedin.com/in/yeltay", "https://t.me/yelty"]
       }
     </script>
   </head>
-  <body class="bg-gray-50 text-gray-800 flex flex-col min-h-screen">
-    <!-- Sticky Navbar (always visible) -->
-    <header class="sticky top-0 z-50 px-4">
-      <div class="nav-shell max-w-7xl mx-auto px-4">
-        <div class="nav-row">
-          <a href="#home" class="nav-brand"
-            ><span class="en">Yeltay</span
-            ><span class="ru hidden">Ельтай</span></a
-          >
-          <div class="nav-controls">
+  <body class="en" data-page="home">
+    <a class="skip-link" href="#main">
+      <span class="en">Skip to content</span>
+      <span class="ru">Перейти к содержанию</span>
+    </a>
+
+    <header class="site-header">
+      <div class="wrap nav">
+        <a class="brand" href="#top" aria-label="Yeltay Bayandinov, home">
+          <span class="brand-full">Yeltay Bayandinov</span>
+          <span class="brand-short">Yeltay</span>
+        </a>
+
+        <nav class="nav-links" aria-label="Main navigation">
+          <a href="#experience">
+            <span class="en">Experience</span><span class="ru">Опыт</span>
+          </a>
+          <a href="#background">
+            <span class="en">Career</span><span class="ru">Карьера</span>
+          </a>
+          <a href="#contact">
+            <span class="en">Contact</span><span class="ru">Контакты</span>
+          </a>
+        </nav>
+
+        <div class="controls">
+          <div class="locale" aria-label="Language">
             <button
-              id="theme-btn"
+              id="en-btn"
+              class="control-btn is-active"
               type="button"
-              aria-label="Toggle theme"
+              aria-pressed="true"
+            >
+              EN
+            </button>
+            <button
+              id="ru-btn"
+              class="control-btn"
+              type="button"
               aria-pressed="false"
-              class="theme-switch shrink-0"
             >
-              <span class="theme-switch-thumb">
-                <span class="theme-switch-icon theme-switch-sun">☀</span>
-                <span class="theme-switch-icon theme-switch-moon">☾</span>
-              </span>
-            </button>
-            <div class="locale-switch">
-              <button
-                id="en-btn"
-                type="button"
-                class="locale-btn is-active"
-                aria-pressed="true"
-              >
-                EN
-              </button>
-              <button
-                id="ru-btn"
-                type="button"
-                class="locale-btn"
-                aria-pressed="false"
-              >
-                RU
-              </button>
-            </div>
-            <button
-              id="nav-toggle"
-              type="button"
-              class="nav-toggle"
-              aria-label="Toggle navigation"
-              aria-controls="nav-main"
-              aria-expanded="false"
-            >
-              <span class="nav-toggle-box" aria-hidden="true">
-                <span class="nav-toggle-line"></span>
-                <span class="nav-toggle-line"></span>
-                <span class="nav-toggle-line"></span>
-              </span>
+              RU
             </button>
           </div>
+          <button
+            id="theme-btn"
+            class="control-btn theme-btn"
+            type="button"
+            aria-pressed="false"
+          >
+            Dark
+          </button>
+          <button
+            id="nav-toggle"
+            class="nav-toggle"
+            type="button"
+            aria-label="Open menu"
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+          >
+            <span></span><span></span>
+          </button>
         </div>
-        <div id="nav-main" class="nav-main">
-          <nav class="nav-links">
-            <a href="#mentoring" class="nav-link"
-              ><span class="en">Mentoring</span
-              ><span class="ru hidden">Менторство</span></a
-            >
-            <a href="#testimonials" class="nav-link"
-              ><span class="en">Testimonials</span
-              ><span class="ru hidden">Отзывы</span></a
-            >
-            <a href="#work" class="nav-link"
-              ><span class="en">Product Work</span
-              ><span class="ru hidden">Продукты</span></a
-            >
-            <a href="#resume" class="nav-link"
-              ><span class="en">Résumé</span
-              ><span class="ru hidden">Резюме</span></a
-            >
-            <a href="#contact" class="nav-link"
-              ><span class="en">Contact</span
-              ><span class="ru hidden">Контакты</span></a
-            >
-          </nav>
-          <div class="mobile-menu">
-            <nav class="mobile-menu-links">
-              <a href="#mentoring" class="mobile-menu-link">
-                <span class="mobile-menu-copy">
-                  <span class="mobile-menu-label">
-                    <span class="en">Mentoring</span>
-                    <span class="ru hidden">Менторство</span>
-                  </span>
-                </span>
-              </a>
-              <a href="#testimonials" class="mobile-menu-link">
-                <span class="mobile-menu-copy">
-                  <span class="mobile-menu-label">
-                    <span class="en">Testimonials</span>
-                    <span class="ru hidden">Отзывы</span>
-                  </span>
-                </span>
-              </a>
-              <a href="#work" class="mobile-menu-link">
-                <span class="mobile-menu-copy">
-                  <span class="mobile-menu-label">
-                    <span class="en">Product Work</span>
-                    <span class="ru hidden">Продукты</span>
-                  </span>
-                </span>
-              </a>
-              <a href="#resume" class="mobile-menu-link">
-                <span class="mobile-menu-copy">
-                  <span class="mobile-menu-label">
-                    <span class="en">Resume</span>
-                    <span class="ru hidden">Резюме</span>
-                  </span>
-                </span>
-              </a>
-              <a href="#contact" class="mobile-menu-link">
-                <span class="mobile-menu-copy">
-                  <span class="mobile-menu-label">
-                    <span class="en">Contact</span>
-                    <span class="ru hidden">Контакты</span>
-                  </span>
-                </span>
-              </a>
-            </nav>
-          </div>
-        </div>
+
+        <nav
+          id="mobile-menu"
+          class="mobile-menu"
+          aria-label="Mobile navigation"
+        >
+          <a href="#experience">
+            <span class="en">Experience</span><span class="ru">Опыт</span>
+          </a>
+          <a href="#background">
+            <span class="en">Career</span><span class="ru">Карьера</span>
+          </a>
+          <a href="#contact">
+            <span class="en">Contact</span><span class="ru">Контакты</span>
+          </a>
+          <button id="mobile-theme-btn" type="button">Dark</button>
+        </nav>
       </div>
     </header>
 
-    <!-- Hero / Value prop -->
-    <section id="home" class="relative overflow-hidden scroll-mt-16">
-      <div class="hero-inner max-w-7xl mx-auto px-4 py-24 md:py-28">
-        <div class="hero-shell">
-          <div>
-            <div class="hero-mobile-avatar-shell">
-              <img
-                src="./assets/images/my-photo.jpg"
-                alt="Yeltay Bayandinov"
-                class="hero-mobile-avatar-image"
-              />
-            </div>
-            <p class="section-eyebrow mb-4">
-              <span class="en">Product Manager • Mentor</span>
-              <span class="ru hidden">Продакт-менеджер • Ментор</span>
+    <main id="main">
+      <section id="top" class="hero">
+        <div class="wrap hero-layout">
+          <div class="hero-copy">
+            <p class="eyebrow">
+              <span class="en">Product Manager</span>
+              <span class="ru">Продакт-менеджер</span>
             </p>
-            <h1 class="hero-title font-extrabold">
+            <h1>
               <span class="en"
-                >I build products that grow and help people do the same.</span
+                >I lead product growth across activation, retention, and
+                revenue.</span
               >
-              <span class="ru hidden"
-                >Создаю растущие продукты и помогаю людям расти вместе с
-                ними.</span
+              <span class="ru"
+                >Отвечаю за рост продукта: активацию, удержание и выручку.</span
               >
             </h1>
-            <p class="hero-description mt-6">
+            <p class="lead">
               <span class="en"
-                >I specialize in EdTech and B2C/B2B growth, and I mentor IT
-                professionals on interviews, roadmaps, and executive-level
-                communication.</span
+                >At Krisha.kz, I own active-lister growth and lead a
+                cross-functional stream of 26 people. Previously, I built
+                Y-Boost from zero to $118.8K ARR.</span
               >
-              <span class="ru hidden"
-                >Специализируюсь на EdTech и росте B2C/B2B, а также помогаю
-                IT-специалистам прокачивать интервью, roadmap и сильную рабочую
-                коммуникацию.</span
+              <span class="ru"
+                >В Krisha.kz отвечаю за рост активных листеров и веду
+                кросс-функциональный стрим из 26 человек. Ранее построил Y-Boost
+                с нуля и увеличил ARR до $118,8K.</span
               >
             </p>
-
-            <div class="hero-actions mt-8">
-              <a href="#contact" class="btn-primary">
-                <span class="en">Book mentoring</span
-                ><span class="ru hidden">Записаться на менторство</span>
+            <div class="actions">
+              <a class="btn btn-primary" href="#experience">
+                <span class="en">See experience</span>
+                <span class="ru">Смотреть опыт</span>
               </a>
-              <a href="#contact" class="btn-secondary">
-                <span class="en">Hire me</span
-                ><span class="ru hidden">Нанять</span>
+              <a
+                class="btn btn-secondary en"
+                href="./assets/pdfs/Yeltay_Bayandinov_Product_Manager.pdf"
+                download
+              >
+                Download résumé
+              </a>
+              <a
+                class="btn btn-secondary ru"
+                href="./assets/pdfs/Yeltay_Bayandinov_Product_Manager_RU.pdf"
+                download
+              >
+                Скачать резюме
               </a>
             </div>
-
-            <ul class="hero-proof-grid mt-10 text-sm">
-              <li class="hero-proof-card rounded-xl p-4 shadow-sm">
-                <div class="hero-proof-value">+1,088% ARR</div>
-                <div class="hero-proof-label">
-                  <span class="en">from bootstrapped EdTech</span>
-                  <span class="ru hidden">в бутстрап-EdTech</span>
-                </div>
-              </li>
-              <li class="hero-proof-card rounded-xl p-4 shadow-sm">
-                <div class="hero-proof-value">2,000+ 1:1</div>
-                <div class="hero-proof-label">
-                  <span class="en">sessions with IT pros</span>
-                  <span class="ru hidden">сессий с IT-специалистами</span>
-                </div>
-              </li>
-              <li class="hero-proof-card rounded-xl p-4 shadow-sm">
-                <div class="hero-proof-value">NPS 87+</div>
-                <div class="hero-proof-label">
-                  <span class="en">long-term retention</span>
-                  <span class="ru hidden">долгая ретенция</span>
-                </div>
-              </li>
-            </ul>
           </div>
-          <div class="hero-portrait-shell">
-            <div class="hero-portrait-ring"></div>
+          <figure class="hero-photo">
             <img
               src="./assets/images/my-photo.jpg"
-              alt="Yeltay Bayandinov"
-              class="hero-portrait-image shadow-xl"
+              alt="Yeltay Bayandinov / Ельтай Баяндинов"
+              width="1280"
+              height="853"
             />
-          </div>
+          </figure>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Mentoring section -->
-    <section id="mentoring" class="py-16 px-4 scroll-mt-16">
-      <div class="max-w-7xl mx-auto mentor-shell p-8 md:p-10">
-        <div class="mentor-layout gap-10 items-start">
-          <div>
-            <p class="section-eyebrow mb-4">
-              <span class="en">Mentoring</span>
-              <span class="ru hidden">Менторство</span>
+      <section id="experience" class="section">
+        <div class="wrap">
+          <header class="section-head">
+            <p class="eyebrow">
+              <span class="en">Experience</span>
+              <span class="ru">Опыт</span>
             </p>
-            <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight">
-              <span class="en">Mentoring for IT Specialists</span>
-              <span class="ru hidden">Менторство для IT-специалистов</span>
-            </h2>
-            <p class="mt-4 text-lg leading-8 text-gray-700 max-w-2xl">
-              <span class="en"
-                >Practical, outcome-focused sessions for people who want sharper
-                interviews, clearer roadmaps, and stronger communication at
-                work.</span
-              >
-              <span class="ru hidden"
-                >Практические, ориентированные на результат сессии для тех, кто
-                хочет сильнее проходить интервью, увереннее вести roadmap и чище
-                коммуницировать на работе.</span
-              >
-            </p>
-            <ul class="mt-8 grid sm:grid-cols-2 gap-3 text-sm">
-              <li class="mentor-chip rounded-xl p-4">
-                <span class="en">Mock interviews (PM/Eng, EN)</span>
-                <span class="ru hidden">Пробные интервью (PM/Eng, EN)</span>
-              </li>
-              <li class="mentor-chip rounded-xl p-4">
-                <span class="en">Roadmaps & stakeholder comms</span>
-                <span class="ru hidden"
-                  >Roadmap и коммуникация со стейкхолдерами</span
-                >
-              </li>
-              <li class="mentor-chip rounded-xl p-4">
-                <span class="en">User stories, specs, PRDs</span>
-                <span class="ru hidden">User stories, спеки, PRD</span>
-              </li>
-              <li class="mentor-chip rounded-xl p-4">
-                <span class="en">Presentations & demos</span>
-                <span class="ru hidden">Презентации и демо</span>
-              </li>
-              <li class="mentor-chip rounded-xl p-4">
-                <span class="en">Job hunt & portfolio review</span>
-                <span class="ru hidden">Поиск работы и разбор портфолио</span>
-              </li>
-              <li class="mentor-chip rounded-xl p-4">
-                <span class="en">English for work (C2)</span>
-                <span class="ru hidden">Английский для работы (C2)</span>
-              </li>
-            </ul>
-            <div class="mt-6 flex flex-wrap gap-3">
-              <a
-                href="https://t.me/yelty"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="btn-secondary"
-                ><span class="en">Chat on Telegram</span
-                ><span class="ru hidden">Написать в Telegram</span></a
-              >
-            </div>
-          </div>
-          <div class="space-y-4">
-            <div class="insight-card rounded-2xl p-6 shadow-sm">
-              <h3 class="font-bold text-lg mb-3">
-                <span class="en">Results you can expect</span>
-                <span class="ru hidden">Результаты</span>
-              </h3>
-              <ul
-                class="list-disc pl-5 text-sm leading-7 text-gray-700 space-y-1"
-              >
-                <li>
-                  <span class="en"
-                    >Clear, confident English in interviews & meetings</span
-                  >
-                  <span class="ru hidden"
-                    >Чёткий, уверенный английский на интервью и встречах</span
-                  >
-                </li>
-                <li>
-                  <span class="en"
-                    >Stronger product storytelling and stakeholder
-                    alignment</span
-                  >
-                  <span class="ru hidden"
-                    >Более сильный product storytelling и alignment со
-                    стейкхолдерами</span
-                  >
-                </li>
-                <li>
-                  <span class="en"
-                    >Polished PRDs, user stories and docs people actually
-                    read</span
-                  >
-                  <span class="ru hidden"
-                    >Проработанные PRD, user stories и документы, которые правда
-                    читают</span
-                  >
-                </li>
-                <li>
-                  <span class="en"
-                    >Faster job search with targeted portfolio & CV</span
-                  >
-                  <span class="ru hidden"
-                    >Более быстрый поиск работы через точечную доработку
-                    портфолио и CV</span
-                  >
-                </li>
-              </ul>
-            </div>
-            <div class="insight-card rounded-2xl p-6 shadow-sm">
-              <h3 class="font-bold text-lg mb-3">
-                <span class="en">How sessions usually feel</span>
-                <span class="ru hidden">Как обычно проходит работа</span>
-              </h3>
-              <p class="text-sm leading-7 text-gray-700">
+            <div>
+              <h2>
+                <span class="en">Products, ownership, and results.</span>
+                <span class="ru">Продукты, ответственность и результаты.</span>
+              </h2>
+              <p>
                 <span class="en"
-                  >Direct, structured, and tailored to the next career move that
-                  actually matters. We focus on sharp feedback, practical
-                  rehearsal, and clearer thinking, not generic advice.</span
+                  >Growth in a product with 6M MAU and a business built from
+                  zero to product-market fit.</span
                 >
-                <span class="ru hidden"
-                  >Прямо, структурно и под следующий карьерный шаг, который
-                  реально важен. Фокус на точной обратной связи, практической
-                  тренировке и более ясном мышлении, а не на общих
-                  советах.</span
+                <span class="ru"
+                  >Рост в продукте с MAU 6 млн и бизнес, построенный с нуля до
+                  product-market fit.</span
                 >
               </p>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
+          </header>
 
-    <section
-      id="testimonials"
-      class="testimonial-section py-20 px-4 scroll-mt-24"
-    >
-      <div class="max-w-7xl mx-auto">
-        <div class="testimonial-shell">
-          <div class="text-center max-w-4xl mx-auto">
-            <p class="section-eyebrow">
-              <span class="en">Testimonials</span>
-              <span class="ru hidden">Отзывы</span>
-            </p>
-            <h2
-              class="testimonial-title mt-4 text-3xl sm:text-4xl font-extrabold tracking-tight"
-            >
-              <span class="en">Client stories</span>
-              <span class="ru hidden">Истории клиентов</span>
-            </h2>
-            <p
-              class="mt-5 max-w-2xl mx-auto text-base sm:text-lg leading-8 text-gray-700"
-            >
+          <article class="case">
+            <header class="case-head">
+              <div>
+                <p class="case-org">Kolesa Group</p>
+                <h3>Krisha.kz</h3>
+                <p class="case-focus">
+                  <span class="en">Product Manager - Active-lister growth</span>
+                  <span class="ru"
+                    >Продакт-менеджер - Рост активных листеров</span
+                  >
+                </p>
+              </div>
+              <p class="case-meta">
+                <span class="en">2026-now</span>
+                <span class="ru">2026-сейчас</span>
+              </p>
+            </header>
+            <p class="case-intro">
               <span class="en"
-                >Real feedback from engineers, managers, designers, and founders
-                who strengthened communication, confidence, and career
-                momentum.</span
+                ><b>Ownership:</b> active-lister growth in a real estate
+                classifieds product with 6M MAU. I lead a cross-functional
+                stream of 26 people from research and prioritization to launch
+                and impact measurement.</span
               >
-              <span class="ru hidden"
-                >Реальные отзывы инженеров, менеджеров, дизайнеров и фаундеров,
-                которые усилили коммуникацию, уверенность и карьерный
-                импульс.</span
-              >
-            </p>
-          </div>
-
-          <div
-            id="testimonials-grid"
-            class="mt-10 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 transition-opacity duration-300 opacity-100"
-          ></div>
-
-          <div class="testimonial-controls">
-            <button
-              id="testimonials-prev"
-              type="button"
-              class="testimonial-arrow"
-              aria-label="Previous testimonials"
-            >
-              &#8592;
-            </button>
-            <div id="testimonials-dots" class="testimonial-dots"></div>
-            <button
-              id="testimonials-next"
-              type="button"
-              class="testimonial-arrow"
-              aria-label="Next testimonials"
-            >
-              &#8594;
-            </button>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Product work / credibility -->
-    <section id="work" class="py-16 px-4 scroll-mt-16">
-      <div class="max-w-7xl mx-auto product-shell p-8 md:p-10">
-        <p class="section-eyebrow mb-4">
-          <span class="en">Product work</span>
-          <span class="ru hidden">Продуктовая работа</span>
-        </p>
-        <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight">
-          <span class="en">Selected Product Work</span>
-          <span class="ru hidden">Ключевые кейсы</span>
-        </h2>
-        <p class="mt-4 max-w-3xl text-lg leading-8 text-gray-700">
-          <span class="en"
-            >A few examples that show how I work across growth, discovery, and
-            operating systems, not just feature delivery.</span
-          >
-          <span class="ru hidden"
-            >Несколько кейсов, которые показывают мою работу не только с фичами,
-            но и с ростом, discovery и операционной системой продукта.</span
-          >
-        </p>
-        <div class="mt-10 grid md:grid-cols-3 gap-6">
-          <!-- Case 1 -->
-          <article class="case-card p-6 shadow-sm">
-            <p class="section-eyebrow case-kicker mb-3">
-              EdTech
-            </p>
-            <h3 class="text-xl font-bold">Y-Boost</h3>
-            <p class="text-sm leading-7 text-gray-700 mt-3">
-              <span class="en"
-                >Bootstrapped service for IT professionals learning English
-                through real-world practice.</span
-              >
-              <span class="ru hidden"
-                >Бутстрап-сервис для IT-специалистов, изучающих английский через
-                практику из реальной работы.</span
+              <span class="ru"
+                ><b>Ответственность:</b> рост активных листеров в классифайде
+                недвижимости с MAU 6 млн. Веду кросс-функциональный стрим из 26
+                человек от исследований и приоритизации до запуска и оценки
+                эффекта.</span
               >
             </p>
-            <ul class="mt-4 text-sm text-gray-800 space-y-2">
-              <li>
-                <span class="en">• +1,088% ARR growth</span>
-                <span class="ru hidden">• Рост ARR на +1,088%</span>
-              </li>
-              <li>
-                <span class="en">• 300+ VIP clients across 8 countries</span>
-                <span class="ru hidden">• 300+ VIP-клиентов в 8 странах</span>
-              </li>
-              <li>
-                <span class="en">• NPS 87+, retention 1.8y, LTV $1,200+</span>
-                <span class="ru hidden"
-                  >• NPS 87+, retention 1.8 года, LTV $1,200+</span
+            <div class="outcomes">
+              <div class="outcome">
+                <strong
+                  ><span class="en">100.17%</span
+                  ><span class="ru">100,17%</span></strong
                 >
-              </li>
-            </ul>
-            <div class="mt-5 flex flex-wrap gap-4">
-              <a
-                href="https://y-boost.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="text-blue-700 font-semibold hover:underline"
-                ><span class="en">Website</span
-                ><span class="ru hidden">Сайт</span></a
-              >
-              <a
-                href="./assets/pdfs/Yeltay_Bayandinov_Product_Manager.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="text-blue-700 font-semibold hover:underline"
-                ><span class="en">One-page résumé</span
-                ><span class="ru hidden">Резюме на одной странице</span></a
-              >
+                <p>
+                  <span class="en"
+                    >Achieved 100.17% of the quarterly active-lister KPI - the
+                    first target hit in 2.5 years.</span
+                  >
+                  <span class="ru"
+                    >Вывел квартальный KPI по активным листерам на 100,17% -
+                    первое выполнение цели за 2,5 года.</span
+                  >
+                </p>
+              </div>
+              <div class="outcome">
+                <strong
+                  ><span class="en">+6.9%</span
+                  ><span class="ru">+6,9%</span></strong
+                >
+                <p>
+                  <span class="en"
+                    >Increased renewal conversion by 6.9% and successful
+                    recoveries by 3.2% through IVR A/B tests.</span
+                  >
+                  <span class="ru"
+                    >Увеличил конверсию в продление на 6,9%, а успешные
+                    восстановления - на 3,2% через A/B-тесты IVR.</span
+                  >
+                </p>
+              </div>
+              <div class="outcome">
+                <strong
+                  ><span class="en">+4.3%</span
+                  ><span class="ru">+4,3%</span></strong
+                >
+                <p>
+                  <span class="en"
+                    >Increased reactivation by 4.3% by adding one-tap restore
+                    to auto-archive notifications.</span
+                  >
+                  <span class="ru"
+                    >Увеличил реактивацию на 4,3%, добавив быстрое
+                    восстановление в уведомление об автоархивации.</span
+                  >
+                </p>
+              </div>
+              <div class="outcome">
+                <strong>-43%</strong>
+                <p>
+                  <span class="en"
+                    >Reduced spam share by 43% and the share of spammers by
+                    26.4% after launching text and image ML detection.</span
+                  >
+                  <span class="ru"
+                    >Снизил долю спама на 43%, а долю спамеров - на 26,4% после
+                    запуска текстового и фото ML-антиспама.</span
+                  >
+                </p>
+              </div>
             </div>
           </article>
-          <!-- Case 2 -->
-          <article class="case-card p-6 shadow-sm">
-            <p class="section-eyebrow case-kicker mb-3">
-              Discovery
-            </p>
-            <h3 class="text-xl font-bold">
-              <span class="en">Discovery & JTBD</span>
-              <span class="ru hidden">Discovery и JTBD</span>
-            </h3>
-            <p class="text-sm leading-7 text-gray-700 mt-3">
+
+          <article class="case">
+            <header class="case-head">
+              <div>
+                <p class="case-org">
+                  <span class="en">EdTech product</span>
+                  <span class="ru">EdTech-продукт</span>
+                </p>
+                <h3>Y-Boost</h3>
+                <p class="case-focus">
+                  <span class="en"
+                    >Founder &amp; Product Manager - From zero to PMF</span
+                  >
+                  <span class="ru"
+                    >Основатель и продакт-менеджер - От нуля до PMF</span
+                  >
+                </p>
+              </div>
+              <p class="case-meta">
+                <span>2021-2025</span>
+              </p>
+            </header>
+            <p class="case-intro">
               <span class="en"
-                >Systematic interviews, funnel fixes, and proposition work to
-                reach PMF.</span
+                ><b>Ownership:</b> product strategy, customer research,
+                positioning, funnel, MVP, and revenue for a bootstrapped EdTech
+                product.</span
               >
-              <span class="ru hidden"
-                >Системные интервью, исправление воронки и работа над value
-                proposition для выхода к PMF.</span
-              >
-            </p>
-            <ul class="mt-4 text-sm text-gray-800 space-y-2">
-              <li>
-                <span class="en">• +38% trial→paid conversion</span>
-                <span class="ru hidden">• +38% к конверсии trial→paid</span>
-              </li>
-              <li>
-                <span class="en"
-                  >• +420% paid conversion after funnel overhaul</span
-                >
-                <span class="ru hidden"
-                  >• +420% к paid conversion после переделки воронки</span
-                >
-              </li>
-              <li>
-                <span class="en"
-                  >• Built MVP (Astro/JS/Tailwind) at 10% of prior cost</span
-                >
-                <span class="ru hidden"
-                  >• Собрал MVP (Astro/JS/Tailwind) за 10% от прежней
-                  стоимости</span
-                >
-              </li>
-            </ul>
-          </article>
-          <!-- Case 3 -->
-          <article class="case-card p-6 shadow-sm">
-            <p class="section-eyebrow case-kicker mb-3">
-              Operations
-            </p>
-            <h3 class="text-xl font-bold">
-              <span class="en">Team & Ops</span>
-              <span class="ru hidden">Команда и операции</span>
-            </h3>
-            <p class="text-sm leading-7 text-gray-700 mt-3">
-              <span class="en"
-                >Lean & Agile ops with behavioral analytics and A/B
-                testing.</span
-              >
-              <span class="ru hidden"
-                >Lean- и Agile-операции с поведенческой аналитикой и A/B
-                тестами.</span
+              <span class="ru"
+                ><b>Ответственность:</b> стратегия продукта, исследования,
+                позиционирование, воронка, MVP и выручка бутстрап EdTech
+                продукта.</span
               >
             </p>
-            <ul class="mt-4 text-sm text-gray-800 space-y-2">
-              <li>
-                <span class="en">• Built and led a distributed team of 5</span>
-                <span class="ru hidden"
-                  >• Собрал и руководил распределённой командой из 5
-                  человек</span
+            <div class="outcomes">
+              <div class="outcome">
+                <strong
+                  ><span class="en">$10K to $118.8K</span
+                  ><span class="ru">$10K до $118,8K</span></strong
                 >
-              </li>
-              <li>
-                <span class="en">• Tripled capacity with flat costs</span>
-                <span class="ru hidden"
-                  >• Утроил capacity без роста затрат</span
+                <p>
+                  <span class="en"
+                    >Grew ARR 11.9×; acquired 300+ paying B2C customers across
+                    eight countries.</span
+                  >
+                  <span class="ru"
+                    >Увеличил ARR в 11,9 раза и привлёк 300+ платящих
+                    B2C-клиентов из восьми стран.</span
+                  >
+                </p>
+              </div>
+              <div class="outcome">
+                <strong>+38%</strong>
+                <p>
+                  <span class="en"
+                    >Repositioned the product around IT-specific JTBD;
+                    trial-to-paid conversion grew 38%.</span
+                  >
+                  <span class="ru"
+                    >Увеличил trial-to-paid конверсию, сфокусировав ценностное
+                    предложение на JTBD IT-аудитории.</span
+                  >
+                </p>
+              </div>
+              <div class="outcome">
+                <strong
+                  ><span class="en">1.8 years</span
+                  ><span class="ru">1,8 года</span></strong
                 >
-              </li>
-              <li>
-                <span class="en"
-                  >• Customer sat. 95%+ across 2,000+ sessions</span
-                >
-                <span class="ru hidden"
-                  >• Удовлетворённость клиентов 95%+ на 2,000+ сессиях</span
-                >
-              </li>
-            </ul>
+                <p>
+                  <span class="en"
+                    >Moved to a coaching model: average customer lifetime
+                    reached 1.8 years, LTV exceeded $1,200, and NPS reached
+                    +87.</span
+                  >
+                  <span class="ru"
+                    >Довёл средний lifetime клиента до 1,8 года, LTV - выше
+                    $1,200, а NPS - до +87 после перехода к коучинговой
+                    модели.</span
+                  >
+                </p>
+              </div>
+              <div class="outcome">
+                <strong>-90%</strong>
+                <p>
+                  <span class="en"
+                    >Built the MVP with Astro, JavaScript, and Tailwind;
+                    development cost fell 90%.</span
+                  >
+                  <span class="ru"
+                    >Самостоятельно собрал MVP на Astro, JavaScript и Tailwind,
+                    снизив стоимость разработки на 90%.</span
+                  >
+                </p>
+              </div>
+            </div>
           </article>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Hire me block -->
-    <section id="hire" class="py-16 px-4 scroll-mt-16">
-      <div class="max-w-7xl mx-auto employer-shell p-8 md:p-10">
-        <div class="employer-layout gap-10 items-center">
+      <section id="background" class="section">
+        <div class="wrap">
+          <header class="section-head">
+            <p class="eyebrow">
+              <span class="en">Career</span>
+              <span class="ru">Карьера</span>
+            </p>
+            <div>
+              <h2>
+                <span class="en"
+                  >8+ years with digital products and IT audiences.</span
+                >
+                <span class="ru"
+                  >8+ лет в цифровых продуктах и работе с IT-аудиторией.</span
+                >
+              </h2>
+              <p>
+                <span class="en"
+                  >Since 2021, I have owned product strategy, delivery, growth,
+                  and revenue.</span
+                >
+                <span class="ru"
+                  >С 2021 года отвечаю за стратегию продукта, delivery, рост и
+                  выручку.</span
+                >
+              </p>
+            </div>
+          </header>
+
+          <div class="timeline">
+            <article>
+              <time
+                >2026-<span class="en">now</span
+                ><span class="ru">сейчас</span></time
+              >
+              <div>
+                <h3>Product Manager - Krisha.kz</h3>
+                <p>
+                  <span class="en"
+                    >Own active-lister growth; lead a 26-person cross-functional
+                    stream.</span
+                  >
+                  <span class="ru"
+                    >Отвечаю за рост активных листеров; веду
+                    кросс-функциональный стрим из 26 человек.</span
+                  >
+                </p>
+              </div>
+            </article>
+            <article>
+              <time>2021-2025</time>
+              <div>
+                <h3>Founder &amp; Product Manager - Y-Boost</h3>
+                <p>
+                  <span class="en"
+                    >Built the product from zero to PMF and $118.8K ARR.</span
+                  >
+                  <span class="ru"
+                    >Построил продукт с нуля до PMF и ARR $118,8K.</span
+                  >
+                </p>
+              </div>
+            </article>
+            <article>
+              <time>2017-2021</time>
+              <div>
+                <h3>
+                  <span class="en">Mentor - Skyeng</span>
+                  <span class="ru">Ментор - Skyeng</span>
+                </h3>
+                <p>
+                  <span class="en"
+                    >2,000+ sessions, 95%+ satisfaction, and 150+ career
+                    outcomes.</span
+                  >
+                  <span class="ru"
+                    >2 000+ занятий с IT-специалистами; удовлетворённость выше
+                    95% и 150+ карьерных результатов.</span
+                  >
+                </p>
+              </div>
+            </article>
+            <article>
+              <time>2017-2021</time>
+              <div>
+                <h3>
+                  <span class="en">BBA in Management - Esil University</span>
+                  <span class="ru">Бакалавр менеджмента - Esil University</span>
+                </h3>
+              </div>
+            </article>
+          </div>
+
+          <div class="skills">
+            <p class="eyebrow">
+              <span class="en">Product toolkit</span>
+              <span class="ru">Продуктовый стек</span>
+            </p>
+            <p>
+              Product Discovery - JTBD - User Research - A/B Testing - Unit
+              Economics - Product Metrics - Roadmaps - Prioritization - English
+              C2
+            </p>
+            <p class="skills-tools">
+              Jira - Confluence - Miro - Figma - Notion - Git - JavaScript -
+              React - TailwindCSS
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="section contact">
+        <div class="wrap contact-grid">
           <div>
-            <p class="section-eyebrow mb-4">
-              <span class="en">For employers</span>
-              <span class="ru hidden">Для работодателей</span>
+            <p class="eyebrow">
+              <span class="en">Contact</span>
+              <span class="ru">Контакты</span>
             </p>
-            <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight">
-              <span class="en"
-                >A product partner for growth, clarity, and execution</span
-              >
-              <span class="ru hidden"
-                >Продуктовый партнёр для роста, ясности и сильного
-                execution</span
-              >
+            <h2>
+              <span class="en">Let’s discuss a Product Manager role.</span>
+              <span class="ru">Обсудим продуктовую роль.</span>
             </h2>
-            <p class="mt-4 text-lg leading-8 text-gray-700 max-w-2xl">
-              <span class="en"
-                >I help teams find sharper product direction, build sustainable
-                growth loops, and turn strategy into operating momentum.</span
-              >
-              <span class="ru hidden"
-                >Помогаю командам находить более точное продуктовое направление,
-                строить устойчивые петли роста и превращать стратегию в
-                работающий execution.</span
-              >
-            </p>
-            <ul class="mt-5 grid sm:grid-cols-2 gap-3 text-sm">
-              <li class="employer-chip rounded-xl p-4">
-                <span class="en">PMF via JTBD & interviews</span>
-                <span class="ru hidden">PMF через JTBD и интервью</span>
-              </li>
-              <li class="employer-chip rounded-xl p-4">
-                <span class="en">Analytics, A/B testing</span>
-                <span class="ru hidden">Аналитика, A/B тестирование</span>
-              </li>
-              <li class="employer-chip rounded-xl p-4">
-                <span class="en">Roadmaps & prioritization</span>
-                <span class="ru hidden">Roadmap и приоритизация</span>
-              </li>
-              <li class="employer-chip rounded-xl p-4">
-                <span class="en">Team leadership & ops</span>
-                <span class="ru hidden">Лидерство команды и операции</span>
-              </li>
-            </ul>
-            <div class="mt-6 flex flex-wrap gap-3">
-              <a
-                href="./assets/pdfs/Yeltay_Bayandinov_Product_Manager.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="btn-primary"
-                ><span class="en">Download résumé (EN)</span
-                ><span class="ru hidden">Скачать резюме (EN)</span></a
-              >
-              <a
-                href="./assets/pdfs/Yeltay_Bayandinov_Product_Manager_RU.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="btn-secondary"
-                ><span class="en">Download résumé (RU)</span
-                ><span class="ru hidden">Скачать резюме (RU)</span></a
-              >
-            </div>
           </div>
-          <div class="insight-card rounded-2xl p-6 shadow-sm">
-            <h3 class="text-lg font-bold mb-3">
-              <span class="en">Where I add the most value</span>
-              <span class="ru hidden">Где я даю максимум ценности</span>
-            </h3>
-            <p class="text-sm leading-7 text-gray-700">
-              <span class="en"
-                >Early growth questions, product-market fit work, messy
-                prioritization, roadmap communication, and turning lean teams
-                into reliable operating systems.</span
-              >
-              <span class="ru hidden"
-                >Ранний рост, поиск product-market fit, сложная приоритизация,
-                коммуникация roadmap и превращение небольшой команды в надёжную
-                операционную систему.</span
-              >
-            </p>
-            <p class="text-sm text-gray-700 mt-4">
-              <span class="en"
-                >Jira • Confluence • Miro • Figma • Notion • SQL • GA • Tableau
-                • Zapier • Git • React • JavaScript</span
-              >
-              <span class="ru hidden"
-                >Jira • Confluence • Miro • Figma • Notion • SQL • GA • Tableau
-                • Zapier • Git • React • JavaScript</span
-              >
-            </p>
+          <div class="contact-links">
+            <a href="mailto:bayandinov13@gmail.com">Email ↗</a>
+            <a href="https://linkedin.com/in/yeltay">LinkedIn ↗</a>
+            <a href="https://t.me/yelty">Telegram ↗</a>
+            <a
+              class="en"
+              href="./assets/pdfs/Yeltay_Bayandinov_Product_Manager.pdf"
+              download
+            >
+              Résumé PDF ↗
+            </a>
+            <a
+              class="ru"
+              href="./assets/pdfs/Yeltay_Bayandinov_Product_Manager_RU.pdf"
+              download
+            >
+              Резюме PDF ↗
+            </a>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </main>
 
-    <!-- Résumé -->
-    <section id="resume" class="py-16 px-4 scroll-mt-16">
-      <div class="max-w-7xl mx-auto text-center resume-shell p-8 md:p-10">
-        <p class="section-eyebrow mb-4">
-          <span class="en">Résumé</span>
-          <span class="ru hidden">Резюме</span>
-        </p>
-        <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight mb-4">
-          <span class="en">My Résumé</span>
-          <span class="ru hidden">Моё резюме</span>
-        </h2>
-        <p class="text-lg leading-8 text-gray-700 max-w-2xl mx-auto">
-          <span class="en"
-            >Full résumé available in English and Russian, with quick previews
-            below for teams that want the high-level scan first.</span
-          >
-          <span class="ru hidden"
-            >Полное резюме доступно на английском и русском, а ниже можно быстро
-            посмотреть превью перед открытием PDF.</span
-          >
-        </p>
-        <div class="mt-10 grid grid-cols-1 md:grid-cols-2 gap-10">
-          <a
-            href="./assets/pdfs/Yeltay_Bayandinov_Product_Manager.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="group inline-block"
-          >
-            <div class="resume-preview-shell overflow-hidden mx-auto">
-              <img
-                src="./assets/images/resume_preview_en.jpg"
-                alt="English resume preview"
-                class="w-full h-full object-cover"
-              />
-            </div>
-            <span class="block mt-3 font-bold group-hover:underline"
-              ><span class="en">View as PDF</span
-              ><span class="ru hidden">Открыть PDF</span></span
-            >
-          </a>
-          <a
-            href="./assets/pdfs/Yeltay_Bayandinov_Product_Manager_RU.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="group inline-block"
-          >
-            <div class="resume-preview-shell overflow-hidden mx-auto">
-              <img
-                src="./assets/images/resume_preview_ru.jpg"
-                alt="Russian resume preview"
-                class="w-full h-full object-cover"
-              />
-            </div>
-            <span class="block mt-3 font-bold group-hover:underline"
-              ><span class="en">View as PDF</span
-              ><span class="ru hidden">Открыть PDF</span></span
-            >
-          </a>
-        </div>
+    <footer class="footer">
+      <div class="wrap footer-grid">
+        <span>© <span id="year"></span> Yeltay Bayandinov</span>
       </div>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact" class="py-16 px-4 scroll-mt-16">
-      <div class="max-w-3xl mx-auto contact-shell p-8 md:p-10 text-center">
-        <p class="section-eyebrow mb-4">
-          <span class="en">Contact</span>
-          <span class="ru hidden">Контакты</span>
-        </p>
-        <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight mb-4">
-          <span class="en">Get in touch</span>
-          <span class="ru hidden">Связаться</span>
-        </h2>
-        <p class="max-w-2xl mx-auto text-lg leading-8 text-gray-700">
-          <span class="en"
-            >The fastest next step is a message on Telegram or LinkedIn. If you
-            are hiring, mentoring, or exploring a collaboration, I’m happy to
-            continue there.</span
-          >
-          <span class="ru hidden"
-            >Самый быстрый следующий шаг — написать в Telegram или LinkedIn.
-            Если вы рассматриваете найм, менторство или совместную работу,
-            продолжим там.</span
-          >
-        </p>
-        <div class="contact-links">
-          <a href="mailto:bayandinov13@gmail.com" class="contact-link-card">
-            <div>
-              <div class="contact-link-label">Email</div>
-              <div class="contact-link-value">bayandinov13@gmail.com</div>
-            </div>
-            <span class="contact-link-action"
-              ><span class="en">Open</span
-              ><span class="ru hidden">Открыть</span></span
-            >
-          </a>
-          <a
-            href="https://linkedin.com/in/yeltay"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="contact-link-card"
-          >
-            <div>
-              <div class="contact-link-label">LinkedIn</div>
-              <div class="contact-link-value">linkedin.com/in/yeltay</div>
-            </div>
-            <span class="contact-link-action"
-              ><span class="en">Open</span
-              ><span class="ru hidden">Открыть</span></span
-            >
-          </a>
-          <a
-            href="https://t.me/yelty"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="contact-link-card"
-          >
-            <div>
-              <div class="contact-link-label">Telegram</div>
-              <div class="contact-link-value">@yelty</div>
-            </div>
-            <span class="contact-link-action"
-              ><span class="en">Open</span
-              ><span class="ru hidden">Открыть</span></span
-            >
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <footer class="py-6 text-center text-sm text-gray-400">
-      © <span id="year"></span> Yeltay Bayandinov
     </footer>
 
-    <!-- Site scripts -->
     <script src="./assets/js/main.js"></script>
   </body>
 </html>
